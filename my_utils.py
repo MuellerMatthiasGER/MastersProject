@@ -7,6 +7,10 @@ def prepare_agent_for_task(agent, task_info):
     agent.data_buffer.clear()
     agent.task_train_start(task_info['task_label'])
 
+
+def delete():
+    pass 
+
 # determines if training for the current task is completed
 # if this is the case the agent is notified and saved
 def is_task_training_complete(agent, task_idx):
