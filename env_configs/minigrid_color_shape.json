@@ -1,0 +1,9 @@
+{
+"tasks": ["MyMiniGrid-LearnRed-v0", "MyMiniGrid-LearnBall-v0", "MyMiniGrid-FindRedBall-v0"],
+"one_hot": true,
+"label_dim": 3,
+"action_dim": 3,
+"max_steps": 10000,
+"config_seed": 42,
+"new_task_mask": "linear_comb"
+}

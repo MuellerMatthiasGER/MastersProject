@@ -4,7 +4,7 @@
 # declaration at the top                                              #
 #######################################################################
 
-import gym
+import gymnasium as gym # MyEdit
 import torch
 import numpy as np
 from ..utils import *
