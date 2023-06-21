@@ -49,9 +49,12 @@ def _build_config_base(env_name, env_config_path, log_dir=None):
     config.gradient_clip = 5
     config.max_steps = env_config.get('max_steps')
     config.cl_requires_task_label = True
+
     config.evaluation_episodes = 10
     config.eval_interval = 10
     config.record_evaluation = True
+    config.frames_per_sec = 5
+
     config.cl_num_learn_blocks = 1
 
     return config

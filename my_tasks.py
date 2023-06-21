@@ -4,6 +4,7 @@ import numpy as np
 from deep_rl.component.task import BaseTask
 
 import gymnasium as gym
+from gym import error
 import my_minigrid
 
 import matplotlib.pyplot as plt
@@ -12,11 +13,12 @@ import matplotlib.pyplot as plt
 class MyMiniGrid(BaseTask):
     def __init__(self, config, env_config_path, log_dir=None, eval_mode=False):
         BaseTask.__init__(self)
-        from minigrid.wrappers import OneHotPartialObsWrapper, ImgObsWrapper, ReseedWrapper
-        from gym.wrappers import RecordVideo
+        from minigrid.wrappers import OneHotPartialObsWrapper, ImgObsWrapper, ReseedWrapper, ActionBonus
         my_minigrid.register_custom_levels()
 
         self.name = 'MyMiniGrid'
+        self.config = config
+        self.is_recording = False
         
         with open(env_config_path, 'r') as f:
             env_config = json.load(f)
@@ -44,10 +46,11 @@ class MyMiniGrid(BaseTask):
                 name += str(seeds[idx])
                 env_seeds = [seeds[idx]] if isinstance(seeds[idx], int) else seeds[idx]
                 env = ReseedWrapper(env, seeds=env_seeds)
-            
-            if eval_mode and config.record_evaluation:
-                visual_log_path = f"{config.log_dir}/visual_log"
-                env = RecordVideo(env, visual_log_path, video_length=15, name_prefix=env_name)
+
+            # add action bonus in non-evaluation environment
+            # reward to encourage exploration of less visited (state,action) pairs
+            if not eval_mode:
+                env = ActionBonus(env)
 
             self.envs[name] = env
             env_names[idx] = name
@@ -91,6 +94,11 @@ class MyMiniGrid(BaseTask):
         self.env = self.envs[self.current_task['task']]
 
     def step(self, action):
+        # generate a frame of the current state if the env is currently recorded
+        if self.is_recording:
+            frame = self.env.render()
+            self.recorded_frames.append(frame)
+
         state, reward, terminated, truncated, info = self.env.step(action)
 
         # terminated is set if the agent dies or fulfills the goal
@@ -122,6 +130,29 @@ class MyMiniGrid(BaseTask):
     
     def random_tasks(self, num_tasks, requires_task_label=True):
         raise NotImplementedError
+    
+    def start_recording(self):
+        self.config.logger.info("Video Recording Started")
+        self.recorded_frames = []
+        self.is_recording = True
+
+    def finish_recording(self, iteration):
+        self.config.logger.info("Video Recording Finished")
+
+        if len(self.recorded_frames) > 0:
+            try:
+                from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
+            except ImportError:
+                raise error.DependencyNotInstalled(
+                    "MoviePy is not installed, run `pip install moviepy`"
+                )
+
+            clip = ImageSequenceClip(self.recorded_frames, fps=self.config.frames_per_sec)
+            path = f"{self.config.video_log_path}/{iteration:05d}_{self.current_task['name']}.mp4"
+            clip.write_videofile(path)
+
+        self.recorded_frames = []
+        self.is_recording = False
    
 
 class MyMiniGridFlatObs(MyMiniGrid):

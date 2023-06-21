@@ -16,6 +16,10 @@ def create_log_structure(config):
     # create task_stats directory
     config.log_path_tstats = create_log_folder(config, 'task_stats')
 
+    # create video directory
+    if config.record_evaluation:
+        config.video_log_path = create_log_folder(config, 'video_log')
+
 def pickle_run_parameters(config, **kwargs):
     data = {}
     for key, value in kwargs.items():
