@@ -11,13 +11,14 @@ class MyMiniGrid(BaseTask):
     def __init__(self, config, env_config_path, log_dir=None, eval_mode=False):
         BaseTask.__init__(self)
         from minigrid.wrappers import OneHotPartialObsWrapper, ImgObsWrapper, ReseedWrapper
+        # imports important for registration of environments, even if imports are not used here
         import my_minigrid
         import my_minigrid_new
 
         self.name = 'MyMiniGrid'
         self.config = config
         self.is_recording = False
-        
+
         with open(env_config_path, 'r') as f:
             env_config = json.load(f)
         self.env_config = env_config
@@ -166,10 +167,31 @@ class MyMiniGridFlatObs(MyMiniGrid):
         super(MyMiniGridFlatObs, self).__init__(config, env_config_path, log_dir, eval_mode)
         self.state_dim = int(np.prod(self.env.observation_space.shape))
 
+        # TODO: make proper dependency
+        self.action_memory = True
+        # action memory
+        if self.action_memory:
+            self.state_dim += self.action_dim
+
+    def action_memory_call(self, state, action=None):
+        action_array = np.zeros(self.action_dim)
+        if action:
+            action_array[action] = 1
+
+        # Concatenate 'action_array' to the state
+        new_state = np.concatenate((state, action_array))
+        return new_state
+
     def step(self, action):
         state, reward, finished, info = super().step(action)
-        return state.ravel(), reward, finished, info
+        state = state.ravel()
+        if self.action_memory:
+            state = self.action_memory_call(state, action)
+        return state, reward, finished, info
 
     def reset(self):
         state = super().reset()
-        return state.ravel()
+        state = state.ravel()
+        if self.action_memory:
+            state = self.action_memory_call(state, None)
+        return state

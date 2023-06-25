@@ -32,8 +32,8 @@ class CustomLevel(MiniGridEnv, ABC):
             mission_space=mission_space,
             width=self.width,
             height=self.height,
-            # Set this to True for maximum speed
-            see_through_walls=True,
+            see_through_walls=False,
+            agent_view_size=3,
             max_steps=max_steps,
             **kwargs,
         )
