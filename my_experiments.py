@@ -73,6 +73,9 @@ def learn_color_shape(env_config_path):
 
     iteration = 0
 
+    # evaluate agent before training for baseline of random init
+    eval_agent(agent, tasks_info, iteration)
+
     for task_idx, task_info in enumerate(tasks_info):
         log_new_task_starts(config, task_idx, task_info)
 
@@ -93,11 +96,11 @@ def learn_color_shape(env_config_path):
             if is_task_training_complete(agent, task_idx):
                 break
 
-    #     end of while True. current task training
+    #     end of while True / current task training
     # end for each task
 
-    # Analyse
-    # analyse_agent(agent)
+    # Analysis
+    analyse_agent(agent)
 
     agent.close()
 

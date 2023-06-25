@@ -25,6 +25,7 @@ def eval_agent(agent, tasks_info, iteration):
 
             # evaluate agent on task
             # performance can be success rate in (meta-)continualworld or rewards in other environments
+            # unfortunate naming, num_iterations refers to episodes here
             task_performance, episodes = agent.evaluate_cl(num_iterations=config.evaluation_episodes)
             eval_data[task_idx] = np.mean(task_performance)
             config.logger.info("task: {0} - {1}".format(task_info['name'], task_performance))

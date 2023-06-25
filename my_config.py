@@ -11,6 +11,10 @@ import json
 from my_tasks import MyMiniGrid, MyMiniGridFlatObs
 
 def _build_config_base(env_name, env_config_path, log_dir=None):
+    # load env_config from the log_dir if there is one given
+    if log_dir:
+        env_config_path = f"{log_dir}/env_config.json"
+
     config = Config()
     config.env_name = env_name
     config.env_config_path = env_config_path
@@ -50,18 +54,20 @@ def _build_config_base(env_name, env_config_path, log_dir=None):
     config.max_steps = env_config.get('max_steps')
     config.cl_requires_task_label = True
 
-    config.evaluation_episodes = 10
-    config.eval_interval = 20
+    config.evaluation_episodes = 12
+    config.eval_interval = 2
     config.record_evaluation = True
     config.frames_per_sec = 5
 
     config.cl_num_learn_blocks = 1
 
-    return config
+    return config, env_config_path
 
+# `log_dir` can be set if an existing log dir shall be used.
+# The value of `env_config_path` is ignored in that case.
 def build_minigrid_config(env_config_path, log_dir=None):
     env_name = Config.ENV_MINIGRID
-    config = _build_config_base(env_name, env_config_path, log_dir=log_dir)
+    config, env_config_path = _build_config_base(env_name, env_config_path, log_dir=log_dir)
 
     # get num_tasks from env_config
     with open(env_config_path, 'r') as f:

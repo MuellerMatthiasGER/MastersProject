@@ -6,6 +6,8 @@ from deep_rl.component.task import BaseTask
 import gymnasium as gym
 from gym import error
 
+from deep_rl.utils.torch_utils import random_seed
+
 
 class MyMiniGrid(BaseTask):
     def __init__(self, config, env_config_path, log_dir=None, eval_mode=False):
@@ -15,9 +17,10 @@ class MyMiniGrid(BaseTask):
         import my_minigrid
         import my_minigrid_new
 
-        self.name = 'MyMiniGrid'
+        self.name = config.env_name
         self.config = config
         self.is_recording = False
+        self.eval_mode = eval_mode
 
         with open(env_config_path, 'r') as f:
             env_config = json.load(f)
@@ -44,13 +47,21 @@ class MyMiniGrid(BaseTask):
             # it is also possible to set seeds only for some tasks
             # to indicate that a task shall not have a seed,
             # enter a symbol that is neither an integer nor a list 
-            if seeds:
+            if seeds or eval_mode:
                 if isinstance(seeds[idx], int):
                     name += str(seeds[idx])
                     env = ReseedWrapper(env, seeds=[seeds[idx]])
                 elif isinstance(seeds[idx], list):
                     name += str(seeds[idx])
                     env = ReseedWrapper(env, seeds=seeds[idx])
+                elif eval_mode:
+                    # In this case eval mode is set, 
+                    # but for the train tasks there are no seeds given.
+                    # In this case a list of seeds is created (based on the rl_seed)
+                    random_seed(config.seed)
+                    fixed_rand_seeds = np.random.randint(0, 1000, size=config.evaluation_episodes)
+                    # env = ReseedWrapper(env, seeds=fixed_rand_seeds.tolist())
+                    env = ReseedWrapper(env, seeds=[1, 2, 3, 4])
 
             self.envs[name] = env
             env_names[idx] = name
@@ -113,7 +124,10 @@ class MyMiniGrid(BaseTask):
         # for these tasks, this is not distinguished
         finished = terminated or truncated
 
-        if finished:
+        # eval mode resets on its own. 
+        # To omit it here is only really necessary if the evaluation is done on
+        # multiple seeds in one task to preserve integrity
+        if finished and not self.eval_mode:
             state = MyMiniGrid.reset(self)
         return state, reward, finished, info
 
