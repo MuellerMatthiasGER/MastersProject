@@ -232,26 +232,20 @@ class FindRedBall(CustomLevel):
         self.instrs = GoToInstr(ObjDesc(obj.type, obj.color))
 
 
-registered = False
-def register_custom_levels():
-    global registered
-    if not registered:
-        registered = True
+register(
+    id="MyMiniGrid-LearnRed-v0",
+    entry_point="my_minigrid:LearnRed",
+)
 
-        register(
-            id="MyMiniGrid-LearnRed-v0",
-            entry_point="my_minigrid:LearnRed",
-        )
+register(
+    id="MyMiniGrid-LearnBall-v0",
+    entry_point="my_minigrid:LearnBall",
+)
 
-        register(
-            id="MyMiniGrid-LearnBall-v0",
-            entry_point="my_minigrid:LearnBall",
-        )
-
-        register(
-            id="MyMiniGrid-FindRedBall-v0",
-            entry_point="my_minigrid:FindRedBall",
-        )
+register(
+    id="MyMiniGrid-FindRedBall-v0",
+    entry_point="my_minigrid:FindRedBall",
+)
 
 
 if __name__ == '__main__':

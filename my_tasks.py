@@ -5,16 +5,14 @@ from deep_rl.component.task import BaseTask
 
 import gymnasium as gym
 from gym import error
-import my_minigrid
-
-import matplotlib.pyplot as plt
 
 
 class MyMiniGrid(BaseTask):
     def __init__(self, config, env_config_path, log_dir=None, eval_mode=False):
         BaseTask.__init__(self)
-        from minigrid.wrappers import OneHotPartialObsWrapper, ImgObsWrapper, ReseedWrapper, ActionBonus
-        my_minigrid.register_custom_levels()
+        from minigrid.wrappers import OneHotPartialObsWrapper, ImgObsWrapper, ReseedWrapper
+        import my_minigrid
+        import my_minigrid_new
 
         self.name = 'MyMiniGrid'
         self.config = config
@@ -42,15 +40,16 @@ class MyMiniGrid(BaseTask):
             name = '{0}_{1}'.format(idx, env_name)
             env = ImgObsWrapper(OneHotPartialObsWrapper(gym.make(env_name, render_mode='rgb_array')))
             
+            # it is also possible to set seeds only for some tasks
+            # to indicate that a task shall not have a seed,
+            # enter a symbol that is neither an integer nor a list 
             if seeds:
-                name += str(seeds[idx])
-                env_seeds = [seeds[idx]] if isinstance(seeds[idx], int) else seeds[idx]
-                env = ReseedWrapper(env, seeds=env_seeds)
-
-            # add action bonus in non-evaluation environment
-            # reward to encourage exploration of less visited (state,action) pairs
-            if not eval_mode:
-                env = ActionBonus(env)
+                if isinstance(seeds[idx], int):
+                    name += str(seeds[idx])
+                    env = ReseedWrapper(env, seeds=[seeds[idx]])
+                elif isinstance(seeds[idx], list):
+                    name += str(seeds[idx])
+                    env = ReseedWrapper(env, seeds=seeds[idx])
 
             self.envs[name] = env
             env_names[idx] = name
@@ -101,6 +100,13 @@ class MyMiniGrid(BaseTask):
 
         state, reward, terminated, truncated, info = self.env.step(action)
 
+        # if the episode ended regular, i.e. not because of max_steps,
+        # add a few more ending frames for better visability
+        if self.is_recording and terminated:
+            frame = self.env.render()
+            for _ in range(4):
+                self.recorded_frames.append(frame)
+
         # terminated is set if the agent dies or fulfills the goal
         # truncated is set if max steps are executed
         # for these tasks, this is not distinguished
@@ -108,7 +114,7 @@ class MyMiniGrid(BaseTask):
 
         if finished:
             state = MyMiniGrid.reset(self)
-        return state.ravel(), reward, finished, info
+        return state, reward, finished, info
 
     def reset(self):
         state = self.env.reset()[0]
@@ -149,7 +155,7 @@ class MyMiniGrid(BaseTask):
 
             clip = ImageSequenceClip(self.recorded_frames, fps=self.config.frames_per_sec)
             path = f"{self.config.video_log_path}/{iteration:05d}_{self.current_task['name']}.mp4"
-            clip.write_videofile(path)
+            clip.write_videofile(path, verbose=False, logger=None)
 
         self.recorded_frames = []
         self.is_recording = False

@@ -51,7 +51,7 @@ def _build_config_base(env_name, env_config_path, log_dir=None):
     config.cl_requires_task_label = True
 
     config.evaluation_episodes = 10
-    config.eval_interval = 10
+    config.eval_interval = 20
     config.record_evaluation = True
     config.frames_per_sec = 5
 

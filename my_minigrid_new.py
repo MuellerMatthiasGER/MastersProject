@@ -1,14 +1,22 @@
+from abc import ABC
 from minigrid.core.constants import COLOR_NAMES
 from minigrid.core.grid import Grid
 from minigrid.core.mission import MissionSpace
 from minigrid.core.world_object import Ball, Box, Key
 from minigrid.minigrid_env import MiniGridEnv
 
+from minigrid.manual_control import ManualControl
 
-class CustomLevel(MiniGridEnv):
-    def __init__(self, size=6, numObjs=4, max_steps = None, **kwargs):
+from gymnasium.envs.registration import register
+
+import math
+
+
+class CustomLevel(MiniGridEnv, ABC):
+    def __init__(self, width, height, numObjs=4, max_steps=None, **kwargs):
         self.numObjs = numObjs
-        self.size = size
+        self.width = width
+        self.height = height
         # Types of objects to be generated
         self.obj_types = ["key", "ball", "box"]
 
@@ -18,12 +26,12 @@ class CustomLevel(MiniGridEnv):
         )
 
         if max_steps is None:
-            max_steps = 5 * size**2
+            max_steps = width * height
 
         super().__init__(
             mission_space=mission_space,
-            width=size,
-            height=size,
+            width=self.width,
+            height=self.height,
             # Set this to True for maximum speed
             see_through_walls=True,
             max_steps=max_steps,
@@ -40,34 +48,41 @@ class CustomLevel(MiniGridEnv):
         # Generate the surrounding walls
         self.grid.wall_rect(0, 0, width, height)
 
-        # Generate the red ball
-        _, self.target_pos = self.create_object('red', 'ball')
-
-        # Randomize the agent start position and orientation
-        self.place_agent()
-
         self.mission = "go to the red ball"
         # print(self.mission)
     
     def step(self, action):
         obs, reward, terminated, truncated, info = super().step(action)
 
-        ax, ay = self.agent_pos
-        tx, ty = self.target_pos
+        # ax, ay = self.agent_pos
+        # tx, ty = self.target_pos
 
         # Toggle/pickup action terminates the episode
-        if action == self.actions.toggle:
-            terminated = True
+        # if action == self.actions.toggle:
+        #     terminated = True
 
         # Reward performing the done action next to the target object
-        if action == self.actions.done:
-            if (ax == tx and abs(ay - ty) == 1) or (ay == ty and abs(ax - tx) == 1):
-                reward = self._reward()
+        # if action == self.actions.done:
+        #     if (ax == tx and abs(ay - ty) == 1) or (ay == ty and abs(ax - tx) == 1):
+        #         reward = self._reward()
+        #     terminated = True
+
+
+        ax, ay = self.front_pos
+        tx, ty = self.target_pos
+
+        # Terminate if agent picks up an object
+        if action == self.actions.pickup:
             terminated = True
+            # Reward if agent is in front of target
+            if (ax == tx and ay == ty):
+                reward = self._reward()
+            else:
+                reward = 0
 
         return obs, reward, terminated, truncated, info
-
-    def create_object(self, colors, types, blacklist=None):
+    
+    def create_object(self, colors, types, blacklist=None, top=None, size=None):
         if isinstance(colors, list):
             objColor = self._rand_elem(colors)
         else:
@@ -76,7 +91,6 @@ class CustomLevel(MiniGridEnv):
         if isinstance(types, list):
             # ensure that no object is created that is listed in the blacklist as a tuple (color, type)
             if blacklist:
-                types = types.copy()
                 for col, typ in blacklist:
                     if objColor == col and typ in types:
                         types.remove(typ)
@@ -96,15 +110,63 @@ class CustomLevel(MiniGridEnv):
                 "{} object type given. Object type can only be of values key, ball and box.".format(objType)
             )
         
-        pos = self.place_obj(obj)
+        pos = self.place_obj(obj, top=top, size=size)
         return obj, pos
     
     def seed(self, random_seed):
         pass
 
+class CustomLevelMini(CustomLevel, ABC):
+    def __init__(self, width=7, height=5, numObjs=1, **kwargs):
+        super().__init__(width, height, numObjs, **kwargs)
+
+    def _gen_grid(self, width, height, obj_colors, obj_types, blacklist=None):
+        super()._gen_grid(width, height)
+
+        left_obj_top_pos = (1, 1)
+        right_obj_top_pos = (math.ceil((width + 1) / 2) , 1)
+        obj_place_size = ((math.floor(width - 3) / 2), height - 2)
+
+        agent_top_pos = (math.floor((width - 1) / 2), 1)
+        agent_place_size = (2 - (width % 2), height - 2)
+
+        # Generate the red ball on one side and a distractor on the other side
+        if self._rand_bool():
+            self.target_pos = self.place_obj(Ball('red'), top=left_obj_top_pos, size=obj_place_size)
+            self.create_object(colors=obj_colors, types=obj_types, blacklist=blacklist, top=right_obj_top_pos, size=obj_place_size)
+        else:
+            self.target_pos = self.place_obj(Ball('red'), top=right_obj_top_pos, size=obj_place_size)
+            self.create_object(colors=obj_colors, types=obj_types, blacklist=blacklist, top=left_obj_top_pos, size=obj_place_size)
+
+        # Place agent
+        self.place_agent(top=agent_top_pos, size=agent_place_size)
+
+class CustumLevelBigSquare(CustomLevel):
+    def __init__(self, size=6, **kwargs):
+        super().__init__(width=size, height=size, numObjs=4, **kwargs)
+
+    def _gen_grid(self, width, height):
+        super()._gen_grid(width, height)
+
+        # Generate the red ball
+        _, self.target_pos = self.create_object('red', 'ball')
+
+        # Randomize the agent start position and orientation
+        self.place_agent()
 
 
-class LearnRed(CustomLevel):
+class LearnRedMini(CustomLevelMini):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def _gen_grid(self, width, height):
+        # Types and colors the distractor can have
+        colors = COLOR_NAMES.copy()
+        colors.remove('red')
+
+        super()._gen_grid(width, height, obj_colors=colors, obj_types='ball')
+
+class LearnRed(CustumLevelBigSquare):
     """
 
     ## Description
@@ -167,7 +229,18 @@ class LearnRed(CustomLevel):
             self.create_object(colors, 'ball')
     
 
-class LearnBall(CustomLevel):
+class LearnBallMini(CustomLevelMini):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def _gen_grid(self, width, height):
+        # Types and colors the distractor can have
+        types = self.obj_types.copy()
+        types.remove('ball')
+
+        super()._gen_grid(width, height, obj_colors='red', obj_types=types)
+
+class LearnBall(CustumLevelBigSquare):
     """
 
     ## Description
@@ -230,7 +303,18 @@ class LearnBall(CustomLevel):
             self.create_object('red', types)
 
 
-class FindRedBall(CustomLevel):
+class FindRedBallMini(CustomLevelMini):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def _gen_grid(self, width, height):
+        # Types and colors the distractor can have
+        colors = COLOR_NAMES.copy()
+        types = self.obj_types
+
+        super()._gen_grid(width, height, obj_colors=colors, obj_types=types, blacklist=[('red', 'ball')])
+
+class FindRedBall(CustumLevelBigSquare):
     """
 
     ## Description
@@ -284,20 +368,49 @@ class FindRedBall(CustomLevel):
     def _gen_grid(self, width, height):
         super()._gen_grid(width, height)
 
+        # Types and colors of distractors we can generate
+        colors = COLOR_NAMES.copy()
+        types = self.obj_types
+
         # Generate distractors
         for _ in range(self.numObjs - 1):
-            self.create_object(COLOR_NAMES, self.obj_types, blacklist=[('red', 'ball')])
+            self.create_object(colors, types, blacklist=[('red', 'ball')])
 
 
-# from gymnasium.envs.registration import register
-# register("MyMiniGrid-LearnRed-v0", "my_minigrid_new:LearnRed")
-# register("MyMiniGrid-LearnBall-v0", "my_minigrid_new:LearnBall")
-# register("MyMiniGrid-FindRedBall-v0", "my_minigrid_new:FindRedBall")
+register(
+    id="MyMiniGrid-LearnRedMini-v1",
+    entry_point="my_minigrid_new:LearnRedMini",
+)
+
+register(
+    id="MyMiniGrid-LearnBallMini-v1",
+    entry_point="my_minigrid_new:LearnBallMini",
+)
+
+register(
+    id="MyMiniGrid-FindRedBallMini-v1",
+    entry_point="my_minigrid_new:FindRedBallMini",
+)
+
+register(
+    id="MyMiniGrid-LearnRed-v1",
+    entry_point="my_minigrid_new:LearnRed",
+)
+
+register(
+    id="MyMiniGrid-LearnBall-v1",
+    entry_point="my_minigrid_new:LearnBall",
+)
+
+register(
+    id="MyMiniGrid-FindRedBall-v1",
+    entry_point="my_minigrid_new:FindRedBall",
+)
 
 
-# if __name__ == '__main__':
-    # env = LearnBall(render_mode="human")
+if __name__ == '__main__':
+    env = LearnRedMini(render_mode="human")
 
-    # # enable manual control for testing
-    # manual_control = ManualControl(env)
-    # manual_control.start()
+    # enable manual control for testing
+    manual_control = ManualControl(env)
+    manual_control.start()
