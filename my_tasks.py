@@ -156,11 +156,17 @@ class MyMiniGrid(BaseTask):
         raise NotImplementedError
     
     def start_recording(self):
+        if not self.config.record_evaluation:
+            return
+
         self.config.logger.info("Video Recording Started")
         self.recorded_frames = []
         self.is_recording = True
 
     def finish_recording(self, iteration):
+        if not self.config.record_evaluation:
+            return
+
         self.config.logger.info("Video Recording Finished")
 
         if len(self.recorded_frames) > 0:
