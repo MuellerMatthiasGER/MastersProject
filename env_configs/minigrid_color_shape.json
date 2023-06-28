@@ -1,11 +1,10 @@
 {
-"__tasks": ["MyMiniGrid-LearnRedMini-v1", "MyMiniGrid-LearnRed-v1", "MyMiniGrid-LearnBall-v1", "MyMiniGrid-FindRedBall-v1"],
-"tasks": ["MyMiniGrid-LearnRed-v1", "MyMiniGrid-LearnBall-v1"],
+"tasks": ["MyMiniGrid-LearnRedMini-v1", "MyMiniGrid-LearnRed-v1", "MyMiniGrid-LearnBall-v1", "MyMiniGrid-FindRedBall-v1"],
 "one_hot": true,
-"label_dim": 2,
+"label_dim": 4,
 "action_dim": 4,
 "max_steps": 1500,
 "config_seed": 42,
-"seeds": ["-", "-"],
+"seeds": ["-", "-", "-", "-"],
 "new_task_mask": "linear_comb"
 }
