@@ -1,7 +1,7 @@
 import random
 from minigrid.core.constants import COLOR_NAMES
 from minigrid.envs.babyai.core.roomgrid_level import RejectSampling, RoomGridLevel
-from minigrid.envs.babyai.core.verifier import GoToInstr, ObjDesc
+from minigrid.envs.babyai.core.verifier import PickupInstr, ObjDesc
 
 from minigrid.manual_control import ManualControl
 
@@ -83,7 +83,7 @@ class LearnRed(CustomLevel):
         # Make sure no unblocking is required
         self.check_objs_reachable()
 
-        self.instrs = GoToInstr(ObjDesc(obj.type, obj.color))
+        self.instrs = PickupInstr(ObjDesc(obj.type, obj.color))
 
 
 class LearnBall(CustomLevel):
@@ -153,7 +153,7 @@ class LearnBall(CustomLevel):
         # Make sure no unblocking is required
         self.check_objs_reachable()
 
-        self.instrs = GoToInstr(ObjDesc(obj.type, obj.color))
+        self.instrs = PickupInstr(ObjDesc(obj.type, obj.color))
 
 
 class FindRedBall(CustomLevel):
@@ -214,7 +214,6 @@ class FindRedBall(CustomLevel):
         self.place_agent()
         obj, _ = self.add_object(0, 0, "ball", "red")
 
-        colors = COLOR_NAMES.copy()
         colors_no_red = COLOR_NAMES.copy()
         colors_no_red.remove('red')
         kinds = ['ball', 'key', 'box']
@@ -223,13 +222,13 @@ class FindRedBall(CustomLevel):
             if kind == 'ball':
                 color = self._rand_elem(colors_no_red)
             else:
-                color = self._rand_elem(colors)
+                color = 'red'
             self.add_object(0, 0, kind=kind, color=color)
 
         # Make sure no unblocking is required
         self.check_objs_reachable()
 
-        self.instrs = GoToInstr(ObjDesc(obj.type, obj.color))
+        self.instrs = PickupInstr(ObjDesc(obj.type, obj.color))
 
 
 register(

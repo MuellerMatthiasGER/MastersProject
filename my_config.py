@@ -44,7 +44,7 @@ def _build_config_base(env_name, env_config_path, log_dir=None):
     config.discount = 0.99
     config.use_gae = True
     config.gae_tau = 0.99
-    config.entropy_weight = 0.1 #0.75
+    config.entropy_weight = 0.1
     config.rollout_length = 128
     config.optimization_epochs = 8
     config.num_mini_batches = 64
@@ -54,9 +54,9 @@ def _build_config_base(env_name, env_config_path, log_dir=None):
     config.max_steps = env_config.get('max_steps')
     config.cl_requires_task_label = True
 
-    config.evaluation_episodes = 12
-    config.eval_interval = 2
-    config.record_evaluation = True
+    config.evaluation_episodes = 24
+    config.eval_interval = 20
+    config.record_evaluation = False
     config.frames_per_sec = 5
 
     config.cl_num_learn_blocks = 1

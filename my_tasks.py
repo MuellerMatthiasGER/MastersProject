@@ -44,15 +44,16 @@ class MyMiniGrid(BaseTask):
             name = '{0}_{1}'.format(idx, env_name)
             env = ImgObsWrapper(OneHotPartialObsWrapper(gym.make(env_name, render_mode='rgb_array')))
             
+            
             # it is also possible to set seeds only for some tasks
             # to indicate that a task shall not have a seed,
             # enter a symbol that is neither an integer nor a list 
             if seeds or eval_mode:
                 if isinstance(seeds[idx], int):
-                    name += str(seeds[idx])
+                    name += "_" + str(seeds[idx])
                     env = ReseedWrapper(env, seeds=[seeds[idx]])
                 elif isinstance(seeds[idx], list):
-                    name += str(seeds[idx])
+                    name += "_" + str(seeds[idx])
                     env = ReseedWrapper(env, seeds=seeds[idx])
                 elif eval_mode:
                     # In this case eval mode is set, 
@@ -60,8 +61,10 @@ class MyMiniGrid(BaseTask):
                     # In this case a list of seeds is created (based on the rl_seed)
                     random_seed(config.seed)
                     fixed_rand_seeds = np.random.randint(0, 1000, size=config.evaluation_episodes)
-                    # env = ReseedWrapper(env, seeds=fixed_rand_seeds.tolist())
-                    env = ReseedWrapper(env, seeds=[1, 2, 3, 4])
+                    env = ReseedWrapper(env, seeds=fixed_rand_seeds.tolist())
+                else:
+                    rand_generator = gym.utils.seeding.np_random(config.seed)[0]
+                    env.env.np_random = rand_generator
 
             self.envs[name] = env
             env_names[idx] = name

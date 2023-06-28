@@ -1,4 +1,5 @@
 from deep_rl import *
+from my_agent import MyLLAgent
 
 from my_config import build_minigrid_config
 from my_analysis import analyse_agent
@@ -65,7 +66,7 @@ def independent_masks(env_config_path, seed, max_steps, n_independent):
 def learn_color_shape(env_config_path):
     config = build_minigrid_config(env_config_path)
 
-    agent = LLAgent(config)
+    agent = MyLLAgent(config)
     config.agent_name = agent.__class__.__name__
     tasks_info = agent.config.cl_tasks_info
 

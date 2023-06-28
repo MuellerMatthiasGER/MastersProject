@@ -82,19 +82,13 @@ class CustomLevel(MiniGridEnv, ABC):
 
         return obs, reward, terminated, truncated, info
     
-    def create_object(self, colors, types, blacklist=None, top=None, size=None):
+    def create_object(self, colors, types, top=None, size=None):
         if isinstance(colors, list):
             objColor = self._rand_elem(colors)
         else:
             objColor = colors
         
         if isinstance(types, list):
-            # ensure that no object is created that is listed in the blacklist as a tuple (color, type)
-            if blacklist:
-                for col, typ in blacklist:
-                    if objColor == col and typ in types:
-                        types.remove(typ)
-            
             objType = self._rand_elem(types)
         else:
             objType = types
@@ -113,6 +107,54 @@ class CustomLevel(MiniGridEnv, ABC):
         pos = self.place_obj(obj, top=top, size=size)
         return obj, pos
     
+    def check_pos_reachable(self, positions: list):
+        """
+        Check if all given positions are reachable from the agent's starting
+        position without requiring any other object to be moved
+        (without unblocking)
+        """
+
+        # Reachable positions
+        reachable = set()
+
+        # Work list
+        stack = [self.agent_pos]
+
+        while len(stack) > 0:
+            i, j = stack.pop()
+
+            if i < 0 or i >= self.grid.width or j < 0 or j >= self.grid.height:
+                continue
+
+            if (i, j) in reachable:
+                continue
+
+            # This position is reachable
+            reachable.add((i, j))
+
+            # check if current cell is a position to check
+            if (i, j) in positions:
+                positions.remove((i, j))
+                # if positions list is empty, all pos are reachable
+                if len(positions) == 0:
+                    return True
+
+            cell = self.grid.get(i, j)
+
+            # If there is something other than a door in this cell, it
+            # blocks reachability
+            if cell and cell.type != "door":
+                continue
+
+            # Visit the horizontal and vertical neighbors
+            stack.append((i + 1, j))
+            stack.append((i - 1, j))
+            stack.append((i, j + 1))
+            stack.append((i, j - 1))
+
+        # There is some position left that is not reachable
+        return False
+    
     def seed(self, random_seed):
         pass
 
@@ -120,7 +162,7 @@ class CustomLevelMini(CustomLevel, ABC):
     def __init__(self, width=7, height=5, numObjs=1, **kwargs):
         super().__init__(width, height, numObjs, **kwargs)
 
-    def _gen_grid(self, width, height, obj_colors, obj_types, blacklist=None):
+    def _gen_grid(self, width, height, obj_colors, obj_types):
         super()._gen_grid(width, height)
 
         left_obj_top_pos = (1, 1)
@@ -133,26 +175,33 @@ class CustomLevelMini(CustomLevel, ABC):
         # Generate the red ball on one side and a distractor on the other side
         if self._rand_bool():
             self.target_pos = self.place_obj(Ball('red'), top=left_obj_top_pos, size=obj_place_size)
-            self.create_object(colors=obj_colors, types=obj_types, blacklist=blacklist, top=right_obj_top_pos, size=obj_place_size)
+            self.create_object(colors=obj_colors, types=obj_types, top=right_obj_top_pos, size=obj_place_size)
         else:
             self.target_pos = self.place_obj(Ball('red'), top=right_obj_top_pos, size=obj_place_size)
-            self.create_object(colors=obj_colors, types=obj_types, blacklist=blacklist, top=left_obj_top_pos, size=obj_place_size)
+            self.create_object(colors=obj_colors, types=obj_types, top=left_obj_top_pos, size=obj_place_size)
 
         # Place agent
         self.place_agent(top=agent_top_pos, size=agent_place_size)
 
 class CustumLevelBigSquare(CustomLevel):
     def __init__(self, size=6, **kwargs):
-        super().__init__(width=size, height=size, numObjs=4, **kwargs)
+        super().__init__(width=size, height=size, numObjs=5, **kwargs)
 
-    def _gen_grid(self, width, height):
-        super()._gen_grid(width, height)
-
+    def _place_agent_and_ball(self):
         # Generate the red ball
         _, self.target_pos = self.create_object('red', 'ball')
 
         # Randomize the agent start position and orientation
         self.place_agent()
+
+        while not self.check_pos_reachable([self.target_pos]):
+            # Remove Ball
+            (tx, ty) = self.target_pos
+            self.grid.set(tx, ty, None)
+
+            # Replace red ball and agent
+            _, self.target_pos = self.create_object('red', 'ball')
+            self.place_agent()
 
 
 class LearnRedMini(CustomLevelMini):
@@ -227,6 +276,8 @@ class LearnRed(CustumLevelBigSquare):
         # Generate distractors
         for _ in range(self.numObjs - 1):
             self.create_object(colors, 'ball')
+
+        self._place_agent_and_ball()
     
 
 class LearnBallMini(CustomLevelMini):
@@ -301,6 +352,8 @@ class LearnBall(CustumLevelBigSquare):
         # Generate distractors
         for _ in range(self.numObjs - 1):
             self.create_object('red', types)
+            
+        self._place_agent_and_ball()
 
 
 class FindRedBallMini(CustomLevelMini):
@@ -308,11 +361,18 @@ class FindRedBallMini(CustomLevelMini):
         super().__init__(**kwargs)
 
     def _gen_grid(self, width, height):
-        # Types and colors the distractor can have
-        colors = COLOR_NAMES.copy()
-        types = self.obj_types
+        # Types and colors of distractors we can generate
+        colors_no_red = COLOR_NAMES.copy()
+        colors_no_red.remove('red')
+        types_no_ball = self.obj_types.copy()
+        types_no_ball.remove('ball')
 
-        super()._gen_grid(width, height, obj_colors=colors, obj_types=types, blacklist=[('red', 'ball')])
+        # Generate distractors
+        for _ in range(self.numObjs - 1):
+            if self._rand_bool():
+                super()._gen_grid(width, height, obj_colors='red', obj_types=types_no_ball)
+            else:
+                super()._gen_grid(width, height, obj_colors=colors_no_red, obj_types='ball')
 
 class FindRedBall(CustumLevelBigSquare):
     """
@@ -369,12 +429,19 @@ class FindRedBall(CustumLevelBigSquare):
         super()._gen_grid(width, height)
 
         # Types and colors of distractors we can generate
-        colors = COLOR_NAMES.copy()
-        types = self.obj_types
+        colors_no_red = COLOR_NAMES.copy()
+        colors_no_red.remove('red')
+        types_no_ball = self.obj_types.copy()
+        types_no_ball.remove('ball')
 
         # Generate distractors
         for _ in range(self.numObjs - 1):
-            self.create_object(colors, types, blacklist=[('red', 'ball')])
+            if self._rand_bool():
+                self.create_object('red', types_no_ball)
+            else:
+                self.create_object(colors_no_red, 'ball')
+        
+        self._place_agent_and_ball()
 
 
 register(
@@ -409,7 +476,7 @@ register(
 
 
 if __name__ == '__main__':
-    env = LearnRedMini(render_mode="human")
+    env = FindRedBall(render_mode="human")
 
     # enable manual control for testing
     manual_control = ManualControl(env)
