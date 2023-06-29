@@ -50,5 +50,5 @@ class MyLLAgent(LLAgent):
                 new_betas[0:task_idx] += (1. / k) * cur_task_betas_softmax
                 new_betas = torch.log(new_betas)
                 m.betas.data[task_idx, 0:task_idx+1] = new_betas
-                m.betas.data[task_idx] = torch.tensor(float('-inf'))
+                m.betas.data[task_idx, task_idx] = torch.tensor(float('-inf'))
         return task_idx

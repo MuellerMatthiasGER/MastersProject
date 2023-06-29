@@ -61,7 +61,11 @@ def _plot_train_performance(agent):
     steps = np.arange(num_rows) * steps_between_evals
 
     for task_idx, task_name in enumerate(tasks):
-        eval_data = data[:, task_idx]
+        if len(data.shape) > 1:
+            eval_data = data[:, task_idx]
+        else:
+            # one dim data, i.e. only one task
+            eval_data = data
         plt.plot(steps, eval_data, label=task_name)
         # draw vertical lines when new task is trained
         vertical_x = config.max_steps * task_idx
@@ -85,7 +89,7 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "./log/minigrid_color_shape-42-mask-linear_comb/230625-151518"
+    path = "./log/minigrid_color_shape-42-mask-linear_comb/230628-160404"
     config = build_minigrid_config(None, log_dir=path)
 
     # load agent

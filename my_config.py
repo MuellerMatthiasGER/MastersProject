@@ -44,13 +44,13 @@ def _build_config_base(env_name, env_config_path, log_dir=None):
     config.discount = 0.99
     config.use_gae = True
     config.gae_tau = 0.99
-    config.entropy_weight = 0.1
+    config.entropy_weight = 0.01
     config.rollout_length = 128
     config.optimization_epochs = 8
     config.num_mini_batches = 64
-    config.ppo_ratio_clip = 0.1
+    config.ppo_ratio_clip = 0.05
     config.iteration_log_interval = 1
-    config.gradient_clip = 5
+    config.gradient_clip = 1
     config.max_steps = env_config.get('max_steps')
     config.cl_requires_task_label = True
 
