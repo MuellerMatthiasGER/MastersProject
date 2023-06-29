@@ -169,7 +169,5 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(0) # -1 is CPU, a positive integer is the index of GPU
 
-    # env_config_path = "./env_configs/minigrid_independent_masks.json"
-    env_config_path = "./env_configs/minigrid_hyperparameter_search.json"
-    # learn_color_shape(env_config_path)
-    hyperparameter_search(env_config_path)
+    env_config_path = "./env_configs/minigrid_color_shape.json"
+    learn_color_shape(env_config_path)
