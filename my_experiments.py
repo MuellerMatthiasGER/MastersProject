@@ -133,7 +133,7 @@ def overshoot_betas(env_config_path):
     iteration = 0
 
     # evaluate agent before training for baseline of random init
-    # eval_agent(agent, tasks_info, iteration)
+    eval_agent(agent, tasks_info, iteration)
 
     for task_idx, task_info in enumerate(tasks_info):
         log_new_task_starts(config, task_idx, task_info)
@@ -159,6 +159,54 @@ def overshoot_betas(env_config_path):
                     cur_betas = m.betas.data[task_idx]
                     m.betas.data[task_idx] = 2 * cur_betas - old_betas[n]
                     old_betas[n] = m.betas.data[task_idx].clone()
+
+            # logging
+            log_iteration(agent, iteration)
+
+            # evaluate agent
+            eval_agent(agent, tasks_info, iteration)
+
+            # check whether task training has been completed
+            if is_task_training_complete(agent, task_idx):
+                break
+
+    #     end of while True / current task training
+    # end for each task
+
+    # Analysis
+    analyse_agent(agent)
+
+    agent.close()
+
+
+def one_big_mask(env_config_path):
+    config = build_minigrid_config(env_config_path)
+
+    agent = MyLLAgent(config)
+    config.agent_name = agent.__class__.__name__
+    tasks_info = agent.config.cl_tasks_info
+
+    # experiment specific part
+    # rewrite the agents _label_to_idx function such that
+    # all tasks are referred to as idx 0
+    agent._label_to_idx = lambda _: 0
+
+    create_log_structure(config)
+
+    iteration = 0
+
+    # evaluate agent before training for baseline of random init
+    eval_agent(agent, tasks_info, iteration)
+
+    for task_idx, task_info in enumerate(tasks_info):
+        log_new_task_starts(config, task_idx, task_info)
+
+        prepare_agent_for_task(agent, task_info)
+
+        while True:
+            # train step
+            dict_logs = agent.iteration()
+            iteration += 1
 
             # logging
             log_iteration(agent, iteration)
@@ -230,5 +278,5 @@ if __name__ == '__main__':
     # env_config_path = "./env_configs/minigrid_color_shape.json"
     # learn_color_shape(env_config_path)
 
-    env_config_path = "./env_configs/minigrid_overshoot_betas.json"
-    overshoot_betas(env_config_path)
+    env_config_path = "./env_configs/minigrid_one_big_mask.json"
+    one_big_mask(env_config_path)
