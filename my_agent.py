@@ -7,16 +7,19 @@ class MyLLAgent(LLAgent):
     def __init__(self, config):
         super().__init__(config)
 
-        self.iterations_of_task = {}
+        self.new_mask_type = config.new_task_mask
 
     def task_eval_start(self, task_label):
         self.network.eval()
         task_idx = self._label_to_idx(task_label)
         if task_idx is None:
-            # agent has not been trained on current task
-            # being evaluated. Therefore a linear combination 
-            # of all previous masks is used
-            task_idx = self._set_betas_for_unseen_eval_task()
+            if self.new_mask_type == NEW_MASK_LINEAR_COMB:
+                # agent has not been trained on current task
+                # being evaluated. Therefore a linear combination 
+                # of all previous masks is used
+                task_idx = self._set_betas_for_unseen_eval_task()
+            else:
+                task_idx = len(self.seen_tasks)
         set_model_task(self.network, task_idx)
         self.curr_eval_task_label = task_label
 
@@ -54,25 +57,25 @@ class MyLLAgent(LLAgent):
             m.betas.data[task_idx, task_idx] = torch.tensor(float('-inf'))
         return task_idx
     
-    def task_train_start(self, task_label):
-        task_idx = self._label_to_idx(task_label)
-        if task_idx is None:
-            # new task. add it to the agent's seen_tasks dictionary
-            task_idx = len(self.seen_tasks) # generate an internal task index for new task
-            self.seen_tasks[task_idx] = task_label
+    # def task_train_start(self, task_label):
+    #     task_idx = self._label_to_idx(task_label)
+    #     if task_idx is None:
+    #         # new task. add it to the agent's seen_tasks dictionary
+    #         task_idx = len(self.seen_tasks) # generate an internal task index for new task
+    #         self.seen_tasks[task_idx] = task_label
             
-            # set initial beta values (only if it is not the first task)
-            # devide existing masks to 0.9 and new random mask to 0.1
-            if task_idx > 0:
-                for m in self._get_all_mask_layers():
-                    new_betas = torch.zeros(task_idx + 1, device=m.betas.device)
-                    new_betas[0:task_idx] = 0.9 / task_idx
-                    new_betas[task_idx] = 0.1
-                    new_betas = torch.log(new_betas)
-                    m.betas.data[task_idx, 0:task_idx+1] = new_betas
+    #         # set initial beta values (only if it is not the first task)
+    #         # devide existing masks to 0.9 and new random mask to 0.1
+    #         if task_idx > 0:
+    #             for m in self._get_all_mask_layers():
+    #                 new_betas = torch.zeros(task_idx + 1, device=m.betas.device)
+    #                 new_betas[0:task_idx] = 0.9 / task_idx
+    #                 new_betas[task_idx] = 0.1
+    #                 new_betas = torch.log(new_betas)
+    #                 m.betas.data[task_idx, 0:task_idx+1] = new_betas
 
-        set_model_task(self.network, task_idx)
-        self.curr_train_task_label = task_label
+    #     set_model_task(self.network, task_idx)
+    #     self.curr_train_task_label = task_label
 
     def _get_all_mask_layers(self):
         for n, m in self.network.named_modules():
