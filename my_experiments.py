@@ -121,6 +121,64 @@ def hyperparameter_search(env_config_path):
                 run(config)
 
 
+def overshoot_betas(env_config_path):
+    config = build_minigrid_config(env_config_path)
+
+    agent = MyLLAgent(config)
+    config.agent_name = agent.__class__.__name__
+    tasks_info = agent.config.cl_tasks_info
+
+    create_log_structure(config)
+
+    iteration = 0
+
+    # evaluate agent before training for baseline of random init
+    # eval_agent(agent, tasks_info, iteration)
+
+    for task_idx, task_info in enumerate(tasks_info):
+        log_new_task_starts(config, task_idx, task_info)
+
+        prepare_agent_for_task(agent, task_info)
+
+        # experiment specific part
+        if task_idx > 0:
+            iteration_per_task = 0
+            old_betas = {}
+            for n, m in agent._get_all_mask_layers():
+                old_betas[n] = m.betas.data[task_idx].clone()
+
+        while True:
+            # train step
+            dict_logs = agent.iteration()
+            iteration += 1
+            
+            # experiment specific part
+            if task_idx > 0:
+                iteration_per_task += 1
+                for n, m in agent._get_all_mask_layers():
+                    cur_betas = m.betas.data[task_idx]
+                    m.betas.data[task_idx] = 2 * cur_betas - old_betas[n]
+                    old_betas[n] = m.betas.data[task_idx].clone()
+
+            # logging
+            log_iteration(agent, iteration)
+
+            # evaluate agent
+            eval_agent(agent, tasks_info, iteration)
+
+            # check whether task training has been completed
+            if is_task_training_complete(agent, task_idx):
+                break
+
+    #     end of while True / current task training
+    # end for each task
+
+    # Analysis
+    analyse_agent(agent)
+
+    agent.close()
+
+
 def learn_color_shape(env_config_path):
     config = build_minigrid_config(env_config_path)
 
@@ -169,5 +227,8 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(0) # -1 is CPU, a positive integer is the index of GPU
 
-    env_config_path = "./env_configs/minigrid_color_shape.json"
-    learn_color_shape(env_config_path)
+    # env_config_path = "./env_configs/minigrid_color_shape.json"
+    # learn_color_shape(env_config_path)
+
+    env_config_path = "./env_configs/minigrid_overshoot_betas.json"
+    overshoot_betas(env_config_path)
