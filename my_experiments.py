@@ -133,7 +133,7 @@ def overshoot_betas(env_config_path):
     iteration = 0
 
     # evaluate agent before training for baseline of random init
-    # eval_agent(agent, tasks_info, iteration)
+    eval_agent(agent, tasks_info, iteration)
 
     for task_idx, task_info in enumerate(tasks_info):
         log_new_task_starts(config, task_idx, task_info)
@@ -153,11 +153,11 @@ def overshoot_betas(env_config_path):
             iteration += 1
             
             # experiment specific part
-            if task_idx > 0:
+            if task_idx > 0 and iteration_per_task < 50:
                 iteration_per_task += 1
                 for n, m in agent._get_all_mask_layers():
                     cur_betas = m.betas.data[task_idx]
-                    m.betas.data[task_idx] = 2 * cur_betas - old_betas[n]
+                    m.betas.data[task_idx] = cur_betas + (cur_betas - old_betas[n]) * 10
                     old_betas[n] = m.betas.data[task_idx].clone()
 
             # logging

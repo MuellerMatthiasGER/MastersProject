@@ -114,7 +114,7 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "./log_safe/minigrid_color_shape-42-mask-linear_comb/230629-121329"
+    path = "./log/minigrid_overshoot_betas-42-mask-linear_comb/230630-151946"
     config = build_minigrid_config(None, log_dir=path)
 
     # load agent
@@ -125,7 +125,8 @@ if __name__ == '__main__':
 
     # analyse_agent(agent)
 
-    comp_log_dir = "./log_safe/minigrid_color_shape-42-mask-random/230630-113851"
+    
+    comp_log_dir = "./log_safe/minigrid_color_shape-42-mask-linear_comb/230629-121329"
     _plot_eval_performance(agent, comparison_log_dir=comp_log_dir)
 
     agent.close()
