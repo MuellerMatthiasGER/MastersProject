@@ -114,7 +114,7 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "./log/minigrid_overshoot_betas-42-mask-linear_comb/230630-151946"
+    path = "./log/minigrid_one_big_mask-42-mask-linear_comb/230630-171346"
     config = build_minigrid_config(None, log_dir=path)
 
     # load agent
