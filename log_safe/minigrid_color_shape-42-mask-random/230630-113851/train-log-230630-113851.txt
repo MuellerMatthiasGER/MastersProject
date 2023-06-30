@@ -1,0 +1,1420 @@
+2023-06-30 11:38:52,231 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:38:53,426 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:38:54,470 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:38:55,471 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:38:55,476 - MAIN - INFO: *****start training on task 0
+2023-06-30 11:38:55,476 - MAIN - INFO: name: 0_MyMiniGrid-LearnRed-v1
+2023-06-30 11:38:55,476 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1
+2023-06-30 11:38:55,476 - MAIN - INFO: task_label: [1. 0. 0.]
+2023-06-30 11:38:56,018 - MAIN - INFO: iteration 1, total steps 512, mean/max/min reward 0.063961/0.100000/0.029032
+2023-06-30 11:38:56,648 - MAIN - INFO: iteration 2, total steps 1024, mean/max/min reward 0.043057/0.108824/0.000000
+2023-06-30 11:38:57,221 - MAIN - INFO: iteration 3, total steps 1536, mean/max/min reward 0.061502/0.075714/0.036000
+2023-06-30 11:38:57,769 - MAIN - INFO: iteration 4, total steps 2048, mean/max/min reward 0.070666/0.124138/0.033036
+2023-06-30 11:38:58,380 - MAIN - INFO: iteration 5, total steps 2560, mean/max/min reward 0.047276/0.118103/0.000000
+2023-06-30 11:38:58,928 - MAIN - INFO: iteration 6, total steps 3072, mean/max/min reward 0.073206/0.119565/0.039583
+2023-06-30 11:38:59,492 - MAIN - INFO: iteration 7, total steps 3584, mean/max/min reward 0.072654/0.115517/0.052778
+2023-06-30 11:39:00,046 - MAIN - INFO: iteration 8, total steps 4096, mean/max/min reward 0.078306/0.109091/0.037000
+2023-06-30 11:39:00,608 - MAIN - INFO: iteration 9, total steps 4608, mean/max/min reward 0.027374/0.033621/0.023026
+2023-06-30 11:39:01,231 - MAIN - INFO: iteration 10, total steps 5120, mean/max/min reward 0.143173/0.194149/0.093125
+2023-06-30 11:39:01,786 - MAIN - INFO: iteration 11, total steps 5632, mean/max/min reward 0.071673/0.105233/0.045833
+2023-06-30 11:39:02,334 - MAIN - INFO: iteration 12, total steps 6144, mean/max/min reward 0.113395/0.161607/0.085606
+2023-06-30 11:39:02,874 - MAIN - INFO: iteration 13, total steps 6656, mean/max/min reward 0.104043/0.165909/0.066071
+2023-06-30 11:39:03,418 - MAIN - INFO: iteration 14, total steps 7168, mean/max/min reward 0.078963/0.160366/0.042500
+2023-06-30 11:39:03,968 - MAIN - INFO: iteration 15, total steps 7680, mean/max/min reward 0.138771/0.221429/0.087500
+2023-06-30 11:39:04,512 - MAIN - INFO: iteration 16, total steps 8192, mean/max/min reward 0.176853/0.238636/0.096552
+2023-06-30 11:39:05,056 - MAIN - INFO: iteration 17, total steps 8704, mean/max/min reward 0.090337/0.147500/0.047500
+2023-06-30 11:39:05,593 - MAIN - INFO: iteration 18, total steps 9216, mean/max/min reward 0.139522/0.195588/0.114773
+2023-06-30 11:39:06,143 - MAIN - INFO: iteration 19, total steps 9728, mean/max/min reward 0.130647/0.173333/0.035000
+2023-06-30 11:39:06,681 - MAIN - INFO: iteration 20, total steps 10240, mean/max/min reward 0.149801/0.206250/0.054412
+2023-06-30 11:39:06,681 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:39:07,671 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:08,664 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:09,653 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:10,197 - MAIN - INFO: iteration 21, total steps 10752, mean/max/min reward 0.133230/0.164815/0.085000
+2023-06-30 11:39:10,724 - MAIN - INFO: iteration 22, total steps 11264, mean/max/min reward 0.161570/0.234091/0.073864
+2023-06-30 11:39:11,265 - MAIN - INFO: iteration 23, total steps 11776, mean/max/min reward 0.102527/0.138889/0.065000
+2023-06-30 11:39:11,775 - MAIN - INFO: iteration 24, total steps 12288, mean/max/min reward 0.161286/0.296154/0.000000
+2023-06-30 11:39:12,301 - MAIN - INFO: iteration 25, total steps 12800, mean/max/min reward 0.178203/0.262500/0.093750
+2023-06-30 11:39:12,835 - MAIN - INFO: iteration 26, total steps 13312, mean/max/min reward 0.223919/0.260937/0.195455
+2023-06-30 11:39:13,357 - MAIN - INFO: iteration 27, total steps 13824, mean/max/min reward 0.160619/0.281944/0.104167
+2023-06-30 11:39:13,883 - MAIN - INFO: iteration 28, total steps 14336, mean/max/min reward 0.097222/0.200000/0.000000
+2023-06-30 11:39:14,409 - MAIN - INFO: iteration 29, total steps 14848, mean/max/min reward 0.219081/0.315385/0.175000
+2023-06-30 11:39:14,937 - MAIN - INFO: iteration 30, total steps 15360, mean/max/min reward 0.161713/0.279545/0.000000
+2023-06-30 11:39:15,456 - MAIN - INFO: iteration 31, total steps 15872, mean/max/min reward 0.172099/0.237500/0.111667
+2023-06-30 11:39:15,986 - MAIN - INFO: iteration 32, total steps 16384, mean/max/min reward 0.156722/0.315000/0.056818
+2023-06-30 11:39:16,517 - MAIN - INFO: iteration 33, total steps 16896, mean/max/min reward 0.269292/0.321429/0.172727
+2023-06-30 11:39:17,038 - MAIN - INFO: iteration 34, total steps 17408, mean/max/min reward 0.279317/0.434211/0.140000
+2023-06-30 11:39:17,574 - MAIN - INFO: iteration 35, total steps 17920, mean/max/min reward 0.367599/0.412500/0.332895
+2023-06-30 11:39:18,172 - MAIN - INFO: iteration 36, total steps 18432, mean/max/min reward 0.277612/0.438095/0.065000
+2023-06-30 11:39:18,702 - MAIN - INFO: iteration 37, total steps 18944, mean/max/min reward 0.272657/0.400000/0.214474
+2023-06-30 11:39:19,226 - MAIN - INFO: iteration 38, total steps 19456, mean/max/min reward 0.297409/0.381944/0.253846
+2023-06-30 11:39:19,735 - MAIN - INFO: iteration 39, total steps 19968, mean/max/min reward 0.266183/0.455357/0.084375
+2023-06-30 11:39:20,276 - MAIN - INFO: iteration 40, total steps 20480, mean/max/min reward 0.343750/0.450000/0.237500
+2023-06-30 11:39:20,276 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:39:20,818 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0.85, 0, 0.975, 0.95, 0.825, 0.975, 0.975, 0, 0, 0.625, 0.7, 0, 0.825, 0, 0.825, 0, 0.85, 0, 0, 0.9, 0, 0.925, 0] - 0.47
+2023-06-30 11:39:21,803 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:22,790 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:23,331 - MAIN - INFO: iteration 41, total steps 20992, mean/max/min reward 0.246430/0.363636/0.182500
+2023-06-30 11:39:23,842 - MAIN - INFO: iteration 42, total steps 21504, mean/max/min reward 0.447556/0.592308/0.280000
+2023-06-30 11:39:24,363 - MAIN - INFO: iteration 43, total steps 22016, mean/max/min reward 0.338968/0.586111/0.145833
+2023-06-30 11:39:24,886 - MAIN - INFO: iteration 44, total steps 22528, mean/max/min reward 0.240419/0.402273/0.128571
+2023-06-30 11:39:25,410 - MAIN - INFO: iteration 45, total steps 23040, mean/max/min reward 0.315921/0.360000/0.225000
+2023-06-30 11:39:25,955 - MAIN - INFO: iteration 46, total steps 23552, mean/max/min reward 0.311098/0.395000/0.248077
+2023-06-30 11:39:26,481 - MAIN - INFO: iteration 47, total steps 24064, mean/max/min reward 0.347693/0.393750/0.297917
+2023-06-30 11:39:27,005 - MAIN - INFO: iteration 48, total steps 24576, mean/max/min reward 0.263589/0.352273/0.158333
+2023-06-30 11:39:27,532 - MAIN - INFO: iteration 49, total steps 25088, mean/max/min reward 0.233880/0.319231/0.127273
+2023-06-30 11:39:28,111 - MAIN - INFO: iteration 50, total steps 25600, mean/max/min reward 0.126488/0.289286/0.000000
+2023-06-30 11:39:28,626 - MAIN - INFO: iteration 51, total steps 26112, mean/max/min reward 0.232232/0.521429/0.000000
+2023-06-30 11:39:29,184 - MAIN - INFO: iteration 52, total steps 26624, mean/max/min reward 0.223393/0.317500/0.147500
+2023-06-30 11:39:29,710 - MAIN - INFO: iteration 53, total steps 27136, mean/max/min reward 0.344809/0.428333/0.270000
+2023-06-30 11:39:30,230 - MAIN - INFO: iteration 54, total steps 27648, mean/max/min reward 0.282242/0.353571/0.130357
+2023-06-30 11:39:30,760 - MAIN - INFO: iteration 55, total steps 28160, mean/max/min reward 0.336628/0.443750/0.265000
+2023-06-30 11:39:31,304 - MAIN - INFO: iteration 56, total steps 28672, mean/max/min reward 0.348904/0.414286/0.276786
+2023-06-30 11:39:31,816 - MAIN - INFO: iteration 57, total steps 29184, mean/max/min reward 0.292190/0.417857/0.102778
+2023-06-30 11:39:32,367 - MAIN - INFO: iteration 58, total steps 29696, mean/max/min reward 0.376935/0.500000/0.253571
+2023-06-30 11:39:32,890 - MAIN - INFO: iteration 59, total steps 30208, mean/max/min reward 0.287926/0.428846/0.142857
+2023-06-30 11:39:33,427 - MAIN - INFO: iteration 60, total steps 30720, mean/max/min reward 0.425057/0.615000/0.220833
+2023-06-30 11:39:33,427 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:39:33,870 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.85, 0, 0.975, 0.95, 0.7, 0.975, 0.975, 0.9, 0, 0, 0.875, 0.925, 0, 0, 0.875, 0.9, 0.925, 0.625, 0, 0.9, 0, 0.95, 0, 0.75] - 0.59
+2023-06-30 11:39:34,889 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:35,915 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:36,432 - MAIN - INFO: iteration 61, total steps 31232, mean/max/min reward 0.390434/0.537500/0.153125
+2023-06-30 11:39:36,946 - MAIN - INFO: iteration 62, total steps 31744, mean/max/min reward 0.394668/0.481250/0.307143
+2023-06-30 11:39:37,469 - MAIN - INFO: iteration 63, total steps 32256, mean/max/min reward 0.303239/0.418750/0.177778
+2023-06-30 11:39:37,993 - MAIN - INFO: iteration 64, total steps 32768, mean/max/min reward 0.348021/0.481667/0.228125
+2023-06-30 11:39:38,520 - MAIN - INFO: iteration 65, total steps 33280, mean/max/min reward 0.521821/0.583929/0.491667
+2023-06-30 11:39:39,035 - MAIN - INFO: iteration 66, total steps 33792, mean/max/min reward 0.326052/0.482143/0.055000
+2023-06-30 11:39:39,555 - MAIN - INFO: iteration 67, total steps 34304, mean/max/min reward 0.396329/0.591667/0.296429
+2023-06-30 11:39:40,084 - MAIN - INFO: iteration 68, total steps 34816, mean/max/min reward 0.516493/0.597222/0.393750
+2023-06-30 11:39:40,607 - MAIN - INFO: iteration 69, total steps 35328, mean/max/min reward 0.382165/0.568750/0.043750
+2023-06-30 11:39:41,137 - MAIN - INFO: iteration 70, total steps 35840, mean/max/min reward 0.512768/0.637500/0.375000
+2023-06-30 11:39:41,669 - MAIN - INFO: iteration 71, total steps 36352, mean/max/min reward 0.375893/0.578571/0.225000
+2023-06-30 11:39:42,201 - MAIN - INFO: iteration 72, total steps 36864, mean/max/min reward 0.550568/0.638636/0.465909
+2023-06-30 11:39:42,723 - MAIN - INFO: iteration 73, total steps 37376, mean/max/min reward 0.547966/0.632143/0.437500
+2023-06-30 11:39:43,236 - MAIN - INFO: iteration 74, total steps 37888, mean/max/min reward 0.391615/0.490000/0.190000
+2023-06-30 11:39:43,752 - MAIN - INFO: iteration 75, total steps 38400, mean/max/min reward 0.531264/0.636364/0.392857
+2023-06-30 11:39:44,265 - MAIN - INFO: iteration 76, total steps 38912, mean/max/min reward 0.366039/0.478125/0.240000
+2023-06-30 11:39:44,787 - MAIN - INFO: iteration 77, total steps 39424, mean/max/min reward 0.428750/0.492500/0.325000
+2023-06-30 11:39:45,312 - MAIN - INFO: iteration 78, total steps 39936, mean/max/min reward 0.503750/0.522222/0.469444
+2023-06-30 11:39:45,830 - MAIN - INFO: iteration 79, total steps 40448, mean/max/min reward 0.533208/0.717308/0.446875
+2023-06-30 11:39:46,345 - MAIN - INFO: iteration 80, total steps 40960, mean/max/min reward 0.434425/0.513889/0.332143
+2023-06-30 11:39:46,345 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:39:46,663 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.7, 0.975, 0.95, 0.725, 0.975, 0.975, 0.875, 0.875, 0, 0.825, 0.925, 0.725, 0.9, 0.85, 0.75, 0.925, 0, 0, 0.9, 0, 0.95, 0.825, 0.675, 0.85] - 0.71
+2023-06-30 11:39:47,682 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:48,712 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:39:49,243 - MAIN - INFO: iteration 81, total steps 41472, mean/max/min reward 0.339092/0.464286/0.070833
+2023-06-30 11:39:49,764 - MAIN - INFO: iteration 82, total steps 41984, mean/max/min reward 0.520199/0.584615/0.425000
+2023-06-30 11:39:50,274 - MAIN - INFO: iteration 83, total steps 42496, mean/max/min reward 0.437054/0.570833/0.337500
+2023-06-30 11:39:50,799 - MAIN - INFO: iteration 84, total steps 43008, mean/max/min reward 0.459551/0.557692/0.259375
+2023-06-30 11:39:51,329 - MAIN - INFO: iteration 85, total steps 43520, mean/max/min reward 0.424554/0.589286/0.312500
+2023-06-30 11:39:51,843 - MAIN - INFO: iteration 86, total steps 44032, mean/max/min reward 0.373810/0.462500/0.321429
+2023-06-30 11:39:52,349 - MAIN - INFO: iteration 87, total steps 44544, mean/max/min reward 0.508471/0.695833/0.315000
+2023-06-30 11:39:52,860 - MAIN - INFO: iteration 88, total steps 45056, mean/max/min reward 0.360677/0.496875/0.225000
+2023-06-30 11:39:53,374 - MAIN - INFO: iteration 89, total steps 45568, mean/max/min reward 0.466493/0.656250/0.295833
+2023-06-30 11:39:53,885 - MAIN - INFO: iteration 90, total steps 46080, mean/max/min reward 0.445883/0.558333/0.337500
+2023-06-30 11:39:54,397 - MAIN - INFO: iteration 91, total steps 46592, mean/max/min reward 0.498611/0.604167/0.436111
+2023-06-30 11:39:54,924 - MAIN - INFO: iteration 92, total steps 47104, mean/max/min reward 0.553781/0.578571/0.512500
+2023-06-30 11:39:55,443 - MAIN - INFO: iteration 93, total steps 47616, mean/max/min reward 0.428125/0.655556/0.266667
+2023-06-30 11:39:55,958 - MAIN - INFO: iteration 94, total steps 48128, mean/max/min reward 0.429923/0.596429/0.319444
+2023-06-30 11:39:56,489 - MAIN - INFO: iteration 95, total steps 48640, mean/max/min reward 0.575888/0.704545/0.495833
+2023-06-30 11:39:56,979 - MAIN - INFO: iteration 96, total steps 49152, mean/max/min reward 0.313750/0.587500/0.062500
+2023-06-30 11:39:57,494 - MAIN - INFO: iteration 97, total steps 49664, mean/max/min reward 0.418542/0.478125/0.359375
+2023-06-30 11:39:58,012 - MAIN - INFO: iteration 98, total steps 50176, mean/max/min reward 0.433527/0.606818/0.216667
+2023-06-30 11:39:58,522 - MAIN - INFO: iteration 99, total steps 50688, mean/max/min reward 0.500670/0.637500/0.264286
+2023-06-30 11:39:59,042 - MAIN - INFO: iteration 100, total steps 51200, mean/max/min reward 0.372986/0.597500/0.000000
+2023-06-30 11:39:59,042 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:39:59,331 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.95, 0.875, 0.975, 0.975, 0.9, 0.925, 0.775, 0.825, 0.925, 0.725, 0.825, 0.875, 0, 0.925, 0.85, 0, 0.775, 0, 0.825, 0.625, 0.825, 0.725, 0.8] - 0.74
+2023-06-30 11:40:00,359 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:01,388 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:01,914 - MAIN - INFO: iteration 101, total steps 51712, mean/max/min reward 0.576674/0.675000/0.492857
+2023-06-30 11:40:02,425 - MAIN - INFO: iteration 102, total steps 52224, mean/max/min reward 0.477716/0.628571/0.300000
+2023-06-30 11:40:02,938 - MAIN - INFO: iteration 103, total steps 52736, mean/max/min reward 0.484010/0.597500/0.271875
+2023-06-30 11:40:03,462 - MAIN - INFO: iteration 104, total steps 53248, mean/max/min reward 0.417872/0.673077/0.242857
+2023-06-30 11:40:03,981 - MAIN - INFO: iteration 105, total steps 53760, mean/max/min reward 0.422917/0.454167/0.375000
+2023-06-30 11:40:04,506 - MAIN - INFO: iteration 106, total steps 54272, mean/max/min reward 0.363333/0.421875/0.320000
+2023-06-30 11:40:05,034 - MAIN - INFO: iteration 107, total steps 54784, mean/max/min reward 0.456622/0.517857/0.350000
+2023-06-30 11:40:05,562 - MAIN - INFO: iteration 108, total steps 55296, mean/max/min reward 0.514375/0.650000/0.340000
+2023-06-30 11:40:06,135 - MAIN - INFO: iteration 109, total steps 55808, mean/max/min reward 0.460278/0.660417/0.056250
+2023-06-30 11:40:06,656 - MAIN - INFO: iteration 110, total steps 56320, mean/max/min reward 0.410446/0.568750/0.168750
+2023-06-30 11:40:07,188 - MAIN - INFO: iteration 111, total steps 56832, mean/max/min reward 0.429888/0.553125/0.345000
+2023-06-30 11:40:07,713 - MAIN - INFO: iteration 112, total steps 57344, mean/max/min reward 0.584550/0.622727/0.487500
+2023-06-30 11:40:08,220 - MAIN - INFO: iteration 113, total steps 57856, mean/max/min reward 0.578220/0.695455/0.383333
+2023-06-30 11:40:08,739 - MAIN - INFO: iteration 114, total steps 58368, mean/max/min reward 0.540179/0.641667/0.385714
+2023-06-30 11:40:09,260 - MAIN - INFO: iteration 115, total steps 58880, mean/max/min reward 0.440035/0.666667/0.190000
+2023-06-30 11:40:09,770 - MAIN - INFO: iteration 116, total steps 59392, mean/max/min reward 0.472693/0.516667/0.406250
+2023-06-30 11:40:10,283 - MAIN - INFO: iteration 117, total steps 59904, mean/max/min reward 0.507814/0.708333/0.245000
+2023-06-30 11:40:10,818 - MAIN - INFO: iteration 118, total steps 60416, mean/max/min reward 0.562031/0.667500/0.477500
+2023-06-30 11:40:11,332 - MAIN - INFO: iteration 119, total steps 60928, mean/max/min reward 0.551476/0.619444/0.458333
+2023-06-30 11:40:11,844 - MAIN - INFO: iteration 120, total steps 61440, mean/max/min reward 0.585109/0.697727/0.497222
+2023-06-30 11:40:11,844 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:40:12,160 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.95, 0.95, 0.975, 0.975, 0.875, 0.925, 0, 0.85, 0.925, 0.825, 0, 0.85, 0, 0.9, 0, 0.725, 0.9, 0.925, 0.95, 0.85, 0, 0.775, 0.8, 0.975] - 0.70
+2023-06-30 11:40:13,142 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:14,125 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:14,654 - MAIN - INFO: iteration 121, total steps 61952, mean/max/min reward 0.473008/0.688462/0.296429
+2023-06-30 11:40:15,211 - MAIN - INFO: iteration 122, total steps 62464, mean/max/min reward 0.452131/0.527273/0.332143
+2023-06-30 11:40:15,740 - MAIN - INFO: iteration 123, total steps 62976, mean/max/min reward 0.628598/0.672727/0.587500
+2023-06-30 11:40:16,254 - MAIN - INFO: iteration 124, total steps 63488, mean/max/min reward 0.380418/0.493750/0.228571
+2023-06-30 11:40:16,762 - MAIN - INFO: iteration 125, total steps 64000, mean/max/min reward 0.575572/0.729167/0.365000
+2023-06-30 11:40:17,275 - MAIN - INFO: iteration 126, total steps 64512, mean/max/min reward 0.504167/0.622222/0.325000
+2023-06-30 11:40:17,774 - MAIN - INFO: iteration 127, total steps 65024, mean/max/min reward 0.553806/0.594444/0.500000
+2023-06-30 11:40:18,309 - MAIN - INFO: iteration 128, total steps 65536, mean/max/min reward 0.562983/0.743750/0.400000
+2023-06-30 11:40:18,825 - MAIN - INFO: iteration 129, total steps 66048, mean/max/min reward 0.478482/0.580000/0.362500
+2023-06-30 11:40:19,346 - MAIN - INFO: iteration 130, total steps 66560, mean/max/min reward 0.533162/0.692647/0.330000
+2023-06-30 11:40:19,859 - MAIN - INFO: iteration 131, total steps 67072, mean/max/min reward 0.514103/0.659091/0.427083
+2023-06-30 11:40:20,433 - MAIN - INFO: iteration 132, total steps 67584, mean/max/min reward 0.589271/0.652500/0.541667
+2023-06-30 11:40:20,957 - MAIN - INFO: iteration 133, total steps 68096, mean/max/min reward 0.504464/0.600000/0.441667
+2023-06-30 11:40:21,477 - MAIN - INFO: iteration 134, total steps 68608, mean/max/min reward 0.466493/0.555556/0.383333
+2023-06-30 11:40:21,986 - MAIN - INFO: iteration 135, total steps 69120, mean/max/min reward 0.425365/0.590625/0.190000
+2023-06-30 11:40:22,500 - MAIN - INFO: iteration 136, total steps 69632, mean/max/min reward 0.475893/0.578571/0.281250
+2023-06-30 11:40:23,042 - MAIN - INFO: iteration 137, total steps 70144, mean/max/min reward 0.495226/0.503125/0.477778
+2023-06-30 11:40:23,561 - MAIN - INFO: iteration 138, total steps 70656, mean/max/min reward 0.391049/0.565625/0.260000
+2023-06-30 11:40:24,085 - MAIN - INFO: iteration 139, total steps 71168, mean/max/min reward 0.616518/0.645833/0.572222
+2023-06-30 11:40:24,602 - MAIN - INFO: iteration 140, total steps 71680, mean/max/min reward 0.515933/0.702273/0.218750
+2023-06-30 11:40:24,603 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:40:25,174 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0.975, 0.975, 0.875, 0.875, 0.825, 0, 0, 0, 0, 0, 0, 0, 0.8, 0.725, 0, 0, 0, 0.85, 0.825, 0.85, 0, 0.95, 0.95] - 0.44
+2023-06-30 11:40:26,159 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:27,145 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:27,677 - MAIN - INFO: iteration 141, total steps 72192, mean/max/min reward 0.504670/0.650000/0.285000
+2023-06-30 11:40:28,204 - MAIN - INFO: iteration 142, total steps 72704, mean/max/min reward 0.678795/0.751923/0.609091
+2023-06-30 11:40:28,740 - MAIN - INFO: iteration 143, total steps 73216, mean/max/min reward 0.666779/0.734615/0.607500
+2023-06-30 11:40:29,248 - MAIN - INFO: iteration 144, total steps 73728, mean/max/min reward 0.489227/0.584091/0.421429
+2023-06-30 11:40:29,754 - MAIN - INFO: iteration 145, total steps 74240, mean/max/min reward 0.619965/0.750000/0.497917
+2023-06-30 11:40:30,275 - MAIN - INFO: iteration 146, total steps 74752, mean/max/min reward 0.598413/0.697222/0.471429
+2023-06-30 11:40:30,792 - MAIN - INFO: iteration 147, total steps 75264, mean/max/min reward 0.563859/0.605556/0.541667
+2023-06-30 11:40:31,323 - MAIN - INFO: iteration 148, total steps 75776, mean/max/min reward 0.592662/0.707692/0.335000
+2023-06-30 11:40:31,835 - MAIN - INFO: iteration 149, total steps 76288, mean/max/min reward 0.491667/0.670833/0.316667
+2023-06-30 11:40:32,364 - MAIN - INFO: iteration 150, total steps 76800, mean/max/min reward 0.551605/0.696154/0.475000
+2023-06-30 11:40:32,927 - MAIN - INFO: iteration 151, total steps 77312, mean/max/min reward 0.645345/0.720000/0.551786
+2023-06-30 11:40:33,459 - MAIN - INFO: iteration 152, total steps 77824, mean/max/min reward 0.540694/0.602778/0.492500
+2023-06-30 11:40:33,969 - MAIN - INFO: iteration 153, total steps 78336, mean/max/min reward 0.597656/0.687500/0.475000
+2023-06-30 11:40:34,491 - MAIN - INFO: iteration 154, total steps 78848, mean/max/min reward 0.455313/0.625000/0.243750
+2023-06-30 11:40:35,017 - MAIN - INFO: iteration 155, total steps 79360, mean/max/min reward 0.431057/0.500000/0.257143
+2023-06-30 11:40:35,544 - MAIN - INFO: iteration 156, total steps 79872, mean/max/min reward 0.543284/0.726471/0.337500
+2023-06-30 11:40:36,056 - MAIN - INFO: iteration 157, total steps 80384, mean/max/min reward 0.573082/0.720455/0.460714
+2023-06-30 11:40:36,593 - MAIN - INFO: iteration 158, total steps 80896, mean/max/min reward 0.593194/0.662500/0.495000
+2023-06-30 11:40:37,111 - MAIN - INFO: iteration 159, total steps 81408, mean/max/min reward 0.578316/0.640000/0.516667
+2023-06-30 11:40:37,630 - MAIN - INFO: iteration 160, total steps 81920, mean/max/min reward 0.484077/0.537500/0.346429
+2023-06-30 11:40:37,630 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:40:37,945 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.975, 0.875, 0.875, 0.825, 0.825, 0.925, 0, 0.775, 0.85, 0.9, 0.925, 0.825, 0, 0.9, 0, 0.95, 0.825, 0, 0.85, 0, 0.975, 0.95, 0.85] - 0.70
+2023-06-30 11:40:38,934 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:39,929 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:40,467 - MAIN - INFO: iteration 161, total steps 82432, mean/max/min reward 0.551215/0.622222/0.422222
+2023-06-30 11:40:41,012 - MAIN - INFO: iteration 162, total steps 82944, mean/max/min reward 0.628188/0.729167/0.519444
+2023-06-30 11:40:41,513 - MAIN - INFO: iteration 163, total steps 83456, mean/max/min reward 0.622222/0.742308/0.513889
+2023-06-30 11:40:42,028 - MAIN - INFO: iteration 164, total steps 83968, mean/max/min reward 0.619318/0.750000/0.539286
+2023-06-30 11:40:42,548 - MAIN - INFO: iteration 165, total steps 84480, mean/max/min reward 0.487426/0.610417/0.320833
+2023-06-30 11:40:43,131 - MAIN - INFO: iteration 166, total steps 84992, mean/max/min reward 0.669471/0.690385/0.637500
+2023-06-30 11:40:43,660 - MAIN - INFO: iteration 167, total steps 85504, mean/max/min reward 0.611368/0.694231/0.531818
+2023-06-30 11:40:44,184 - MAIN - INFO: iteration 168, total steps 86016, mean/max/min reward 0.492879/0.741071/0.230000
+2023-06-30 11:40:44,707 - MAIN - INFO: iteration 169, total steps 86528, mean/max/min reward 0.657864/0.745000/0.515385
+2023-06-30 11:40:45,234 - MAIN - INFO: iteration 170, total steps 87040, mean/max/min reward 0.560662/0.767647/0.364286
+2023-06-30 11:40:45,734 - MAIN - INFO: iteration 171, total steps 87552, mean/max/min reward 0.485677/0.670000/0.255000
+2023-06-30 11:40:46,260 - MAIN - INFO: iteration 172, total steps 88064, mean/max/min reward 0.612388/0.739583/0.496429
+2023-06-30 11:40:46,783 - MAIN - INFO: iteration 173, total steps 88576, mean/max/min reward 0.584503/0.615909/0.547500
+2023-06-30 11:40:47,310 - MAIN - INFO: iteration 174, total steps 89088, mean/max/min reward 0.475272/0.701923/0.245000
+2023-06-30 11:40:47,827 - MAIN - INFO: iteration 175, total steps 89600, mean/max/min reward 0.656042/0.672917/0.627500
+2023-06-30 11:40:48,366 - MAIN - INFO: iteration 176, total steps 90112, mean/max/min reward 0.490104/0.614583/0.333333
+2023-06-30 11:40:48,913 - MAIN - INFO: iteration 177, total steps 90624, mean/max/min reward 0.618047/0.792188/0.446875
+2023-06-30 11:40:49,440 - MAIN - INFO: iteration 178, total steps 91136, mean/max/min reward 0.574375/0.672500/0.525000
+2023-06-30 11:40:49,970 - MAIN - INFO: iteration 179, total steps 91648, mean/max/min reward 0.675952/0.769643/0.616667
+2023-06-30 11:40:50,489 - MAIN - INFO: iteration 180, total steps 92160, mean/max/min reward 0.467230/0.621154/0.262500
+2023-06-30 11:40:50,489 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:40:50,760 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.875, 0.875, 0, 0.875, 0.925, 0.825, 0.9, 0.85, 0, 0.925, 0.825, 0.725, 0.9, 0.925, 0.95, 0.875, 0, 0.85, 0, 0.975, 0.95, 0.925, 0.975] - 0.75
+2023-06-30 11:40:51,748 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:52,736 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:40:53,259 - MAIN - INFO: iteration 181, total steps 92672, mean/max/min reward 0.492274/0.555556/0.434375
+2023-06-30 11:40:53,832 - MAIN - INFO: iteration 182, total steps 93184, mean/max/min reward 0.566607/0.670000/0.488889
+2023-06-30 11:40:54,349 - MAIN - INFO: iteration 183, total steps 93696, mean/max/min reward 0.601531/0.718750/0.475000
+2023-06-30 11:40:54,891 - MAIN - INFO: iteration 184, total steps 94208, mean/max/min reward 0.568720/0.651471/0.490000
+2023-06-30 11:40:55,410 - MAIN - INFO: iteration 185, total steps 94720, mean/max/min reward 0.652501/0.694231/0.542857
+2023-06-30 11:40:55,929 - MAIN - INFO: iteration 186, total steps 95232, mean/max/min reward 0.564635/0.696875/0.416667
+2023-06-30 11:40:56,455 - MAIN - INFO: iteration 187, total steps 95744, mean/max/min reward 0.552083/0.645000/0.437500
+2023-06-30 11:40:56,983 - MAIN - INFO: iteration 188, total steps 96256, mean/max/min reward 0.622753/0.715000/0.559091
+2023-06-30 11:40:57,498 - MAIN - INFO: iteration 189, total steps 96768, mean/max/min reward 0.645182/0.706250/0.575000
+2023-06-30 11:40:58,026 - MAIN - INFO: iteration 190, total steps 97280, mean/max/min reward 0.588760/0.655556/0.521429
+2023-06-30 11:40:58,518 - MAIN - INFO: iteration 191, total steps 97792, mean/max/min reward 0.460006/0.688636/0.000000
+2023-06-30 11:40:59,028 - MAIN - INFO: iteration 192, total steps 98304, mean/max/min reward 0.430185/0.661364/0.000000
+2023-06-30 11:40:59,569 - MAIN - INFO: iteration 193, total steps 98816, mean/max/min reward 0.640582/0.782812/0.569444
+2023-06-30 11:41:00,094 - MAIN - INFO: iteration 194, total steps 99328, mean/max/min reward 0.570909/0.609375/0.482500
+2023-06-30 11:41:00,617 - MAIN - INFO: iteration 195, total steps 99840, mean/max/min reward 0.642760/0.739583/0.428125
+2023-06-30 11:41:01,138 - MAIN - INFO: iteration 196, total steps 100352, mean/max/min reward 0.534315/0.632500/0.283333
+2023-06-30 11:41:01,656 - MAIN - INFO: iteration 197, total steps 100864, mean/max/min reward 0.521944/0.603846/0.400000
+2023-06-30 11:41:02,176 - MAIN - INFO: iteration 198, total steps 101376, mean/max/min reward 0.606501/0.695833/0.528125
+2023-06-30 11:41:02,716 - MAIN - INFO: iteration 199, total steps 101888, mean/max/min reward 0.598842/0.702632/0.500000
+2023-06-30 11:41:03,257 - MAIN - INFO: iteration 200, total steps 102400, mean/max/min reward 0.622494/0.738462/0.443182
+2023-06-30 11:41:03,258 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:41:03,516 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.875, 0.875, 0, 0.875, 0.925, 0.725, 0.825, 0.85, 0, 0.925, 0.8, 0, 0.9, 0.925, 0.95, 0.875, 0.775, 0.85, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975] - 0.77
+2023-06-30 11:41:04,539 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:05,570 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:06,100 - MAIN - INFO: iteration 201, total steps 102912, mean/max/min reward 0.575429/0.701923/0.475000
+2023-06-30 11:41:06,623 - MAIN - INFO: iteration 202, total steps 103424, mean/max/min reward 0.653438/0.744737/0.562500
+2023-06-30 11:41:07,129 - MAIN - INFO: iteration 203, total steps 103936, mean/max/min reward 0.586672/0.760294/0.465625
+2023-06-30 11:41:07,641 - MAIN - INFO: iteration 204, total steps 104448, mean/max/min reward 0.561048/0.643182/0.480556
+2023-06-30 11:41:08,161 - MAIN - INFO: iteration 205, total steps 104960, mean/max/min reward 0.619289/0.782813/0.421429
+2023-06-30 11:41:08,679 - MAIN - INFO: iteration 206, total steps 105472, mean/max/min reward 0.553824/0.810294/0.380000
+2023-06-30 11:41:09,193 - MAIN - INFO: iteration 207, total steps 105984, mean/max/min reward 0.514236/0.577778/0.438889
+2023-06-30 11:41:09,718 - MAIN - INFO: iteration 208, total steps 106496, mean/max/min reward 0.596701/0.700000/0.443750
+2023-06-30 11:41:10,227 - MAIN - INFO: iteration 209, total steps 107008, mean/max/min reward 0.570676/0.729167/0.384091
+2023-06-30 11:41:10,757 - MAIN - INFO: iteration 210, total steps 107520, mean/max/min reward 0.578013/0.700000/0.496429
+2023-06-30 11:41:11,254 - MAIN - INFO: iteration 211, total steps 108032, mean/max/min reward 0.627127/0.801562/0.483333
+2023-06-30 11:41:11,774 - MAIN - INFO: iteration 212, total steps 108544, mean/max/min reward 0.578835/0.662500/0.458333
+2023-06-30 11:41:12,275 - MAIN - INFO: iteration 213, total steps 109056, mean/max/min reward 0.521094/0.600000/0.393750
+2023-06-30 11:41:12,796 - MAIN - INFO: iteration 214, total steps 109568, mean/max/min reward 0.576623/0.709615/0.412500
+2023-06-30 11:41:13,325 - MAIN - INFO: iteration 215, total steps 110080, mean/max/min reward 0.640000/0.760000/0.522727
+2023-06-30 11:41:13,832 - MAIN - INFO: iteration 216, total steps 110592, mean/max/min reward 0.478373/0.652778/0.325000
+2023-06-30 11:41:14,346 - MAIN - INFO: iteration 217, total steps 111104, mean/max/min reward 0.561711/0.581250/0.516667
+2023-06-30 11:41:14,872 - MAIN - INFO: iteration 218, total steps 111616, mean/max/min reward 0.565903/0.685000/0.519444
+2023-06-30 11:41:15,394 - MAIN - INFO: iteration 219, total steps 112128, mean/max/min reward 0.539167/0.625000/0.427500
+2023-06-30 11:41:15,917 - MAIN - INFO: iteration 220, total steps 112640, mean/max/min reward 0.615956/0.690909/0.450000
+2023-06-30 11:41:15,918 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:41:16,109 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.925, 0.825, 0.875, 0.925, 0.675, 0.825, 0.85, 0.9, 0.9, 0.9, 0, 0.9, 0.925, 0.95, 0.825, 0.775, 0.7, 0.8, 0.975, 0.95, 0.875, 0.975, 0.975, 0.875] - 0.84
+2023-06-30 11:41:17,119 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:18,129 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:18,664 - MAIN - INFO: iteration 221, total steps 113152, mean/max/min reward 0.584132/0.630556/0.547222
+2023-06-30 11:41:19,188 - MAIN - INFO: iteration 222, total steps 113664, mean/max/min reward 0.588941/0.647727/0.493750
+2023-06-30 11:41:19,711 - MAIN - INFO: iteration 223, total steps 114176, mean/max/min reward 0.653170/0.678750/0.621429
+2023-06-30 11:41:20,237 - MAIN - INFO: iteration 224, total steps 114688, mean/max/min reward 0.611619/0.717308/0.500000
+2023-06-30 11:41:20,766 - MAIN - INFO: iteration 225, total steps 115200, mean/max/min reward 0.582205/0.646154/0.512500
+2023-06-30 11:41:21,329 - MAIN - INFO: iteration 226, total steps 115712, mean/max/min reward 0.647470/0.783333/0.508333
+2023-06-30 11:41:21,848 - MAIN - INFO: iteration 227, total steps 116224, mean/max/min reward 0.598802/0.761364/0.350000
+2023-06-30 11:41:22,420 - MAIN - INFO: iteration 228, total steps 116736, mean/max/min reward 0.523452/0.712500/0.457143
+2023-06-30 11:41:22,920 - MAIN - INFO: iteration 229, total steps 117248, mean/max/min reward 0.486458/0.652500/0.235000
+2023-06-30 11:41:23,450 - MAIN - INFO: iteration 230, total steps 117760, mean/max/min reward 0.468734/0.740909/0.281250
+2023-06-30 11:41:23,963 - MAIN - INFO: iteration 231, total steps 118272, mean/max/min reward 0.530017/0.633333/0.360000
+2023-06-30 11:41:24,483 - MAIN - INFO: iteration 232, total steps 118784, mean/max/min reward 0.663134/0.714583/0.592500
+2023-06-30 11:41:25,011 - MAIN - INFO: iteration 233, total steps 119296, mean/max/min reward 0.577482/0.722917/0.428571
+2023-06-30 11:41:25,525 - MAIN - INFO: iteration 234, total steps 119808, mean/max/min reward 0.508854/0.578125/0.425000
+2023-06-30 11:41:26,042 - MAIN - INFO: iteration 235, total steps 120320, mean/max/min reward 0.467772/0.576923/0.285000
+2023-06-30 11:41:26,560 - MAIN - INFO: iteration 236, total steps 120832, mean/max/min reward 0.525198/0.625000/0.428571
+2023-06-30 11:41:27,073 - MAIN - INFO: iteration 237, total steps 121344, mean/max/min reward 0.589856/0.776923/0.460000
+2023-06-30 11:41:27,587 - MAIN - INFO: iteration 238, total steps 121856, mean/max/min reward 0.582490/0.809722/0.403571
+2023-06-30 11:41:28,103 - MAIN - INFO: iteration 239, total steps 122368, mean/max/min reward 0.474740/0.687500/0.241667
+2023-06-30 11:41:28,623 - MAIN - INFO: iteration 240, total steps 122880, mean/max/min reward 0.689906/0.771429/0.612500
+2023-06-30 11:41:28,623 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:41:28,836 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.775, 0.875, 0.925, 0.825, 0.875, 0.8, 0.85, 0.925, 0.9, 0, 0.85, 0.925, 0.9, 0.825, 0, 0.8, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.925] - 0.81
+2023-06-30 11:41:29,845 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:30,859 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:31,401 - MAIN - INFO: iteration 241, total steps 123392, mean/max/min reward 0.569940/0.716667/0.422222
+2023-06-30 11:41:31,924 - MAIN - INFO: iteration 242, total steps 123904, mean/max/min reward 0.687165/0.810937/0.439286
+2023-06-30 11:41:32,436 - MAIN - INFO: iteration 243, total steps 124416, mean/max/min reward 0.597991/0.785000/0.422222
+2023-06-30 11:41:32,968 - MAIN - INFO: iteration 244, total steps 124928, mean/max/min reward 0.560705/0.661538/0.455000
+2023-06-30 11:41:33,488 - MAIN - INFO: iteration 245, total steps 125440, mean/max/min reward 0.578006/0.619231/0.532500
+2023-06-30 11:41:34,010 - MAIN - INFO: iteration 246, total steps 125952, mean/max/min reward 0.712760/0.840000/0.634375
+2023-06-30 11:41:34,549 - MAIN - INFO: iteration 247, total steps 126464, mean/max/min reward 0.640227/0.703333/0.556818
+2023-06-30 11:41:35,075 - MAIN - INFO: iteration 248, total steps 126976, mean/max/min reward 0.521094/0.658333/0.216667
+2023-06-30 11:41:35,589 - MAIN - INFO: iteration 249, total steps 127488, mean/max/min reward 0.607131/0.720833/0.475000
+2023-06-30 11:41:36,136 - MAIN - INFO: iteration 250, total steps 128000, mean/max/min reward 0.705855/0.773214/0.670833
+2023-06-30 11:41:36,662 - MAIN - INFO: iteration 251, total steps 128512, mean/max/min reward 0.610139/0.819444/0.436111
+2023-06-30 11:41:37,191 - MAIN - INFO: iteration 252, total steps 129024, mean/max/min reward 0.657480/0.757143/0.450000
+2023-06-30 11:41:37,731 - MAIN - INFO: iteration 253, total steps 129536, mean/max/min reward 0.690847/0.760417/0.593182
+2023-06-30 11:41:38,264 - MAIN - INFO: iteration 254, total steps 130048, mean/max/min reward 0.653535/0.709722/0.620833
+2023-06-30 11:41:38,789 - MAIN - INFO: iteration 255, total steps 130560, mean/max/min reward 0.585729/0.706250/0.479167
+2023-06-30 11:41:39,338 - MAIN - INFO: iteration 256, total steps 131072, mean/max/min reward 0.667548/0.752778/0.537500
+2023-06-30 11:41:39,855 - MAIN - INFO: iteration 257, total steps 131584, mean/max/min reward 0.656198/0.709375/0.568750
+2023-06-30 11:41:40,380 - MAIN - INFO: iteration 258, total steps 132096, mean/max/min reward 0.675521/0.812500/0.537500
+2023-06-30 11:41:40,910 - MAIN - INFO: iteration 259, total steps 132608, mean/max/min reward 0.702408/0.755882/0.647500
+2023-06-30 11:41:41,464 - MAIN - INFO: iteration 260, total steps 133120, mean/max/min reward 0.739183/0.845000/0.667500
+2023-06-30 11:41:41,465 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:41:41,619 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.85, 0.925, 0.725, 0.825, 0.85, 0.9, 0.925, 0.85, 0.725, 0.9, 0.925, 0.95, 0.775, 0.825, 0.725, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.925, 0.825] - 0.87
+2023-06-30 11:41:42,605 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:43,594 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:44,126 - MAIN - INFO: iteration 261, total steps 133632, mean/max/min reward 0.601215/0.689583/0.514286
+2023-06-30 11:41:44,649 - MAIN - INFO: iteration 262, total steps 134144, mean/max/min reward 0.700417/0.762500/0.607500
+2023-06-30 11:41:45,193 - MAIN - INFO: iteration 263, total steps 134656, mean/max/min reward 0.650627/0.767857/0.460000
+2023-06-30 11:41:45,715 - MAIN - INFO: iteration 264, total steps 135168, mean/max/min reward 0.711149/0.769643/0.618182
+2023-06-30 11:41:46,239 - MAIN - INFO: iteration 265, total steps 135680, mean/max/min reward 0.714519/0.773077/0.625000
+2023-06-30 11:41:46,791 - MAIN - INFO: iteration 266, total steps 136192, mean/max/min reward 0.578290/0.690000/0.467857
+2023-06-30 11:41:47,286 - MAIN - INFO: iteration 267, total steps 136704, mean/max/min reward 0.705924/0.785000/0.638889
+2023-06-30 11:41:47,820 - MAIN - INFO: iteration 268, total steps 137216, mean/max/min reward 0.604508/0.786667/0.380000
+2023-06-30 11:41:48,330 - MAIN - INFO: iteration 269, total steps 137728, mean/max/min reward 0.506927/0.773333/0.295000
+2023-06-30 11:41:48,853 - MAIN - INFO: iteration 270, total steps 138240, mean/max/min reward 0.592302/0.630000/0.521429
+2023-06-30 11:41:49,350 - MAIN - INFO: iteration 271, total steps 138752, mean/max/min reward 0.658010/0.735417/0.571875
+2023-06-30 11:41:49,875 - MAIN - INFO: iteration 272, total steps 139264, mean/max/min reward 0.666160/0.740385/0.596875
+2023-06-30 11:41:50,407 - MAIN - INFO: iteration 273, total steps 139776, mean/max/min reward 0.716592/0.832500/0.517500
+2023-06-30 11:41:50,924 - MAIN - INFO: iteration 274, total steps 140288, mean/max/min reward 0.691146/0.800000/0.608333
+2023-06-30 11:41:51,445 - MAIN - INFO: iteration 275, total steps 140800, mean/max/min reward 0.416867/0.715385/0.133333
+2023-06-30 11:41:51,968 - MAIN - INFO: iteration 276, total steps 141312, mean/max/min reward 0.708399/0.790625/0.565909
+2023-06-30 11:41:52,497 - MAIN - INFO: iteration 277, total steps 141824, mean/max/min reward 0.572396/0.631250/0.536111
+2023-06-30 11:41:53,030 - MAIN - INFO: iteration 278, total steps 142336, mean/max/min reward 0.638571/0.700000/0.562500
+2023-06-30 11:41:53,552 - MAIN - INFO: iteration 279, total steps 142848, mean/max/min reward 0.651918/0.779545/0.553125
+2023-06-30 11:41:54,074 - MAIN - INFO: iteration 280, total steps 143360, mean/max/min reward 0.654670/0.711538/0.567500
+2023-06-30 11:41:54,075 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:41:54,352 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.925, 0, 0.825, 0.85, 0.9, 0.925, 0.85, 0, 0.9, 0.925, 0.95, 0, 0, 0.725, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.925, 0.825, 0.875] - 0.75
+2023-06-30 11:41:55,360 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:56,373 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:41:56,908 - MAIN - INFO: iteration 281, total steps 143872, mean/max/min reward 0.580625/0.747500/0.340625
+2023-06-30 11:41:57,463 - MAIN - INFO: iteration 282, total steps 144384, mean/max/min reward 0.661844/0.794737/0.586667
+2023-06-30 11:41:57,979 - MAIN - INFO: iteration 283, total steps 144896, mean/max/min reward 0.617697/0.707692/0.571429
+2023-06-30 11:41:58,515 - MAIN - INFO: iteration 284, total steps 145408, mean/max/min reward 0.697053/0.786765/0.577273
+2023-06-30 11:41:59,054 - MAIN - INFO: iteration 285, total steps 145920, mean/max/min reward 0.639180/0.777174/0.410000
+2023-06-30 11:41:59,585 - MAIN - INFO: iteration 286, total steps 146432, mean/max/min reward 0.728860/0.776786/0.637500
+2023-06-30 11:42:00,114 - MAIN - INFO: iteration 287, total steps 146944, mean/max/min reward 0.627438/0.737500/0.385714
+2023-06-30 11:42:00,635 - MAIN - INFO: iteration 288, total steps 147456, mean/max/min reward 0.510536/0.737500/0.000000
+2023-06-30 11:42:01,177 - MAIN - INFO: iteration 289, total steps 147968, mean/max/min reward 0.641822/0.743182/0.517857
+2023-06-30 11:42:01,692 - MAIN - INFO: iteration 290, total steps 148480, mean/max/min reward 0.430694/0.580556/0.320000
+2023-06-30 11:42:02,262 - MAIN - INFO: iteration 291, total steps 148992, mean/max/min reward 0.582440/0.675000/0.485714
+2023-06-30 11:42:02,794 - MAIN - INFO: iteration 292, total steps 149504, mean/max/min reward 0.497161/0.734615/0.043750
+2023-06-30 11:42:03,325 - MAIN - INFO: iteration 293, total steps 150016, mean/max/min reward 0.681190/0.783929/0.610000
+2023-06-30 11:42:03,850 - MAIN - INFO: iteration 294, total steps 150528, mean/max/min reward 0.608038/0.720000/0.454167
+2023-06-30 11:42:04,366 - MAIN - INFO: iteration 295, total steps 151040, mean/max/min reward 0.649795/0.706250/0.586111
+2023-06-30 11:42:04,887 - MAIN - INFO: iteration 296, total steps 151552, mean/max/min reward 0.645789/0.773333/0.490625
+2023-06-30 11:42:05,398 - MAIN - INFO: iteration 297, total steps 152064, mean/max/min reward 0.622046/0.744643/0.530000
+2023-06-30 11:42:05,924 - MAIN - INFO: iteration 298, total steps 152576, mean/max/min reward 0.620682/0.769118/0.512500
+2023-06-30 11:42:06,437 - MAIN - INFO: iteration 299, total steps 153088, mean/max/min reward 0.619792/0.750000/0.525000
+2023-06-30 11:42:06,962 - MAIN - INFO: iteration 300, total steps 153600, mean/max/min reward 0.604297/0.751667/0.383333
+2023-06-30 11:42:06,962 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:42:07,177 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.825, 0.875, 0.85, 0.9, 0.925, 0.85, 0.725, 0.9, 0.925, 0.95, 0.875, 0, 0.825, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.925, 0.8, 0, 0.925] - 0.82
+2023-06-30 11:42:08,201 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:42:09,227 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:42:09,751 - MAIN - INFO: iteration 301, total steps 154112, mean/max/min reward 0.624219/0.725000/0.485000
+2023-06-30 11:42:10,285 - MAIN - INFO: iteration 302, total steps 154624, mean/max/min reward 0.696354/0.840625/0.541667
+2023-06-30 11:42:10,804 - MAIN - INFO: iteration 303, total steps 155136, mean/max/min reward 0.659167/0.761667/0.600000
+2023-06-30 11:42:11,322 - MAIN - INFO: iteration 304, total steps 155648, mean/max/min reward 0.719968/0.828333/0.627500
+2023-06-30 11:42:11,824 - MAIN - INFO: iteration 305, total steps 156160, mean/max/min reward 0.599609/0.701786/0.470000
+2023-06-30 11:42:12,348 - MAIN - INFO: iteration 306, total steps 156672, mean/max/min reward 0.661411/0.728571/0.596429
+2023-06-30 11:42:12,874 - MAIN - INFO: iteration 307, total steps 157184, mean/max/min reward 0.679216/0.745833/0.538889
+2023-06-30 11:42:13,402 - MAIN - INFO: iteration 308, total steps 157696, mean/max/min reward 0.600781/0.643750/0.515625
+2023-06-30 11:42:13,935 - MAIN - INFO: iteration 309, total steps 158208, mean/max/min reward 0.626941/0.741667/0.460417
+2023-06-30 11:42:14,441 - MAIN - INFO: iteration 310, total steps 158720, mean/max/min reward 0.605357/0.762500/0.512500
+2023-06-30 11:42:14,965 - MAIN - INFO: iteration 311, total steps 159232, mean/max/min reward 0.711762/0.738462/0.672222
+2023-06-30 11:42:15,503 - MAIN - INFO: iteration 312, total steps 159744, mean/max/min reward 0.591862/0.697500/0.525000
+2023-06-30 11:42:16,021 - MAIN - INFO: iteration 313, total steps 160256, mean/max/min reward 0.542589/0.610714/0.482143
+2023-06-30 11:42:16,534 - MAIN - INFO: iteration 314, total steps 160768, mean/max/min reward 0.454062/0.682500/0.212500
+2023-06-30 11:42:17,052 - MAIN - INFO: iteration 315, total steps 161280, mean/max/min reward 0.627193/0.736538/0.521875
+2023-06-30 11:42:17,566 - MAIN - INFO: iteration 316, total steps 161792, mean/max/min reward 0.596722/0.748077/0.532143
+2023-06-30 11:42:18,112 - MAIN - INFO: iteration 317, total steps 162304, mean/max/min reward 0.665844/0.748529/0.566667
+2023-06-30 11:42:18,631 - MAIN - INFO: iteration 318, total steps 162816, mean/max/min reward 0.649623/0.688636/0.600000
+2023-06-30 11:42:19,160 - MAIN - INFO: iteration 319, total steps 163328, mean/max/min reward 0.623460/0.775000/0.465625
+2023-06-30 11:42:19,703 - MAIN - INFO: iteration 320, total steps 163840, mean/max/min reward 0.678416/0.705769/0.646154
+2023-06-30 11:42:19,703 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:42:20,078 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.825, 0, 0.9, 0.925, 0.85, 0.6000000000000001, 0.9, 0.925, 0.925, 0, 0.825, 0.85, 0.725, 0.975, 0.95, 0, 0.975, 0.975, 0, 0.925, 0.825, 0, 0, 0.8] - 0.65
+2023-06-30 11:42:21,084 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:42:22,094 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:42:22,620 - MAIN - INFO: iteration 321, total steps 164352, mean/max/min reward 0.490476/0.550000/0.458333
+2023-06-30 11:42:23,147 - MAIN - INFO: iteration 322, total steps 164864, mean/max/min reward 0.609288/0.677778/0.500000
+2023-06-30 11:42:23,677 - MAIN - INFO: iteration 323, total steps 165376, mean/max/min reward 0.647396/0.736667/0.475000
+2023-06-30 11:42:24,207 - MAIN - INFO: iteration 324, total steps 165888, mean/max/min reward 0.587682/0.748077/0.445833
+2023-06-30 11:42:24,751 - MAIN - INFO: iteration 325, total steps 166400, mean/max/min reward 0.744203/0.760714/0.718182
+2023-06-30 11:42:25,278 - MAIN - INFO: iteration 326, total steps 166912, mean/max/min reward 0.695473/0.722917/0.667308
+2023-06-30 11:42:25,834 - MAIN - INFO: iteration 327, total steps 167424, mean/max/min reward 0.650318/0.757143/0.550000
+2023-06-30 11:42:26,361 - MAIN - INFO: iteration 328, total steps 167936, mean/max/min reward 0.625660/0.685417/0.545833
+2023-06-30 11:42:26,890 - MAIN - INFO: iteration 329, total steps 168448, mean/max/min reward 0.642969/0.691667/0.553125
+2023-06-30 11:42:27,408 - MAIN - INFO: iteration 330, total steps 168960, mean/max/min reward 0.642235/0.733333/0.583333
+2023-06-30 11:42:27,941 - MAIN - INFO: iteration 331, total steps 169472, mean/max/min reward 0.616682/0.663636/0.518750
+2023-06-30 11:42:28,482 - MAIN - INFO: iteration 332, total steps 169984, mean/max/min reward 0.572969/0.762500/0.360000
+2023-06-30 11:42:29,055 - MAIN - INFO: iteration 333, total steps 170496, mean/max/min reward 0.538095/0.646429/0.432143
+2023-06-30 11:42:29,676 - MAIN - INFO: iteration 334, total steps 171008, mean/max/min reward 0.573259/0.635417/0.500000
+2023-06-30 11:42:30,245 - MAIN - INFO: iteration 335, total steps 171520, mean/max/min reward 0.740208/0.826250/0.632500
+2023-06-30 11:42:30,774 - MAIN - INFO: iteration 336, total steps 172032, mean/max/min reward 0.632366/0.706250/0.560714
+2023-06-30 11:42:31,289 - MAIN - INFO: iteration 337, total steps 172544, mean/max/min reward 0.602692/0.697917/0.523077
+2023-06-30 11:42:31,814 - MAIN - INFO: iteration 338, total steps 173056, mean/max/min reward 0.654312/0.747917/0.545000
+2023-06-30 11:42:32,333 - MAIN - INFO: iteration 339, total steps 173568, mean/max/min reward 0.652332/0.669643/0.636538
+2023-06-30 11:42:32,855 - MAIN - INFO: iteration 340, total steps 174080, mean/max/min reward 0.587727/0.750000/0.360000
+2023-06-30 11:42:32,855 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:42:33,026 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.85, 0.9, 0.925, 0.875, 0.725, 0.9, 0.925, 0.95, 0.875, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.925, 0.825, 0.875, 0.925, 0.825, 0.825] - 0.85
+2023-06-30 11:42:34,008 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:42:34,993 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:42:35,527 - MAIN - INFO: iteration 341, total steps 174592, mean/max/min reward 0.617413/0.670000/0.502778
+2023-06-30 11:42:36,068 - MAIN - INFO: iteration 342, total steps 175104, mean/max/min reward 0.699138/0.818056/0.636111
+2023-06-30 11:42:36,596 - MAIN - INFO: iteration 343, total steps 175616, mean/max/min reward 0.630754/0.752083/0.353571
+2023-06-30 11:42:37,115 - MAIN - INFO: iteration 344, total steps 176128, mean/max/min reward 0.593906/0.693333/0.466667
+2023-06-30 11:42:37,629 - MAIN - INFO: iteration 345, total steps 176640, mean/max/min reward 0.471949/0.531250/0.445833
+2023-06-30 11:42:38,152 - MAIN - INFO: iteration 346, total steps 177152, mean/max/min reward 0.710697/0.752083/0.686538
+2023-06-30 11:42:38,669 - MAIN - INFO: iteration 347, total steps 177664, mean/max/min reward 0.517679/0.647500/0.337500
+2023-06-30 11:42:39,200 - MAIN - INFO: iteration 348, total steps 178176, mean/max/min reward 0.587081/0.721429/0.337500
+2023-06-30 11:42:39,714 - MAIN - INFO: iteration 349, total steps 178688, mean/max/min reward 0.644375/0.690000/0.600000
+2023-06-30 11:42:40,234 - MAIN - INFO: iteration 350, total steps 179200, mean/max/min reward 0.346466/0.478571/0.155556
+2023-06-30 11:42:40,764 - MAIN - INFO: iteration 351, total steps 179712, mean/max/min reward 0.577808/0.715000/0.389286
+2023-06-30 11:42:41,332 - MAIN - INFO: iteration 352, total steps 180224, mean/max/min reward 0.530942/0.607500/0.458333
+2023-06-30 11:42:41,850 - MAIN - INFO: iteration 353, total steps 180736, mean/max/min reward 0.571404/0.755357/0.290000
+2023-06-30 11:42:42,373 - MAIN - INFO: iteration 354, total steps 181248, mean/max/min reward 0.677321/0.726786/0.645000
+2023-06-30 11:42:42,892 - MAIN - INFO: iteration 355, total steps 181760, mean/max/min reward 0.674851/0.790000/0.503571
+2023-06-30 11:42:43,402 - MAIN - INFO: iteration 356, total steps 182272, mean/max/min reward 0.663423/0.708333/0.596429
+2023-06-30 11:42:43,922 - MAIN - INFO: iteration 357, total steps 182784, mean/max/min reward 0.569462/0.622222/0.512500
+2023-06-30 11:42:44,443 - MAIN - INFO: iteration 358, total steps 183296, mean/max/min reward 0.703694/0.793750/0.657692
+2023-06-30 11:42:44,968 - MAIN - INFO: iteration 359, total steps 183808, mean/max/min reward 0.614853/0.660417/0.561111
+2023-06-30 11:42:45,498 - MAIN - INFO: iteration 360, total steps 184320, mean/max/min reward 0.650059/0.757692/0.511538
+2023-06-30 11:42:45,499 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:42:45,649 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.9, 0.925, 0.875, 0.625, 0.9, 0.925, 0.95, 0.875, 0.825, 0.85, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.925, 0.825, 0.875, 0.925, 0.725, 0.825, 0.85] - 0.88
+2023-06-30 11:42:46,672 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:42:47,699 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:42:48,252 - MAIN - INFO: iteration 361, total steps 184832, mean/max/min reward 0.539942/0.679412/0.427500
+2023-06-30 11:42:48,762 - MAIN - INFO: iteration 362, total steps 185344, mean/max/min reward 0.521553/0.663889/0.375000
+2023-06-30 11:42:49,290 - MAIN - INFO: iteration 363, total steps 185856, mean/max/min reward 0.746131/0.845833/0.530556
+2023-06-30 11:42:49,814 - MAIN - INFO: iteration 364, total steps 186368, mean/max/min reward 0.616632/0.720000/0.511111
+2023-06-30 11:42:50,332 - MAIN - INFO: iteration 365, total steps 186880, mean/max/min reward 0.424926/0.631250/0.200000
+2023-06-30 11:42:50,848 - MAIN - INFO: iteration 366, total steps 187392, mean/max/min reward 0.537946/0.562500/0.492857
+2023-06-30 11:42:51,385 - MAIN - INFO: iteration 367, total steps 187904, mean/max/min reward 0.546528/0.658929/0.450000
+2023-06-30 11:42:51,902 - MAIN - INFO: iteration 368, total steps 188416, mean/max/min reward 0.657297/0.710714/0.622222
+2023-06-30 11:42:52,425 - MAIN - INFO: iteration 369, total steps 188928, mean/max/min reward 0.587689/0.672917/0.484375
+2023-06-30 11:42:52,953 - MAIN - INFO: iteration 370, total steps 189440, mean/max/min reward 0.616199/0.652273/0.563889
+2023-06-30 11:42:53,477 - MAIN - INFO: iteration 371, total steps 189952, mean/max/min reward 0.626166/0.714583/0.441667
+2023-06-30 11:42:53,995 - MAIN - INFO: iteration 372, total steps 190464, mean/max/min reward 0.554380/0.650000/0.447727
+2023-06-30 11:42:54,520 - MAIN - INFO: iteration 373, total steps 190976, mean/max/min reward 0.647752/0.836842/0.487500
+2023-06-30 11:42:55,066 - MAIN - INFO: iteration 374, total steps 191488, mean/max/min reward 0.639965/0.723750/0.561111
+2023-06-30 11:42:55,585 - MAIN - INFO: iteration 375, total steps 192000, mean/max/min reward 0.681689/0.740278/0.597727
+2023-06-30 11:42:56,115 - MAIN - INFO: iteration 376, total steps 192512, mean/max/min reward 0.692292/0.770000/0.602778
+2023-06-30 11:42:56,651 - MAIN - INFO: iteration 377, total steps 193024, mean/max/min reward 0.716248/0.830882/0.620455
+2023-06-30 11:42:57,180 - MAIN - INFO: iteration 378, total steps 193536, mean/max/min reward 0.677214/0.715909/0.657692
+2023-06-30 11:42:57,755 - MAIN - INFO: iteration 379, total steps 194048, mean/max/min reward 0.625966/0.710000/0.497500
+2023-06-30 11:42:58,275 - MAIN - INFO: iteration 380, total steps 194560, mean/max/min reward 0.711864/0.795313/0.607500
+2023-06-30 11:42:58,275 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:42:58,423 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.925, 0.875, 0.725, 0.9, 0.825, 0.95, 0.875, 0.825, 0.85, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.925, 0.825, 0.875, 0.925, 0.725, 0.825, 0.85, 0.9] - 0.88
+2023-06-30 11:42:59,412 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:43:00,405 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:43:00,925 - MAIN - INFO: iteration 381, total steps 195072, mean/max/min reward 0.616548/0.705357/0.527500
+2023-06-30 11:43:01,444 - MAIN - INFO: iteration 382, total steps 195584, mean/max/min reward 0.733910/0.793333/0.665909
+2023-06-30 11:43:01,968 - MAIN - INFO: iteration 383, total steps 196096, mean/max/min reward 0.703518/0.769231/0.612500
+2023-06-30 11:43:02,478 - MAIN - INFO: iteration 384, total steps 196608, mean/max/min reward 0.578003/0.632500/0.515625
+2023-06-30 11:43:03,004 - MAIN - INFO: iteration 385, total steps 197120, mean/max/min reward 0.696712/0.788333/0.587500
+2023-06-30 11:43:03,518 - MAIN - INFO: iteration 386, total steps 197632, mean/max/min reward 0.619820/0.696154/0.555000
+2023-06-30 11:43:04,052 - MAIN - INFO: iteration 387, total steps 198144, mean/max/min reward 0.660710/0.752083/0.494444
+2023-06-30 11:43:04,577 - MAIN - INFO: iteration 388, total steps 198656, mean/max/min reward 0.650205/0.693182/0.611111
+2023-06-30 11:43:05,095 - MAIN - INFO: iteration 389, total steps 199168, mean/max/min reward 0.637944/0.772917/0.565385
+2023-06-30 11:43:05,617 - MAIN - INFO: iteration 390, total steps 199680, mean/max/min reward 0.612858/0.729762/0.493750
+2023-06-30 11:43:06,136 - MAIN - INFO: iteration 391, total steps 200192, mean/max/min reward 0.686979/0.735000/0.606250
+2023-06-30 11:43:06,145 - MAIN - INFO: *****start training on task 1
+2023-06-30 11:43:06,146 - MAIN - INFO: name: 1_MyMiniGrid-LearnBall-v1
+2023-06-30 11:43:06,146 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1
+2023-06-30 11:43:06,146 - MAIN - INFO: task_label: [0. 1. 0.]
+2023-06-30 11:43:06,708 - MAIN - INFO: iteration 392, total steps 200704, mean/max/min reward 0.084988/0.131481/0.000000
+2023-06-30 11:43:07,266 - MAIN - INFO: iteration 393, total steps 201216, mean/max/min reward 0.034238/0.077273/0.000000
+2023-06-30 11:43:07,813 - MAIN - INFO: iteration 394, total steps 201728, mean/max/min reward 0.096961/0.133929/0.036111
+2023-06-30 11:43:08,360 - MAIN - INFO: iteration 395, total steps 202240, mean/max/min reward 0.034927/0.058871/0.000000
+2023-06-30 11:43:08,995 - MAIN - INFO: iteration 396, total steps 202752, mean/max/min reward 0.093427/0.136765/0.059677
+2023-06-30 11:43:09,542 - MAIN - INFO: iteration 397, total steps 203264, mean/max/min reward 0.053684/0.107857/0.029167
+2023-06-30 11:43:10,155 - MAIN - INFO: iteration 398, total steps 203776, mean/max/min reward 0.091458/0.193590/0.048750
+2023-06-30 11:43:10,742 - MAIN - INFO: iteration 399, total steps 204288, mean/max/min reward 0.031865/0.061111/0.020930
+2023-06-30 11:43:11,360 - MAIN - INFO: iteration 400, total steps 204800, mean/max/min reward 0.109175/0.136585/0.073077
+2023-06-30 11:43:11,361 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:43:11,616 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925] - 0.77
+2023-06-30 11:43:11,896 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.975, 0, 0, 0.975, 0.975, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.12
+2023-06-30 11:43:12,267 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:43:12,840 - MAIN - INFO: iteration 401, total steps 205312, mean/max/min reward 0.117326/0.146667/0.081522
+2023-06-30 11:43:13,402 - MAIN - INFO: iteration 402, total steps 205824, mean/max/min reward 0.122071/0.152551/0.098958
+2023-06-30 11:43:13,953 - MAIN - INFO: iteration 403, total steps 206336, mean/max/min reward 0.074463/0.098026/0.033000
+2023-06-30 11:43:14,511 - MAIN - INFO: iteration 404, total steps 206848, mean/max/min reward 0.147709/0.178472/0.085714
+2023-06-30 11:43:15,062 - MAIN - INFO: iteration 405, total steps 207360, mean/max/min reward 0.109160/0.152500/0.046429
+2023-06-30 11:43:15,673 - MAIN - INFO: iteration 406, total steps 207872, mean/max/min reward 0.132434/0.169531/0.095690
+2023-06-30 11:43:16,212 - MAIN - INFO: iteration 407, total steps 208384, mean/max/min reward 0.051918/0.095192/0.035577
+2023-06-30 11:43:16,754 - MAIN - INFO: iteration 408, total steps 208896, mean/max/min reward 0.177301/0.235577/0.136000
+2023-06-30 11:43:17,303 - MAIN - INFO: iteration 409, total steps 209408, mean/max/min reward 0.147255/0.269565/0.000000
+2023-06-30 11:43:17,833 - MAIN - INFO: iteration 410, total steps 209920, mean/max/min reward 0.204026/0.286538/0.107692
+2023-06-30 11:43:18,382 - MAIN - INFO: iteration 411, total steps 210432, mean/max/min reward 0.162040/0.210417/0.054412
+2023-06-30 11:43:18,921 - MAIN - INFO: iteration 412, total steps 210944, mean/max/min reward 0.145111/0.191667/0.105882
+2023-06-30 11:43:19,457 - MAIN - INFO: iteration 413, total steps 211456, mean/max/min reward 0.193214/0.212500/0.157500
+2023-06-30 11:43:19,978 - MAIN - INFO: iteration 414, total steps 211968, mean/max/min reward 0.179091/0.271667/0.096429
+2023-06-30 11:43:20,501 - MAIN - INFO: iteration 415, total steps 212480, mean/max/min reward 0.219965/0.337500/0.069444
+2023-06-30 11:43:21,015 - MAIN - INFO: iteration 416, total steps 212992, mean/max/min reward 0.192969/0.321875/0.100000
+2023-06-30 11:43:21,529 - MAIN - INFO: iteration 417, total steps 213504, mean/max/min reward 0.122646/0.242857/0.017857
+2023-06-30 11:43:22,057 - MAIN - INFO: iteration 418, total steps 214016, mean/max/min reward 0.189663/0.358333/0.025000
+2023-06-30 11:43:22,562 - MAIN - INFO: iteration 419, total steps 214528, mean/max/min reward 0.207068/0.362500/0.058333
+2023-06-30 11:43:23,068 - MAIN - INFO: iteration 420, total steps 215040, mean/max/min reward 0.242882/0.312500/0.118750
+2023-06-30 11:43:23,068 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:43:23,320 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8] - 0.77
+2023-06-30 11:43:23,691 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0.9, 0.875, 0.95, 0.825, 0, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0, 0.875, 0, 0, 0.925, 0, 0.875, 0.85, 0.9, 0.85, 0.8] - 0.64
+2023-06-30 11:43:24,057 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:43:24,588 - MAIN - INFO: iteration 421, total steps 215552, mean/max/min reward 0.274485/0.362500/0.164286
+2023-06-30 11:43:25,114 - MAIN - INFO: iteration 422, total steps 216064, mean/max/min reward 0.243335/0.379412/0.000000
+2023-06-30 11:43:25,638 - MAIN - INFO: iteration 423, total steps 216576, mean/max/min reward 0.227566/0.318182/0.140000
+2023-06-30 11:43:26,197 - MAIN - INFO: iteration 424, total steps 217088, mean/max/min reward 0.338438/0.610000/0.018750
+2023-06-30 11:43:26,696 - MAIN - INFO: iteration 425, total steps 217600, mean/max/min reward 0.267973/0.462500/0.091667
+2023-06-30 11:43:27,216 - MAIN - INFO: iteration 426, total steps 218112, mean/max/min reward 0.557666/0.602778/0.515385
+2023-06-30 11:43:27,730 - MAIN - INFO: iteration 427, total steps 218624, mean/max/min reward 0.426094/0.578333/0.250000
+2023-06-30 11:43:28,256 - MAIN - INFO: iteration 428, total steps 219136, mean/max/min reward 0.350516/0.475000/0.239286
+2023-06-30 11:43:28,763 - MAIN - INFO: iteration 429, total steps 219648, mean/max/min reward 0.270117/0.440625/0.195000
+2023-06-30 11:43:29,290 - MAIN - INFO: iteration 430, total steps 220160, mean/max/min reward 0.407930/0.652500/0.192857
+2023-06-30 11:43:29,806 - MAIN - INFO: iteration 431, total steps 220672, mean/max/min reward 0.343304/0.550000/0.200000
+2023-06-30 11:43:30,331 - MAIN - INFO: iteration 432, total steps 221184, mean/max/min reward 0.250974/0.443182/0.000000
+2023-06-30 11:43:30,843 - MAIN - INFO: iteration 433, total steps 221696, mean/max/min reward 0.428906/0.615625/0.250000
+2023-06-30 11:43:31,370 - MAIN - INFO: iteration 434, total steps 222208, mean/max/min reward 0.371577/0.501786/0.225000
+2023-06-30 11:43:31,891 - MAIN - INFO: iteration 435, total steps 222720, mean/max/min reward 0.243490/0.396875/0.068750
+2023-06-30 11:43:32,418 - MAIN - INFO: iteration 436, total steps 223232, mean/max/min reward 0.344446/0.560000/0.238889
+2023-06-30 11:43:32,964 - MAIN - INFO: iteration 437, total steps 223744, mean/max/min reward 0.344643/0.562500/0.000000
+2023-06-30 11:43:33,503 - MAIN - INFO: iteration 438, total steps 224256, mean/max/min reward 0.448333/0.575000/0.272500
+2023-06-30 11:43:34,017 - MAIN - INFO: iteration 439, total steps 224768, mean/max/min reward 0.433527/0.556250/0.315000
+2023-06-30 11:43:34,542 - MAIN - INFO: iteration 440, total steps 225280, mean/max/min reward 0.346771/0.497500/0.168750
+2023-06-30 11:43:34,542 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:43:34,803 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625] - 0.77
+2023-06-30 11:43:35,309 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.9, 0, 0.95, 0, 0, 0.7, 0, 0.975, 0, 0.95, 0.975, 0.975, 0.875, 0.925, 0, 0.8, 0.925, 0, 0, 0.85, 0, 0.925, 0.85, 0] - 0.52
+2023-06-30 11:43:35,688 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:43:36,205 - MAIN - INFO: iteration 441, total steps 225792, mean/max/min reward 0.339861/0.502083/0.256250
+2023-06-30 11:43:36,721 - MAIN - INFO: iteration 442, total steps 226304, mean/max/min reward 0.348512/0.458333/0.192857
+2023-06-30 11:43:37,237 - MAIN - INFO: iteration 443, total steps 226816, mean/max/min reward 0.320114/0.444444/0.196429
+2023-06-30 11:43:37,803 - MAIN - INFO: iteration 444, total steps 227328, mean/max/min reward 0.245747/0.434375/0.145833
+2023-06-30 11:43:38,313 - MAIN - INFO: iteration 445, total steps 227840, mean/max/min reward 0.334018/0.541667/0.220833
+2023-06-30 11:43:38,826 - MAIN - INFO: iteration 446, total steps 228352, mean/max/min reward 0.339464/0.467857/0.225000
+2023-06-30 11:43:39,342 - MAIN - INFO: iteration 447, total steps 228864, mean/max/min reward 0.353770/0.483333/0.117857
+2023-06-30 11:43:39,861 - MAIN - INFO: iteration 448, total steps 229376, mean/max/min reward 0.263586/0.360000/0.068750
+2023-06-30 11:43:40,378 - MAIN - INFO: iteration 449, total steps 229888, mean/max/min reward 0.309263/0.489286/0.215625
+2023-06-30 11:43:40,890 - MAIN - INFO: iteration 450, total steps 230400, mean/max/min reward 0.258415/0.496875/0.060000
+2023-06-30 11:43:41,465 - MAIN - INFO: iteration 451, total steps 230912, mean/max/min reward 0.427379/0.460714/0.393750
+2023-06-30 11:43:41,981 - MAIN - INFO: iteration 452, total steps 231424, mean/max/min reward 0.344122/0.435714/0.217857
+2023-06-30 11:43:42,528 - MAIN - INFO: iteration 453, total steps 231936, mean/max/min reward 0.389444/0.527778/0.087500
+2023-06-30 11:43:43,035 - MAIN - INFO: iteration 454, total steps 232448, mean/max/min reward 0.360313/0.535000/0.118750
+2023-06-30 11:43:43,553 - MAIN - INFO: iteration 455, total steps 232960, mean/max/min reward 0.426161/0.532143/0.200000
+2023-06-30 11:43:44,069 - MAIN - INFO: iteration 456, total steps 233472, mean/max/min reward 0.456205/0.578125/0.340000
+2023-06-30 11:43:44,583 - MAIN - INFO: iteration 457, total steps 233984, mean/max/min reward 0.541405/0.625000/0.480556
+2023-06-30 11:43:45,101 - MAIN - INFO: iteration 458, total steps 234496, mean/max/min reward 0.449896/0.510000/0.358333
+2023-06-30 11:43:45,610 - MAIN - INFO: iteration 459, total steps 235008, mean/max/min reward 0.427845/0.563462/0.304167
+2023-06-30 11:43:46,119 - MAIN - INFO: iteration 460, total steps 235520, mean/max/min reward 0.295156/0.434375/0.140000
+2023-06-30 11:43:46,119 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:43:46,370 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9] - 0.77
+2023-06-30 11:43:46,840 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0.95, 0, 0, 0, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0, 0, 0, 0.875, 0.925, 0, 0.9, 0.85, 0.9, 0.925, 0.825, 0, 0.9] - 0.54
+2023-06-30 11:43:47,206 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:43:47,835 - MAIN - INFO: iteration 461, total steps 236032, mean/max/min reward 0.379849/0.510714/0.225000
+2023-06-30 11:43:48,353 - MAIN - INFO: iteration 462, total steps 236544, mean/max/min reward 0.466974/0.552273/0.390625
+2023-06-30 11:43:48,870 - MAIN - INFO: iteration 463, total steps 237056, mean/max/min reward 0.529546/0.702273/0.392857
+2023-06-30 11:43:49,381 - MAIN - INFO: iteration 464, total steps 237568, mean/max/min reward 0.440531/0.652500/0.193750
+2023-06-30 11:43:49,899 - MAIN - INFO: iteration 465, total steps 238080, mean/max/min reward 0.345377/0.588889/0.189286
+2023-06-30 11:43:50,419 - MAIN - INFO: iteration 466, total steps 238592, mean/max/min reward 0.470422/0.642500/0.272222
+2023-06-30 11:43:50,937 - MAIN - INFO: iteration 467, total steps 239104, mean/max/min reward 0.550184/0.713235/0.481250
+2023-06-30 11:43:51,469 - MAIN - INFO: iteration 468, total steps 239616, mean/max/min reward 0.388839/0.437500/0.314286
+2023-06-30 11:43:51,968 - MAIN - INFO: iteration 469, total steps 240128, mean/max/min reward 0.489062/0.658929/0.350000
+2023-06-30 11:43:52,490 - MAIN - INFO: iteration 470, total steps 240640, mean/max/min reward 0.481597/0.538889/0.422222
+2023-06-30 11:43:53,000 - MAIN - INFO: iteration 471, total steps 241152, mean/max/min reward 0.447173/0.517857/0.337500
+2023-06-30 11:43:53,515 - MAIN - INFO: iteration 472, total steps 241664, mean/max/min reward 0.415972/0.500000/0.225000
+2023-06-30 11:43:54,030 - MAIN - INFO: iteration 473, total steps 242176, mean/max/min reward 0.603506/0.715909/0.507143
+2023-06-30 11:43:54,534 - MAIN - INFO: iteration 474, total steps 242688, mean/max/min reward 0.243676/0.593750/0.000000
+2023-06-30 11:43:55,047 - MAIN - INFO: iteration 475, total steps 243200, mean/max/min reward 0.385759/0.635000/0.118750
+2023-06-30 11:43:55,554 - MAIN - INFO: iteration 476, total steps 243712, mean/max/min reward 0.438244/0.583333/0.304167
+2023-06-30 11:43:56,073 - MAIN - INFO: iteration 477, total steps 244224, mean/max/min reward 0.496272/0.621875/0.414286
+2023-06-30 11:43:56,595 - MAIN - INFO: iteration 478, total steps 244736, mean/max/min reward 0.594345/0.656250/0.541667
+2023-06-30 11:43:57,125 - MAIN - INFO: iteration 479, total steps 245248, mean/max/min reward 0.575617/0.654545/0.421429
+2023-06-30 11:43:57,651 - MAIN - INFO: iteration 480, total steps 245760, mean/max/min reward 0.421589/0.554688/0.180000
+2023-06-30 11:43:57,652 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:43:57,915 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825] - 0.77
+2023-06-30 11:43:58,275 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.95, 0, 0.825, 0.75, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0, 0.8, 0.925, 0, 0.875, 0.875, 0, 0.925, 0.8, 0, 0.9, 0.825] - 0.67
+2023-06-30 11:43:58,655 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:43:59,197 - MAIN - INFO: iteration 481, total steps 246272, mean/max/min reward 0.413941/0.663889/0.150000
+2023-06-30 11:43:59,718 - MAIN - INFO: iteration 482, total steps 246784, mean/max/min reward 0.589782/0.700000/0.353571
+2023-06-30 11:44:00,241 - MAIN - INFO: iteration 483, total steps 247296, mean/max/min reward 0.570927/0.722727/0.442857
+2023-06-30 11:44:00,766 - MAIN - INFO: iteration 484, total steps 247808, mean/max/min reward 0.486098/0.530000/0.422727
+2023-06-30 11:44:01,275 - MAIN - INFO: iteration 485, total steps 248320, mean/max/min reward 0.420536/0.500000/0.333333
+2023-06-30 11:44:01,796 - MAIN - INFO: iteration 486, total steps 248832, mean/max/min reward 0.472024/0.593750/0.381250
+2023-06-30 11:44:02,319 - MAIN - INFO: iteration 487, total steps 249344, mean/max/min reward 0.494509/0.693750/0.264286
+2023-06-30 11:44:02,897 - MAIN - INFO: iteration 488, total steps 249856, mean/max/min reward 0.546974/0.700000/0.387500
+2023-06-30 11:44:03,474 - MAIN - INFO: iteration 489, total steps 250368, mean/max/min reward 0.458160/0.607353/0.253571
+2023-06-30 11:44:04,000 - MAIN - INFO: iteration 490, total steps 250880, mean/max/min reward 0.635893/0.698214/0.532143
+2023-06-30 11:44:04,515 - MAIN - INFO: iteration 491, total steps 251392, mean/max/min reward 0.555022/0.600000/0.510714
+2023-06-30 11:44:05,038 - MAIN - INFO: iteration 492, total steps 251904, mean/max/min reward 0.507118/0.580556/0.425000
+2023-06-30 11:44:05,563 - MAIN - INFO: iteration 493, total steps 252416, mean/max/min reward 0.566436/0.647222/0.481250
+2023-06-30 11:44:06,079 - MAIN - INFO: iteration 494, total steps 252928, mean/max/min reward 0.637792/0.718182/0.571875
+2023-06-30 11:44:06,585 - MAIN - INFO: iteration 495, total steps 253440, mean/max/min reward 0.508839/0.680000/0.417857
+2023-06-30 11:44:07,121 - MAIN - INFO: iteration 496, total steps 253952, mean/max/min reward 0.412872/0.616667/0.025000
+2023-06-30 11:44:07,629 - MAIN - INFO: iteration 497, total steps 254464, mean/max/min reward 0.553977/0.643182/0.450000
+2023-06-30 11:44:08,138 - MAIN - INFO: iteration 498, total steps 254976, mean/max/min reward 0.475085/0.656250/0.135000
+2023-06-30 11:44:08,658 - MAIN - INFO: iteration 499, total steps 255488, mean/max/min reward 0.502500/0.575000/0.415000
+2023-06-30 11:44:09,168 - MAIN - INFO: iteration 500, total steps 256000, mean/max/min reward 0.372679/0.475000/0.105000
+2023-06-30 11:44:09,169 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:44:09,424 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95] - 0.77
+2023-06-30 11:44:09,901 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0, 0, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0, 0.875, 0, 0, 0.925, 0, 0.825, 0.775, 0, 0.925, 0.8, 0, 0.875, 0.925, 0.95] - 0.53
+2023-06-30 11:44:10,272 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:44:10,797 - MAIN - INFO: iteration 501, total steps 256512, mean/max/min reward 0.497054/0.640000/0.321429
+2023-06-30 11:44:11,316 - MAIN - INFO: iteration 502, total steps 257024, mean/max/min reward 0.425000/0.553571/0.275000
+2023-06-30 11:44:11,830 - MAIN - INFO: iteration 503, total steps 257536, mean/max/min reward 0.281088/0.538636/0.000000
+2023-06-30 11:44:12,360 - MAIN - INFO: iteration 504, total steps 258048, mean/max/min reward 0.589757/0.712500/0.536111
+2023-06-30 11:44:12,887 - MAIN - INFO: iteration 505, total steps 258560, mean/max/min reward 0.472607/0.627500/0.220833
+2023-06-30 11:44:13,418 - MAIN - INFO: iteration 506, total steps 259072, mean/max/min reward 0.504323/0.660000/0.368750
+2023-06-30 11:44:13,927 - MAIN - INFO: iteration 507, total steps 259584, mean/max/min reward 0.502589/0.577500/0.439286
+2023-06-30 11:44:14,449 - MAIN - INFO: iteration 508, total steps 260096, mean/max/min reward 0.584740/0.692500/0.483333
+2023-06-30 11:44:14,969 - MAIN - INFO: iteration 509, total steps 260608, mean/max/min reward 0.462552/0.682500/0.300000
+2023-06-30 11:44:15,500 - MAIN - INFO: iteration 510, total steps 261120, mean/max/min reward 0.626358/0.709375/0.572500
+2023-06-30 11:44:16,016 - MAIN - INFO: iteration 511, total steps 261632, mean/max/min reward 0.547388/0.690000/0.378125
+2023-06-30 11:44:16,540 - MAIN - INFO: iteration 512, total steps 262144, mean/max/min reward 0.521043/0.614286/0.379167
+2023-06-30 11:44:17,049 - MAIN - INFO: iteration 513, total steps 262656, mean/max/min reward 0.576632/0.672500/0.488889
+2023-06-30 11:44:17,574 - MAIN - INFO: iteration 514, total steps 263168, mean/max/min reward 0.641341/0.742308/0.492500
+2023-06-30 11:44:18,087 - MAIN - INFO: iteration 515, total steps 263680, mean/max/min reward 0.552359/0.657500/0.446875
+2023-06-30 11:44:18,613 - MAIN - INFO: iteration 516, total steps 264192, mean/max/min reward 0.547222/0.735000/0.440000
+2023-06-30 11:44:19,133 - MAIN - INFO: iteration 517, total steps 264704, mean/max/min reward 0.556481/0.661538/0.417857
+2023-06-30 11:44:19,660 - MAIN - INFO: iteration 518, total steps 265216, mean/max/min reward 0.543769/0.729688/0.421429
+2023-06-30 11:44:20,176 - MAIN - INFO: iteration 519, total steps 265728, mean/max/min reward 0.562715/0.661111/0.515000
+2023-06-30 11:44:20,701 - MAIN - INFO: iteration 520, total steps 266240, mean/max/min reward 0.592098/0.662500/0.519643
+2023-06-30 11:44:20,702 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:44:20,955 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0] - 0.77
+2023-06-30 11:44:21,299 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0.85, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0, 0.825, 0.875, 0.925, 0, 0.85, 0.85, 0, 0.925, 0.75, 0, 0.9, 0, 0.95, 0.875] - 0.67
+2023-06-30 11:44:21,665 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:44:22,190 - MAIN - INFO: iteration 521, total steps 266752, mean/max/min reward 0.621002/0.730882/0.428125
+2023-06-30 11:44:22,704 - MAIN - INFO: iteration 522, total steps 267264, mean/max/min reward 0.628066/0.742308/0.505000
+2023-06-30 11:44:23,219 - MAIN - INFO: iteration 523, total steps 267776, mean/max/min reward 0.545145/0.698438/0.305556
+2023-06-30 11:44:23,737 - MAIN - INFO: iteration 524, total steps 268288, mean/max/min reward 0.536339/0.620000/0.478571
+2023-06-30 11:44:24,271 - MAIN - INFO: iteration 525, total steps 268800, mean/max/min reward 0.536989/0.632500/0.395000
+2023-06-30 11:44:24,788 - MAIN - INFO: iteration 526, total steps 269312, mean/max/min reward 0.563419/0.659091/0.305000
+2023-06-30 11:44:25,324 - MAIN - INFO: iteration 527, total steps 269824, mean/max/min reward 0.677787/0.765278/0.540000
+2023-06-30 11:44:25,840 - MAIN - INFO: iteration 528, total steps 270336, mean/max/min reward 0.573694/0.610938/0.541667
+2023-06-30 11:44:26,380 - MAIN - INFO: iteration 529, total steps 270848, mean/max/min reward 0.614741/0.765909/0.487500
+2023-06-30 11:44:26,905 - MAIN - INFO: iteration 530, total steps 271360, mean/max/min reward 0.544665/0.627273/0.483333
+2023-06-30 11:44:27,427 - MAIN - INFO: iteration 531, total steps 271872, mean/max/min reward 0.558767/0.600000/0.536111
+2023-06-30 11:44:27,955 - MAIN - INFO: iteration 532, total steps 272384, mean/max/min reward 0.617417/0.760294/0.521875
+2023-06-30 11:44:28,486 - MAIN - INFO: iteration 533, total steps 272896, mean/max/min reward 0.619962/0.668182/0.525000
+2023-06-30 11:44:29,027 - MAIN - INFO: iteration 534, total steps 273408, mean/max/min reward 0.639943/0.702273/0.575000
+2023-06-30 11:44:29,565 - MAIN - INFO: iteration 535, total steps 273920, mean/max/min reward 0.541059/0.597917/0.471875
+2023-06-30 11:44:30,087 - MAIN - INFO: iteration 536, total steps 274432, mean/max/min reward 0.647318/0.760938/0.566667
+2023-06-30 11:44:30,605 - MAIN - INFO: iteration 537, total steps 274944, mean/max/min reward 0.611875/0.700000/0.543750
+2023-06-30 11:44:31,129 - MAIN - INFO: iteration 538, total steps 275456, mean/max/min reward 0.589798/0.681250/0.429167
+2023-06-30 11:44:31,648 - MAIN - INFO: iteration 539, total steps 275968, mean/max/min reward 0.600021/0.642308/0.555000
+2023-06-30 11:44:32,167 - MAIN - INFO: iteration 540, total steps 276480, mean/max/min reward 0.649351/0.755357/0.433333
+2023-06-30 11:44:32,167 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:44:32,420 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825] - 0.77
+2023-06-30 11:44:32,649 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.85, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0, 0.9, 0.85, 0.9, 0.925, 0.825, 0, 0.9, 0.925, 0.95, 0.875, 0] - 0.79
+2023-06-30 11:44:33,016 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:44:33,549 - MAIN - INFO: iteration 541, total steps 276992, mean/max/min reward 0.656297/0.739773/0.562500
+2023-06-30 11:44:34,070 - MAIN - INFO: iteration 542, total steps 277504, mean/max/min reward 0.644532/0.748077/0.527778
+2023-06-30 11:44:34,602 - MAIN - INFO: iteration 543, total steps 278016, mean/max/min reward 0.600521/0.793333/0.245833
+2023-06-30 11:44:35,129 - MAIN - INFO: iteration 544, total steps 278528, mean/max/min reward 0.606854/0.668182/0.547222
+2023-06-30 11:44:35,638 - MAIN - INFO: iteration 545, total steps 279040, mean/max/min reward 0.622743/0.779167/0.481250
+2023-06-30 11:44:36,169 - MAIN - INFO: iteration 546, total steps 279552, mean/max/min reward 0.566667/0.655556/0.402778
+2023-06-30 11:44:36,698 - MAIN - INFO: iteration 547, total steps 280064, mean/max/min reward 0.700143/0.803571/0.552083
+2023-06-30 11:44:37,246 - MAIN - INFO: iteration 548, total steps 280576, mean/max/min reward 0.669471/0.776923/0.580000
+2023-06-30 11:44:37,757 - MAIN - INFO: iteration 549, total steps 281088, mean/max/min reward 0.502753/0.618750/0.362500
+2023-06-30 11:44:38,282 - MAIN - INFO: iteration 550, total steps 281600, mean/max/min reward 0.663653/0.741071/0.533333
+2023-06-30 11:44:38,821 - MAIN - INFO: iteration 551, total steps 282112, mean/max/min reward 0.652574/0.782143/0.503571
+2023-06-30 11:44:39,343 - MAIN - INFO: iteration 552, total steps 282624, mean/max/min reward 0.602516/0.709091/0.446429
+2023-06-30 11:44:39,844 - MAIN - INFO: iteration 553, total steps 283136, mean/max/min reward 0.516728/0.679412/0.190000
+2023-06-30 11:44:40,377 - MAIN - INFO: iteration 554, total steps 283648, mean/max/min reward 0.736643/0.800000/0.670000
+2023-06-30 11:44:40,902 - MAIN - INFO: iteration 555, total steps 284160, mean/max/min reward 0.676356/0.782353/0.513636
+2023-06-30 11:44:41,424 - MAIN - INFO: iteration 556, total steps 284672, mean/max/min reward 0.654545/0.725000/0.487500
+2023-06-30 11:44:41,956 - MAIN - INFO: iteration 557, total steps 285184, mean/max/min reward 0.671681/0.802778/0.573529
+2023-06-30 11:44:42,469 - MAIN - INFO: iteration 558, total steps 285696, mean/max/min reward 0.583568/0.642857/0.519444
+2023-06-30 11:44:42,987 - MAIN - INFO: iteration 559, total steps 286208, mean/max/min reward 0.656528/0.790625/0.552778
+2023-06-30 11:44:43,507 - MAIN - INFO: iteration 560, total steps 286720, mean/max/min reward 0.674867/0.706818/0.615000
+2023-06-30 11:44:43,507 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:44:43,759 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85] - 0.77
+2023-06-30 11:44:43,909 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.675, 0.9, 0.85, 0.9, 0.925, 0.875, 0.725, 0.9, 0.925, 0.95, 0.875, 0.75, 0.85] - 0.88
+2023-06-30 11:44:44,278 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:44:44,804 - MAIN - INFO: iteration 561, total steps 287232, mean/max/min reward 0.554792/0.771667/0.212500
+2023-06-30 11:44:45,327 - MAIN - INFO: iteration 562, total steps 287744, mean/max/min reward 0.609159/0.821429/0.193750
+2023-06-30 11:44:45,846 - MAIN - INFO: iteration 563, total steps 288256, mean/max/min reward 0.604050/0.656667/0.513889
+2023-06-30 11:44:46,410 - MAIN - INFO: iteration 564, total steps 288768, mean/max/min reward 0.672500/0.755000/0.636111
+2023-06-30 11:44:46,938 - MAIN - INFO: iteration 565, total steps 289280, mean/max/min reward 0.628889/0.722500/0.580000
+2023-06-30 11:44:47,467 - MAIN - INFO: iteration 566, total steps 289792, mean/max/min reward 0.666699/0.735417/0.537500
+2023-06-30 11:44:47,977 - MAIN - INFO: iteration 567, total steps 290304, mean/max/min reward 0.608046/0.687500/0.464286
+2023-06-30 11:44:48,493 - MAIN - INFO: iteration 568, total steps 290816, mean/max/min reward 0.552083/0.562500/0.533333
+2023-06-30 11:44:49,007 - MAIN - INFO: iteration 569, total steps 291328, mean/max/min reward 0.636255/0.681667/0.590625
+2023-06-30 11:44:49,534 - MAIN - INFO: iteration 570, total steps 291840, mean/max/min reward 0.688264/0.786538/0.596875
+2023-06-30 11:44:50,059 - MAIN - INFO: iteration 571, total steps 292352, mean/max/min reward 0.650139/0.683333/0.613889
+2023-06-30 11:44:50,584 - MAIN - INFO: iteration 572, total steps 292864, mean/max/min reward 0.741038/0.770455/0.676786
+2023-06-30 11:44:51,143 - MAIN - INFO: iteration 573, total steps 293376, mean/max/min reward 0.665720/0.713636/0.565909
+2023-06-30 11:44:51,650 - MAIN - INFO: iteration 574, total steps 293888, mean/max/min reward 0.653656/0.721429/0.568750
+2023-06-30 11:44:52,167 - MAIN - INFO: iteration 575, total steps 294400, mean/max/min reward 0.532448/0.761667/0.362500
+2023-06-30 11:44:52,706 - MAIN - INFO: iteration 576, total steps 294912, mean/max/min reward 0.667679/0.748214/0.590000
+2023-06-30 11:44:53,204 - MAIN - INFO: iteration 577, total steps 295424, mean/max/min reward 0.636369/0.782143/0.515000
+2023-06-30 11:44:53,732 - MAIN - INFO: iteration 578, total steps 295936, mean/max/min reward 0.652394/0.727632/0.573611
+2023-06-30 11:44:54,256 - MAIN - INFO: iteration 579, total steps 296448, mean/max/min reward 0.639551/0.663333/0.613333
+2023-06-30 11:44:54,778 - MAIN - INFO: iteration 580, total steps 296960, mean/max/min reward 0.475000/0.600000/0.225000
+2023-06-30 11:44:54,778 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:44:55,034 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0] - 0.77
+2023-06-30 11:44:55,326 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0, 0.9, 0.85, 0.9, 0.925, 0.9, 0.725, 0.9, 0.925, 0.95, 0, 0, 0.85, 0.8] - 0.78
+2023-06-30 11:44:55,693 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:44:56,214 - MAIN - INFO: iteration 581, total steps 297472, mean/max/min reward 0.719000/0.820833/0.603125
+2023-06-30 11:44:56,747 - MAIN - INFO: iteration 582, total steps 297984, mean/max/min reward 0.697240/0.778333/0.665625
+2023-06-30 11:44:57,276 - MAIN - INFO: iteration 583, total steps 298496, mean/max/min reward 0.750357/0.783333/0.708333
+2023-06-30 11:44:57,790 - MAIN - INFO: iteration 584, total steps 299008, mean/max/min reward 0.579096/0.685417/0.425000
+2023-06-30 11:44:58,315 - MAIN - INFO: iteration 585, total steps 299520, mean/max/min reward 0.690446/0.751923/0.596875
+2023-06-30 11:44:58,842 - MAIN - INFO: iteration 586, total steps 300032, mean/max/min reward 0.518006/0.656250/0.306250
+2023-06-30 11:44:59,363 - MAIN - INFO: iteration 587, total steps 300544, mean/max/min reward 0.720547/0.775000/0.679545
+2023-06-30 11:44:59,905 - MAIN - INFO: iteration 588, total steps 301056, mean/max/min reward 0.659323/0.742500/0.528125
+2023-06-30 11:45:00,437 - MAIN - INFO: iteration 589, total steps 301568, mean/max/min reward 0.531742/0.655000/0.383333
+2023-06-30 11:45:00,966 - MAIN - INFO: iteration 590, total steps 302080, mean/max/min reward 0.626885/0.744444/0.496429
+2023-06-30 11:45:01,489 - MAIN - INFO: iteration 591, total steps 302592, mean/max/min reward 0.689722/0.763889/0.641667
+2023-06-30 11:45:02,012 - MAIN - INFO: iteration 592, total steps 303104, mean/max/min reward 0.683120/0.730000/0.655556
+2023-06-30 11:45:02,521 - MAIN - INFO: iteration 593, total steps 303616, mean/max/min reward 0.668125/0.735417/0.587500
+2023-06-30 11:45:03,036 - MAIN - INFO: iteration 594, total steps 304128, mean/max/min reward 0.656158/0.816667/0.553571
+2023-06-30 11:45:03,548 - MAIN - INFO: iteration 595, total steps 304640, mean/max/min reward 0.664114/0.767188/0.447222
+2023-06-30 11:45:04,072 - MAIN - INFO: iteration 596, total steps 305152, mean/max/min reward 0.647061/0.751786/0.540625
+2023-06-30 11:45:04,608 - MAIN - INFO: iteration 597, total steps 305664, mean/max/min reward 0.693534/0.801316/0.572500
+2023-06-30 11:45:05,137 - MAIN - INFO: iteration 598, total steps 306176, mean/max/min reward 0.593304/0.675000/0.410714
+2023-06-30 11:45:05,652 - MAIN - INFO: iteration 599, total steps 306688, mean/max/min reward 0.534957/0.638636/0.392857
+2023-06-30 11:45:06,197 - MAIN - INFO: iteration 600, total steps 307200, mean/max/min reward 0.639129/0.714583/0.556250
+2023-06-30 11:45:06,197 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:45:06,453 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975] - 0.77
+2023-06-30 11:45:06,600 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.95, 0.95, 0.975, 0.975, 0.875, 0.925, 0.825, 0.875, 0.925, 0.725, 0.9, 0.85, 0.9, 0.925, 0.85, 0.725, 0.9, 0.925, 0.95, 0.825, 0.825, 0.8, 0.8, 0.975] - 0.88
+2023-06-30 11:45:06,970 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:45:07,480 - MAIN - INFO: iteration 601, total steps 307712, mean/max/min reward 0.514345/0.625000/0.379167
+2023-06-30 11:45:08,012 - MAIN - INFO: iteration 602, total steps 308224, mean/max/min reward 0.688447/0.729167/0.612500
+2023-06-30 11:45:08,544 - MAIN - INFO: iteration 603, total steps 308736, mean/max/min reward 0.613021/0.733333/0.437500
+2023-06-30 11:45:09,059 - MAIN - INFO: iteration 604, total steps 309248, mean/max/min reward 0.544721/0.782692/0.342857
+2023-06-30 11:45:09,555 - MAIN - INFO: iteration 605, total steps 309760, mean/max/min reward 0.470833/0.687500/0.371429
+2023-06-30 11:45:10,083 - MAIN - INFO: iteration 606, total steps 310272, mean/max/min reward 0.671798/0.715385/0.622727
+2023-06-30 11:45:10,613 - MAIN - INFO: iteration 607, total steps 310784, mean/max/min reward 0.581780/0.695833/0.395833
+2023-06-30 11:45:11,133 - MAIN - INFO: iteration 608, total steps 311296, mean/max/min reward 0.715184/0.811538/0.600000
+2023-06-30 11:45:11,652 - MAIN - INFO: iteration 609, total steps 311808, mean/max/min reward 0.541615/0.753125/0.405000
+2023-06-30 11:45:12,206 - MAIN - INFO: iteration 610, total steps 312320, mean/max/min reward 0.732521/0.771429/0.662500
+2023-06-30 11:45:12,725 - MAIN - INFO: iteration 611, total steps 312832, mean/max/min reward 0.681159/0.750000/0.627083
+2023-06-30 11:45:13,245 - MAIN - INFO: iteration 612, total steps 313344, mean/max/min reward 0.642661/0.762500/0.520833
+2023-06-30 11:45:13,773 - MAIN - INFO: iteration 613, total steps 313856, mean/max/min reward 0.641787/0.661765/0.610000
+2023-06-30 11:45:14,315 - MAIN - INFO: iteration 614, total steps 314368, mean/max/min reward 0.730209/0.809375/0.582143
+2023-06-30 11:45:14,830 - MAIN - INFO: iteration 615, total steps 314880, mean/max/min reward 0.597014/0.625000/0.580556
+2023-06-30 11:45:15,381 - MAIN - INFO: iteration 616, total steps 315392, mean/max/min reward 0.777068/0.832895/0.732143
+2023-06-30 11:45:15,896 - MAIN - INFO: iteration 617, total steps 315904, mean/max/min reward 0.520109/0.711538/0.329167
+2023-06-30 11:45:16,411 - MAIN - INFO: iteration 618, total steps 316416, mean/max/min reward 0.511418/0.665909/0.364286
+2023-06-30 11:45:16,934 - MAIN - INFO: iteration 619, total steps 316928, mean/max/min reward 0.624010/0.691667/0.559375
+2023-06-30 11:45:17,463 - MAIN - INFO: iteration 620, total steps 317440, mean/max/min reward 0.653109/0.690000/0.556250
+2023-06-30 11:45:17,463 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:45:17,715 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95] - 0.77
+2023-06-30 11:45:17,860 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.95, 0.975, 0.975, 0.875, 0.925, 0.825, 0.875, 0.925, 0.825, 0.825, 0.85, 0.9, 0.925, 0.75, 0.725, 0.9, 0.925, 0.95, 0.775, 0.825, 0.85, 0.8, 0.975, 0.95] - 0.88
+2023-06-30 11:45:18,227 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:45:18,744 - MAIN - INFO: iteration 621, total steps 317952, mean/max/min reward 0.561532/0.666667/0.452778
+2023-06-30 11:45:19,275 - MAIN - INFO: iteration 622, total steps 318464, mean/max/min reward 0.725665/0.756250/0.698333
+2023-06-30 11:45:19,776 - MAIN - INFO: iteration 623, total steps 318976, mean/max/min reward 0.669211/0.796667/0.506250
+2023-06-30 11:45:20,305 - MAIN - INFO: iteration 624, total steps 319488, mean/max/min reward 0.579331/0.711364/0.485000
+2023-06-30 11:45:20,810 - MAIN - INFO: iteration 625, total steps 320000, mean/max/min reward 0.476910/0.572222/0.404167
+2023-06-30 11:45:21,450 - MAIN - INFO: iteration 626, total steps 320512, mean/max/min reward 0.713134/0.748077/0.677273
+2023-06-30 11:45:21,964 - MAIN - INFO: iteration 627, total steps 321024, mean/max/min reward 0.670820/0.763636/0.582143
+2023-06-30 11:45:22,481 - MAIN - INFO: iteration 628, total steps 321536, mean/max/min reward 0.591302/0.683333/0.521875
+2023-06-30 11:45:22,998 - MAIN - INFO: iteration 629, total steps 322048, mean/max/min reward 0.716648/0.747619/0.667188
+2023-06-30 11:45:23,540 - MAIN - INFO: iteration 630, total steps 322560, mean/max/min reward 0.712996/0.825000/0.630556
+2023-06-30 11:45:24,062 - MAIN - INFO: iteration 631, total steps 323072, mean/max/min reward 0.664081/0.730769/0.605556
+2023-06-30 11:45:24,595 - MAIN - INFO: iteration 632, total steps 323584, mean/max/min reward 0.723835/0.800000/0.684091
+2023-06-30 11:45:25,157 - MAIN - INFO: iteration 633, total steps 324096, mean/max/min reward 0.723601/0.741071/0.703333
+2023-06-30 11:45:25,675 - MAIN - INFO: iteration 634, total steps 324608, mean/max/min reward 0.639424/0.715909/0.489286
+2023-06-30 11:45:26,195 - MAIN - INFO: iteration 635, total steps 325120, mean/max/min reward 0.454688/0.712500/0.150000
+2023-06-30 11:45:26,720 - MAIN - INFO: iteration 636, total steps 325632, mean/max/min reward 0.726080/0.775000/0.684091
+2023-06-30 11:45:27,270 - MAIN - INFO: iteration 637, total steps 326144, mean/max/min reward 0.731879/0.767857/0.690909
+2023-06-30 11:45:27,794 - MAIN - INFO: iteration 638, total steps 326656, mean/max/min reward 0.584353/0.802941/0.270833
+2023-06-30 11:45:28,302 - MAIN - INFO: iteration 639, total steps 327168, mean/max/min reward 0.712793/0.735000/0.668750
+2023-06-30 11:45:28,819 - MAIN - INFO: iteration 640, total steps 327680, mean/max/min reward 0.683908/0.790000/0.602500
+2023-06-30 11:45:28,819 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:45:29,077 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95] - 0.77
+2023-06-30 11:45:29,248 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.975, 0.975, 0.875, 0.925, 0.825, 0.875, 0.925, 0.825, 0.9, 0.85, 0.9, 0.925, 0.9, 0, 0.9, 0.925, 0.95, 0.875, 0.75, 0.725, 0.8, 0.975, 0.95, 0.95] - 0.85
+2023-06-30 11:45:29,614 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:45:30,140 - MAIN - INFO: iteration 641, total steps 328192, mean/max/min reward 0.756318/0.846053/0.658929
+2023-06-30 11:45:30,668 - MAIN - INFO: iteration 642, total steps 328704, mean/max/min reward 0.633740/0.755000/0.464286
+2023-06-30 11:45:31,191 - MAIN - INFO: iteration 643, total steps 329216, mean/max/min reward 0.639766/0.670455/0.611111
+2023-06-30 11:45:31,720 - MAIN - INFO: iteration 644, total steps 329728, mean/max/min reward 0.660994/0.735714/0.519444
+2023-06-30 11:45:32,275 - MAIN - INFO: iteration 645, total steps 330240, mean/max/min reward 0.740262/0.801562/0.626923
+2023-06-30 11:45:32,793 - MAIN - INFO: iteration 646, total steps 330752, mean/max/min reward 0.637546/0.770833/0.539286
+2023-06-30 11:45:33,314 - MAIN - INFO: iteration 647, total steps 331264, mean/max/min reward 0.726914/0.805769/0.643750
+2023-06-30 11:45:33,836 - MAIN - INFO: iteration 648, total steps 331776, mean/max/min reward 0.643075/0.698438/0.579545
+2023-06-30 11:45:34,355 - MAIN - INFO: iteration 649, total steps 332288, mean/max/min reward 0.727342/0.806250/0.620000
+2023-06-30 11:45:34,883 - MAIN - INFO: iteration 650, total steps 332800, mean/max/min reward 0.587361/0.680000/0.483333
+2023-06-30 11:45:35,414 - MAIN - INFO: iteration 651, total steps 333312, mean/max/min reward 0.698540/0.773684/0.627500
+2023-06-30 11:45:35,944 - MAIN - INFO: iteration 652, total steps 333824, mean/max/min reward 0.579861/0.691071/0.462500
+2023-06-30 11:45:36,478 - MAIN - INFO: iteration 653, total steps 334336, mean/max/min reward 0.688896/0.753846/0.569444
+2023-06-30 11:45:36,997 - MAIN - INFO: iteration 654, total steps 334848, mean/max/min reward 0.667886/0.755769/0.592857
+2023-06-30 11:45:37,513 - MAIN - INFO: iteration 655, total steps 335360, mean/max/min reward 0.652770/0.753125/0.570455
+2023-06-30 11:45:38,045 - MAIN - INFO: iteration 656, total steps 335872, mean/max/min reward 0.705469/0.775000/0.603125
+2023-06-30 11:45:38,547 - MAIN - INFO: iteration 657, total steps 336384, mean/max/min reward 0.674196/0.776786/0.547500
+2023-06-30 11:45:39,074 - MAIN - INFO: iteration 658, total steps 336896, mean/max/min reward 0.643854/0.833333/0.362500
+2023-06-30 11:45:39,597 - MAIN - INFO: iteration 659, total steps 337408, mean/max/min reward 0.602528/0.695833/0.516667
+2023-06-30 11:45:40,122 - MAIN - INFO: iteration 660, total steps 337920, mean/max/min reward 0.615205/0.693182/0.568750
+2023-06-30 11:45:40,122 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:45:40,380 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975] - 0.77
+2023-06-30 11:45:40,585 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0, 0.825, 0.85, 0.9, 0.925, 0.825, 0, 0.9, 0.925, 0.95, 0.875, 0.825, 0.85, 0.8, 0.975, 0.95, 0.95, 0.975] - 0.82
+2023-06-30 11:45:40,961 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:45:41,477 - MAIN - INFO: iteration 661, total steps 338432, mean/max/min reward 0.652344/0.733333/0.546875
+2023-06-30 11:45:42,004 - MAIN - INFO: iteration 662, total steps 338944, mean/max/min reward 0.746466/0.826250/0.694231
+2023-06-30 11:45:42,532 - MAIN - INFO: iteration 663, total steps 339456, mean/max/min reward 0.625675/0.757143/0.397222
+2023-06-30 11:45:43,067 - MAIN - INFO: iteration 664, total steps 339968, mean/max/min reward 0.702259/0.746429/0.638889
+2023-06-30 11:45:43,605 - MAIN - INFO: iteration 665, total steps 340480, mean/max/min reward 0.637165/0.750000/0.546429
+2023-06-30 11:45:44,129 - MAIN - INFO: iteration 666, total steps 340992, mean/max/min reward 0.709816/0.796875/0.571875
+2023-06-30 11:45:44,657 - MAIN - INFO: iteration 667, total steps 341504, mean/max/min reward 0.661556/0.775000/0.492857
+2023-06-30 11:45:45,182 - MAIN - INFO: iteration 668, total steps 342016, mean/max/min reward 0.693816/0.743182/0.647500
+2023-06-30 11:45:45,708 - MAIN - INFO: iteration 669, total steps 342528, mean/max/min reward 0.569903/0.621875/0.470833
+2023-06-30 11:45:46,224 - MAIN - INFO: iteration 670, total steps 343040, mean/max/min reward 0.558694/0.705769/0.318750
+2023-06-30 11:45:46,739 - MAIN - INFO: iteration 671, total steps 343552, mean/max/min reward 0.747267/0.810937/0.706818
+2023-06-30 11:45:47,258 - MAIN - INFO: iteration 672, total steps 344064, mean/max/min reward 0.587718/0.701667/0.521429
+2023-06-30 11:45:47,776 - MAIN - INFO: iteration 673, total steps 344576, mean/max/min reward 0.709582/0.791667/0.607500
+2023-06-30 11:45:48,302 - MAIN - INFO: iteration 674, total steps 345088, mean/max/min reward 0.637192/0.690909/0.542857
+2023-06-30 11:45:48,822 - MAIN - INFO: iteration 675, total steps 345600, mean/max/min reward 0.651989/0.706250/0.590909
+2023-06-30 11:45:49,353 - MAIN - INFO: iteration 676, total steps 346112, mean/max/min reward 0.729851/0.779167/0.628571
+2023-06-30 11:45:49,924 - MAIN - INFO: iteration 677, total steps 346624, mean/max/min reward 0.706398/0.815789/0.475000
+2023-06-30 11:45:50,449 - MAIN - INFO: iteration 678, total steps 347136, mean/max/min reward 0.674851/0.741071/0.600000
+2023-06-30 11:45:50,981 - MAIN - INFO: iteration 679, total steps 347648, mean/max/min reward 0.730619/0.825000/0.536364
+2023-06-30 11:45:51,501 - MAIN - INFO: iteration 680, total steps 348160, mean/max/min reward 0.656960/0.719231/0.602500
+2023-06-30 11:45:51,501 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:45:51,752 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975] - 0.77
+2023-06-30 11:45:52,117 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.875, 0.875, 0.825, 0.875, 0.925, 0, 0, 0.85, 0.8, 0, 0.825, 0, 0.9, 0, 0.95, 0.875, 0.825, 0.625, 0, 0.975, 0.95, 0.75, 0.975, 0.975] - 0.65
+2023-06-30 11:45:52,481 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:45:52,995 - MAIN - INFO: iteration 681, total steps 348672, mean/max/min reward 0.649306/0.714583/0.610417
+2023-06-30 11:45:53,535 - MAIN - INFO: iteration 682, total steps 349184, mean/max/min reward 0.754607/0.837500/0.692308
+2023-06-30 11:45:54,043 - MAIN - INFO: iteration 683, total steps 349696, mean/max/min reward 0.662921/0.823438/0.521429
+2023-06-30 11:45:54,574 - MAIN - INFO: iteration 684, total steps 350208, mean/max/min reward 0.759736/0.785000/0.725000
+2023-06-30 11:45:55,100 - MAIN - INFO: iteration 685, total steps 350720, mean/max/min reward 0.766164/0.842500/0.630000
+2023-06-30 11:45:55,633 - MAIN - INFO: iteration 686, total steps 351232, mean/max/min reward 0.694683/0.732143/0.629545
+2023-06-30 11:45:56,160 - MAIN - INFO: iteration 687, total steps 351744, mean/max/min reward 0.691301/0.755357/0.616667
+2023-06-30 11:45:56,695 - MAIN - INFO: iteration 688, total steps 352256, mean/max/min reward 0.758714/0.841176/0.655556
+2023-06-30 11:45:57,211 - MAIN - INFO: iteration 689, total steps 352768, mean/max/min reward 0.641875/0.755000/0.547500
+2023-06-30 11:45:57,743 - MAIN - INFO: iteration 690, total steps 353280, mean/max/min reward 0.761715/0.796667/0.739286
+2023-06-30 11:45:58,276 - MAIN - INFO: iteration 691, total steps 353792, mean/max/min reward 0.696676/0.797500/0.656818
+2023-06-30 11:45:58,805 - MAIN - INFO: iteration 692, total steps 354304, mean/max/min reward 0.692262/0.819048/0.500000
+2023-06-30 11:45:59,340 - MAIN - INFO: iteration 693, total steps 354816, mean/max/min reward 0.723170/0.821154/0.661111
+2023-06-30 11:45:59,869 - MAIN - INFO: iteration 694, total steps 355328, mean/max/min reward 0.692761/0.800000/0.627500
+2023-06-30 11:46:00,400 - MAIN - INFO: iteration 695, total steps 355840, mean/max/min reward 0.757813/0.793750/0.719444
+2023-06-30 11:46:00,931 - MAIN - INFO: iteration 696, total steps 356352, mean/max/min reward 0.713709/0.778571/0.626786
+2023-06-30 11:46:01,469 - MAIN - INFO: iteration 697, total steps 356864, mean/max/min reward 0.719027/0.786364/0.662500
+2023-06-30 11:46:02,014 - MAIN - INFO: iteration 698, total steps 357376, mean/max/min reward 0.658577/0.804412/0.420833
+2023-06-30 11:46:02,529 - MAIN - INFO: iteration 699, total steps 357888, mean/max/min reward 0.623562/0.641667/0.592857
+2023-06-30 11:46:03,051 - MAIN - INFO: iteration 700, total steps 358400, mean/max/min reward 0.692804/0.732692/0.607500
+2023-06-30 11:46:03,051 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:46:03,305 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9] - 0.77
+2023-06-30 11:46:03,442 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.875, 0.825, 0.875, 0.925, 0.725, 0.9, 0.85, 0.9, 0.925, 0.875, 0.725, 0.9, 0.925, 0.95, 0.875, 0.825, 0.85, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9] - 0.89
+2023-06-30 11:46:03,813 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:46:04,325 - MAIN - INFO: iteration 701, total steps 358912, mean/max/min reward 0.714098/0.798438/0.647500
+2023-06-30 11:46:04,847 - MAIN - INFO: iteration 702, total steps 359424, mean/max/min reward 0.711042/0.758333/0.675000
+2023-06-30 11:46:05,352 - MAIN - INFO: iteration 703, total steps 359936, mean/max/min reward 0.636338/0.730769/0.433333
+2023-06-30 11:46:05,885 - MAIN - INFO: iteration 704, total steps 360448, mean/max/min reward 0.675947/0.729167/0.639583
+2023-06-30 11:46:06,448 - MAIN - INFO: iteration 705, total steps 360960, mean/max/min reward 0.759914/0.801562/0.685000
+2023-06-30 11:46:06,976 - MAIN - INFO: iteration 706, total steps 361472, mean/max/min reward 0.667125/0.732692/0.527778
+2023-06-30 11:46:07,502 - MAIN - INFO: iteration 707, total steps 361984, mean/max/min reward 0.701891/0.783333/0.644231
+2023-06-30 11:46:08,020 - MAIN - INFO: iteration 708, total steps 362496, mean/max/min reward 0.602642/0.706818/0.316667
+2023-06-30 11:46:08,551 - MAIN - INFO: iteration 709, total steps 363008, mean/max/min reward 0.659714/0.718182/0.571875
+2023-06-30 11:46:09,092 - MAIN - INFO: iteration 710, total steps 363520, mean/max/min reward 0.675104/0.733333/0.641667
+2023-06-30 11:46:09,635 - MAIN - INFO: iteration 711, total steps 364032, mean/max/min reward 0.723282/0.848810/0.602273
+2023-06-30 11:46:10,159 - MAIN - INFO: iteration 712, total steps 364544, mean/max/min reward 0.643795/0.690000/0.546429
+2023-06-30 11:46:10,688 - MAIN - INFO: iteration 713, total steps 365056, mean/max/min reward 0.702241/0.756250/0.663889
+2023-06-30 11:46:11,218 - MAIN - INFO: iteration 714, total steps 365568, mean/max/min reward 0.667850/0.804167/0.500000
+2023-06-30 11:46:11,743 - MAIN - INFO: iteration 715, total steps 366080, mean/max/min reward 0.665506/0.766667/0.567857
+2023-06-30 11:46:12,263 - MAIN - INFO: iteration 716, total steps 366592, mean/max/min reward 0.603172/0.762500/0.391667
+2023-06-30 11:46:12,791 - MAIN - INFO: iteration 717, total steps 367104, mean/max/min reward 0.675978/0.712500/0.583333
+2023-06-30 11:46:13,322 - MAIN - INFO: iteration 718, total steps 367616, mean/max/min reward 0.685846/0.780882/0.616667
+2023-06-30 11:46:13,839 - MAIN - INFO: iteration 719, total steps 368128, mean/max/min reward 0.719088/0.803125/0.607143
+2023-06-30 11:46:14,370 - MAIN - INFO: iteration 720, total steps 368640, mean/max/min reward 0.692895/0.716667/0.647222
+2023-06-30 11:46:14,370 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:46:14,628 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875] - 0.77
+2023-06-30 11:46:14,902 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.825, 0.875, 0.925, 0, 0.9, 0.85, 0.9, 0.925, 0.85, 0.825, 0.9, 0.925, 0.95, 0, 0, 0.85, 0.8, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0] - 0.75
+2023-06-30 11:46:15,278 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:46:15,795 - MAIN - INFO: iteration 721, total steps 369152, mean/max/min reward 0.580295/0.634375/0.530556
+2023-06-30 11:46:16,305 - MAIN - INFO: iteration 722, total steps 369664, mean/max/min reward 0.615007/0.715385/0.475000
+2023-06-30 11:46:16,831 - MAIN - INFO: iteration 723, total steps 370176, mean/max/min reward 0.633333/0.721667/0.450000
+2023-06-30 11:46:17,362 - MAIN - INFO: iteration 724, total steps 370688, mean/max/min reward 0.714729/0.820000/0.500000
+2023-06-30 11:46:17,889 - MAIN - INFO: iteration 725, total steps 371200, mean/max/min reward 0.413219/0.535526/0.317500
+2023-06-30 11:46:18,489 - MAIN - INFO: iteration 726, total steps 371712, mean/max/min reward 0.530397/0.645588/0.370000
+2023-06-30 11:46:19,016 - MAIN - INFO: iteration 727, total steps 372224, mean/max/min reward 0.658524/0.680556/0.616250
+2023-06-30 11:46:19,537 - MAIN - INFO: iteration 728, total steps 372736, mean/max/min reward 0.678503/0.787500/0.528571
+2023-06-30 11:46:20,057 - MAIN - INFO: iteration 729, total steps 373248, mean/max/min reward 0.611472/0.773214/0.304167
+2023-06-30 11:46:20,605 - MAIN - INFO: iteration 730, total steps 373760, mean/max/min reward 0.604091/0.672727/0.565909
+2023-06-30 11:46:21,138 - MAIN - INFO: iteration 731, total steps 374272, mean/max/min reward 0.727124/0.763333/0.657500
+2023-06-30 11:46:21,660 - MAIN - INFO: iteration 732, total steps 374784, mean/max/min reward 0.612361/0.687500/0.452778
+2023-06-30 11:46:22,185 - MAIN - INFO: iteration 733, total steps 375296, mean/max/min reward 0.703462/0.815278/0.603571
+2023-06-30 11:46:22,706 - MAIN - INFO: iteration 734, total steps 375808, mean/max/min reward 0.681303/0.783824/0.583333
+2023-06-30 11:46:23,239 - MAIN - INFO: iteration 735, total steps 376320, mean/max/min reward 0.719216/0.793333/0.663889
+2023-06-30 11:46:23,754 - MAIN - INFO: iteration 736, total steps 376832, mean/max/min reward 0.613898/0.740385/0.517500
+2023-06-30 11:46:24,267 - MAIN - INFO: iteration 737, total steps 377344, mean/max/min reward 0.561875/0.672500/0.375000
+2023-06-30 11:46:24,786 - MAIN - INFO: iteration 738, total steps 377856, mean/max/min reward 0.623750/0.657500/0.600000
+2023-06-30 11:46:25,315 - MAIN - INFO: iteration 739, total steps 378368, mean/max/min reward 0.711539/0.755357/0.627778
+2023-06-30 11:46:25,835 - MAIN - INFO: iteration 740, total steps 378880, mean/max/min reward 0.641667/0.690000/0.587500
+2023-06-30 11:46:25,835 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:46:26,097 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825] - 0.77
+2023-06-30 11:46:26,295 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.875, 0.925, 0.825, 0.9, 0.875, 0.9, 0.925, 0.875, 0.825, 0.9, 0.925, 0.95, 0, 0.825, 0.8, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825] - 0.82
+2023-06-30 11:46:26,661 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:46:27,186 - MAIN - INFO: iteration 741, total steps 379392, mean/max/min reward 0.610714/0.767857/0.462500
+2023-06-30 11:46:27,704 - MAIN - INFO: iteration 742, total steps 379904, mean/max/min reward 0.600952/0.691667/0.457143
+2023-06-30 11:46:28,218 - MAIN - INFO: iteration 743, total steps 380416, mean/max/min reward 0.666250/0.768750/0.509375
+2023-06-30 11:46:28,741 - MAIN - INFO: iteration 744, total steps 380928, mean/max/min reward 0.603793/0.665625/0.504545
+2023-06-30 11:46:29,267 - MAIN - INFO: iteration 745, total steps 381440, mean/max/min reward 0.675347/0.765278/0.500000
+2023-06-30 11:46:29,789 - MAIN - INFO: iteration 746, total steps 381952, mean/max/min reward 0.661861/0.800000/0.500000
+2023-06-30 11:46:30,320 - MAIN - INFO: iteration 747, total steps 382464, mean/max/min reward 0.621785/0.797059/0.517857
+2023-06-30 11:46:30,841 - MAIN - INFO: iteration 748, total steps 382976, mean/max/min reward 0.723662/0.800000/0.610417
+2023-06-30 11:46:31,373 - MAIN - INFO: iteration 749, total steps 383488, mean/max/min reward 0.638780/0.767857/0.571429
+2023-06-30 11:46:31,908 - MAIN - INFO: iteration 750, total steps 384000, mean/max/min reward 0.738993/0.785000/0.705556
+2023-06-30 11:46:32,427 - MAIN - INFO: iteration 751, total steps 384512, mean/max/min reward 0.681223/0.796429/0.601923
+2023-06-30 11:46:32,956 - MAIN - INFO: iteration 752, total steps 385024, mean/max/min reward 0.674812/0.755357/0.638889
+2023-06-30 11:46:33,456 - MAIN - INFO: iteration 753, total steps 385536, mean/max/min reward 0.761113/0.809375/0.718182
+2023-06-30 11:46:33,970 - MAIN - INFO: iteration 754, total steps 386048, mean/max/min reward 0.564167/0.716667/0.240000
+2023-06-30 11:46:34,493 - MAIN - INFO: iteration 755, total steps 386560, mean/max/min reward 0.724955/0.789706/0.655556
+2023-06-30 11:46:35,048 - MAIN - INFO: iteration 756, total steps 387072, mean/max/min reward 0.698143/0.796875/0.585000
+2023-06-30 11:46:35,575 - MAIN - INFO: iteration 757, total steps 387584, mean/max/min reward 0.701515/0.825000/0.533333
+2023-06-30 11:46:36,101 - MAIN - INFO: iteration 758, total steps 388096, mean/max/min reward 0.627885/0.775000/0.425000
+2023-06-30 11:46:36,623 - MAIN - INFO: iteration 759, total steps 388608, mean/max/min reward 0.592574/0.718182/0.320000
+2023-06-30 11:46:37,142 - MAIN - INFO: iteration 760, total steps 389120, mean/max/min reward 0.623021/0.780000/0.435000
+2023-06-30 11:46:37,142 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:46:37,397 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875] - 0.77
+2023-06-30 11:46:37,564 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.925, 0.825, 0.875, 0.85, 0.85, 0.925, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.825, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875] - 0.85
+2023-06-30 11:46:37,928 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:46:38,455 - MAIN - INFO: iteration 761, total steps 389632, mean/max/min reward 0.641138/0.683929/0.578125
+2023-06-30 11:46:38,971 - MAIN - INFO: iteration 762, total steps 390144, mean/max/min reward 0.658196/0.784375/0.577500
+2023-06-30 11:46:39,489 - MAIN - INFO: iteration 763, total steps 390656, mean/max/min reward 0.661577/0.738636/0.584375
+2023-06-30 11:46:40,023 - MAIN - INFO: iteration 764, total steps 391168, mean/max/min reward 0.698717/0.767188/0.641667
+2023-06-30 11:46:40,524 - MAIN - INFO: iteration 765, total steps 391680, mean/max/min reward 0.599773/0.684091/0.416667
+2023-06-30 11:46:41,057 - MAIN - INFO: iteration 766, total steps 392192, mean/max/min reward 0.656818/0.865909/0.521429
+2023-06-30 11:46:41,579 - MAIN - INFO: iteration 767, total steps 392704, mean/max/min reward 0.717863/0.791071/0.679545
+2023-06-30 11:46:42,152 - MAIN - INFO: iteration 768, total steps 393216, mean/max/min reward 0.606406/0.690000/0.562500
+2023-06-30 11:46:42,688 - MAIN - INFO: iteration 769, total steps 393728, mean/max/min reward 0.667649/0.766667/0.496429
+2023-06-30 11:46:43,204 - MAIN - INFO: iteration 770, total steps 394240, mean/max/min reward 0.568784/0.751923/0.375000
+2023-06-30 11:46:43,712 - MAIN - INFO: iteration 771, total steps 394752, mean/max/min reward 0.540868/0.635000/0.316667
+2023-06-30 11:46:44,224 - MAIN - INFO: iteration 772, total steps 395264, mean/max/min reward 0.589111/0.686364/0.492857
+2023-06-30 11:46:44,745 - MAIN - INFO: iteration 773, total steps 395776, mean/max/min reward 0.580119/0.680000/0.517857
+2023-06-30 11:46:45,275 - MAIN - INFO: iteration 774, total steps 396288, mean/max/min reward 0.633581/0.751786/0.486111
+2023-06-30 11:46:45,786 - MAIN - INFO: iteration 775, total steps 396800, mean/max/min reward 0.692788/0.796154/0.630556
+2023-06-30 11:46:46,538 - MAIN - INFO: iteration 776, total steps 397312, mean/max/min reward 0.594823/0.760714/0.400000
+2023-06-30 11:46:47,061 - MAIN - INFO: iteration 777, total steps 397824, mean/max/min reward 0.652383/0.706250/0.588636
+2023-06-30 11:46:47,576 - MAIN - INFO: iteration 778, total steps 398336, mean/max/min reward 0.697292/0.725000/0.655000
+2023-06-30 11:46:48,097 - MAIN - INFO: iteration 779, total steps 398848, mean/max/min reward 0.670947/0.763333/0.591667
+2023-06-30 11:46:48,622 - MAIN - INFO: iteration 780, total steps 399360, mean/max/min reward 0.584574/0.722917/0.458333
+2023-06-30 11:46:48,622 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:46:48,877 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925] - 0.77
+2023-06-30 11:46:49,142 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.825, 0.9, 0.85, 0.9, 0.9, 0.9, 0.825, 0.9, 0.925, 0.95, 0, 0, 0, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.925, 0.825, 0.875, 0.925] - 0.76
+2023-06-30 11:46:49,520 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] - 0.00
+2023-06-30 11:46:50,043 - MAIN - INFO: iteration 781, total steps 399872, mean/max/min reward 0.699871/0.717857/0.660417
+2023-06-30 11:46:50,568 - MAIN - INFO: iteration 782, total steps 400384, mean/max/min reward 0.669226/0.751786/0.489286
+2023-06-30 11:46:50,579 - MAIN - INFO: *****start training on task 2
+2023-06-30 11:46:50,579 - MAIN - INFO: name: 2_MyMiniGrid-FindRedBall-v1
+2023-06-30 11:46:50,579 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1
+2023-06-30 11:46:50,579 - MAIN - INFO: task_label: [0. 0. 1.]
+2023-06-30 11:46:51,151 - MAIN - INFO: iteration 783, total steps 400896, mean/max/min reward 0.029453/0.056897/0.000000
+2023-06-30 11:46:51,720 - MAIN - INFO: iteration 784, total steps 401408, mean/max/min reward 0.046352/0.066964/0.023718
+2023-06-30 11:46:52,264 - MAIN - INFO: iteration 785, total steps 401920, mean/max/min reward 0.064120/0.089167/0.027857
+2023-06-30 11:46:52,806 - MAIN - INFO: iteration 786, total steps 402432, mean/max/min reward 0.097950/0.117949/0.066667
+2023-06-30 11:46:53,374 - MAIN - INFO: iteration 787, total steps 402944, mean/max/min reward 0.076193/0.125000/0.020745
+2023-06-30 11:46:53,947 - MAIN - INFO: iteration 788, total steps 403456, mean/max/min reward 0.107961/0.148958/0.077660
+2023-06-30 11:46:54,524 - MAIN - INFO: iteration 789, total steps 403968, mean/max/min reward 0.069876/0.105682/0.025676
+2023-06-30 11:46:55,085 - MAIN - INFO: iteration 790, total steps 404480, mean/max/min reward 0.120688/0.148387/0.063125
+2023-06-30 11:46:55,695 - MAIN - INFO: iteration 791, total steps 404992, mean/max/min reward 0.071132/0.125694/0.047436
+2023-06-30 11:46:56,249 - MAIN - INFO: iteration 792, total steps 405504, mean/max/min reward 0.081394/0.129054/0.031897
+2023-06-30 11:46:56,805 - MAIN - INFO: iteration 793, total steps 406016, mean/max/min reward 0.104066/0.114394/0.089286
+2023-06-30 11:46:57,407 - MAIN - INFO: iteration 794, total steps 406528, mean/max/min reward 0.119477/0.169531/0.046711
+2023-06-30 11:46:57,939 - MAIN - INFO: iteration 795, total steps 407040, mean/max/min reward 0.070568/0.092500/0.019318
+2023-06-30 11:46:58,488 - MAIN - INFO: iteration 796, total steps 407552, mean/max/min reward 0.144475/0.255645/0.040625
+2023-06-30 11:46:59,089 - MAIN - INFO: iteration 797, total steps 408064, mean/max/min reward 0.120384/0.182759/0.058871
+2023-06-30 11:46:59,639 - MAIN - INFO: iteration 798, total steps 408576, mean/max/min reward 0.205550/0.237143/0.128448
+2023-06-30 11:47:00,198 - MAIN - INFO: iteration 799, total steps 409088, mean/max/min reward 0.083551/0.104348/0.065000
+2023-06-30 11:47:00,718 - MAIN - INFO: iteration 800, total steps 409600, mean/max/min reward 0.128662/0.168750/0.079762
+2023-06-30 11:47:00,718 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:47:00,968 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725] - 0.77
+2023-06-30 11:47:01,139 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825] - 0.85
+2023-06-30 11:47:01,373 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0.9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.95, 0, 0.975, 0.975, 0, 0, 0, 0.9, 0, 0.975, 0, 0, 0] - 0.24
+2023-06-30 11:47:01,954 - MAIN - INFO: iteration 801, total steps 410112, mean/max/min reward 0.119649/0.156481/0.087500
+2023-06-30 11:47:02,532 - MAIN - INFO: iteration 802, total steps 410624, mean/max/min reward 0.152689/0.176000/0.138462
+2023-06-30 11:47:03,087 - MAIN - INFO: iteration 803, total steps 411136, mean/max/min reward 0.170105/0.262000/0.093421
+2023-06-30 11:47:03,627 - MAIN - INFO: iteration 804, total steps 411648, mean/max/min reward 0.130409/0.187879/0.061207
+2023-06-30 11:47:04,159 - MAIN - INFO: iteration 805, total steps 412160, mean/max/min reward 0.159286/0.296667/0.057143
+2023-06-30 11:47:04,688 - MAIN - INFO: iteration 806, total steps 412672, mean/max/min reward 0.163255/0.292187/0.038750
+2023-06-30 11:47:05,226 - MAIN - INFO: iteration 807, total steps 413184, mean/max/min reward 0.190338/0.289706/0.103125
+2023-06-30 11:47:05,786 - MAIN - INFO: iteration 808, total steps 413696, mean/max/min reward 0.134296/0.196053/0.086765
+2023-06-30 11:47:06,335 - MAIN - INFO: iteration 809, total steps 414208, mean/max/min reward 0.147151/0.245455/0.042188
+2023-06-30 11:47:06,859 - MAIN - INFO: iteration 810, total steps 414720, mean/max/min reward 0.140841/0.231818/0.065000
+2023-06-30 11:47:07,362 - MAIN - INFO: iteration 811, total steps 415232, mean/max/min reward 0.170337/0.294444/0.058929
+2023-06-30 11:47:07,893 - MAIN - INFO: iteration 812, total steps 415744, mean/max/min reward 0.169429/0.247917/0.110937
+2023-06-30 11:47:08,431 - MAIN - INFO: iteration 813, total steps 416256, mean/max/min reward 0.224453/0.285000/0.187500
+2023-06-30 11:47:08,962 - MAIN - INFO: iteration 814, total steps 416768, mean/max/min reward 0.239002/0.366667/0.103571
+2023-06-30 11:47:09,490 - MAIN - INFO: iteration 815, total steps 417280, mean/max/min reward 0.166249/0.277083/0.000000
+2023-06-30 11:47:10,012 - MAIN - INFO: iteration 816, total steps 417792, mean/max/min reward 0.307896/0.552778/0.082500
+2023-06-30 11:47:10,528 - MAIN - INFO: iteration 817, total steps 418304, mean/max/min reward 0.136719/0.312500/0.000000
+2023-06-30 11:47:11,052 - MAIN - INFO: iteration 818, total steps 418816, mean/max/min reward 0.340033/0.456250/0.240625
+2023-06-30 11:47:11,580 - MAIN - INFO: iteration 819, total steps 419328, mean/max/min reward 0.238485/0.341667/0.077273
+2023-06-30 11:47:12,099 - MAIN - INFO: iteration 820, total steps 419840, mean/max/min reward 0.210111/0.321154/0.128571
+2023-06-30 11:47:12,100 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:47:12,350 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0] - 0.77
+2023-06-30 11:47:12,524 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875] - 0.85
+2023-06-30 11:47:13,140 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0.925, 0, 0, 0, 0.925, 0.9, 0, 0, 0, 0, 0.975, 0.975, 0, 0, 0, 0.775, 0, 0.975, 0, 0, 0.9, 0] - 0.31
+2023-06-30 11:47:13,668 - MAIN - INFO: iteration 821, total steps 420352, mean/max/min reward 0.281092/0.385000/0.195000
+2023-06-30 11:47:14,194 - MAIN - INFO: iteration 822, total steps 420864, mean/max/min reward 0.348330/0.437500/0.193182
+2023-06-30 11:47:14,727 - MAIN - INFO: iteration 823, total steps 421376, mean/max/min reward 0.186667/0.334375/0.054167
+2023-06-30 11:47:15,262 - MAIN - INFO: iteration 824, total steps 421888, mean/max/min reward 0.336064/0.469444/0.273077
+2023-06-30 11:47:15,796 - MAIN - INFO: iteration 825, total steps 422400, mean/max/min reward 0.306404/0.472222/0.115000
+2023-06-30 11:47:16,347 - MAIN - INFO: iteration 826, total steps 422912, mean/max/min reward 0.269825/0.408696/0.070833
+2023-06-30 11:47:16,869 - MAIN - INFO: iteration 827, total steps 423424, mean/max/min reward 0.234066/0.393333/0.144444
+2023-06-30 11:47:17,398 - MAIN - INFO: iteration 828, total steps 423936, mean/max/min reward 0.237879/0.368056/0.113462
+2023-06-30 11:47:17,923 - MAIN - INFO: iteration 829, total steps 424448, mean/max/min reward 0.369747/0.542500/0.222500
+2023-06-30 11:47:18,435 - MAIN - INFO: iteration 830, total steps 424960, mean/max/min reward 0.147623/0.236364/0.105556
+2023-06-30 11:47:18,949 - MAIN - INFO: iteration 831, total steps 425472, mean/max/min reward 0.230972/0.341667/0.091667
+2023-06-30 11:47:19,464 - MAIN - INFO: iteration 832, total steps 425984, mean/max/min reward 0.315955/0.384375/0.244444
+2023-06-30 11:47:19,983 - MAIN - INFO: iteration 833, total steps 426496, mean/max/min reward 0.345297/0.395833/0.294444
+2023-06-30 11:47:20,537 - MAIN - INFO: iteration 834, total steps 427008, mean/max/min reward 0.161198/0.288889/0.000000
+2023-06-30 11:47:21,053 - MAIN - INFO: iteration 835, total steps 427520, mean/max/min reward 0.256250/0.398214/0.137500
+2023-06-30 11:47:21,580 - MAIN - INFO: iteration 836, total steps 428032, mean/max/min reward 0.234219/0.385000/0.125000
+2023-06-30 11:47:22,093 - MAIN - INFO: iteration 837, total steps 428544, mean/max/min reward 0.278013/0.453125/0.125000
+2023-06-30 11:47:22,688 - MAIN - INFO: iteration 838, total steps 429056, mean/max/min reward 0.415156/0.462500/0.320000
+2023-06-30 11:47:23,200 - MAIN - INFO: iteration 839, total steps 429568, mean/max/min reward 0.395747/0.512500/0.212500
+2023-06-30 11:47:23,760 - MAIN - INFO: iteration 840, total steps 430080, mean/max/min reward 0.193750/0.280000/0.020000
+2023-06-30 11:47:23,760 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:47:24,018 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875] - 0.77
+2023-06-30 11:47:24,192 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85] - 0.85
+2023-06-30 11:47:24,754 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.9, 0.925, 0, 0, 0.9, 0.925, 0.9, 0, 0, 0, 0, 0.975, 0.975, 0.925, 0, 0, 0.9, 0.9, 0.975, 0, 0, 0.825, 0, 0] - 0.46
+2023-06-30 11:47:25,284 - MAIN - INFO: iteration 841, total steps 430592, mean/max/min reward 0.335893/0.500000/0.115000
+2023-06-30 11:47:25,810 - MAIN - INFO: iteration 842, total steps 431104, mean/max/min reward 0.387178/0.540000/0.162500
+2023-06-30 11:47:26,330 - MAIN - INFO: iteration 843, total steps 431616, mean/max/min reward 0.222924/0.457500/0.078571
+2023-06-30 11:47:26,855 - MAIN - INFO: iteration 844, total steps 432128, mean/max/min reward 0.231845/0.308333/0.135714
+2023-06-30 11:47:27,374 - MAIN - INFO: iteration 845, total steps 432640, mean/max/min reward 0.373594/0.503125/0.185000
+2023-06-30 11:47:27,903 - MAIN - INFO: iteration 846, total steps 433152, mean/max/min reward 0.349077/0.450000/0.100000
+2023-06-30 11:47:28,421 - MAIN - INFO: iteration 847, total steps 433664, mean/max/min reward 0.261771/0.410000/0.160000
+2023-06-30 11:47:28,950 - MAIN - INFO: iteration 848, total steps 434176, mean/max/min reward 0.264844/0.493750/0.000000
+2023-06-30 11:47:29,492 - MAIN - INFO: iteration 849, total steps 434688, mean/max/min reward 0.397665/0.515000/0.219231
+2023-06-30 11:47:30,031 - MAIN - INFO: iteration 850, total steps 435200, mean/max/min reward 0.203566/0.378846/0.100000
+2023-06-30 11:47:30,557 - MAIN - INFO: iteration 851, total steps 435712, mean/max/min reward 0.295866/0.442857/0.180000
+2023-06-30 11:47:31,093 - MAIN - INFO: iteration 852, total steps 436224, mean/max/min reward 0.403526/0.600000/0.269231
+2023-06-30 11:47:31,634 - MAIN - INFO: iteration 853, total steps 436736, mean/max/min reward 0.244122/0.414286/0.056250
+2023-06-30 11:47:32,196 - MAIN - INFO: iteration 854, total steps 437248, mean/max/min reward 0.261632/0.394444/0.112500
+2023-06-30 11:47:32,727 - MAIN - INFO: iteration 855, total steps 437760, mean/max/min reward 0.393778/0.432500/0.337500
+2023-06-30 11:47:33,292 - MAIN - INFO: iteration 856, total steps 438272, mean/max/min reward 0.503958/0.582500/0.437500
+2023-06-30 11:47:33,920 - MAIN - INFO: iteration 857, total steps 438784, mean/max/min reward 0.369534/0.544444/0.220000
+2023-06-30 11:47:34,567 - MAIN - INFO: iteration 858, total steps 439296, mean/max/min reward 0.475180/0.500000/0.438636
+2023-06-30 11:47:35,194 - MAIN - INFO: iteration 859, total steps 439808, mean/max/min reward 0.304039/0.490625/0.235000
+2023-06-30 11:47:35,825 - MAIN - INFO: iteration 860, total steps 440320, mean/max/min reward 0.458036/0.528571/0.330000
+2023-06-30 11:47:35,825 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:47:36,117 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9] - 0.77
+2023-06-30 11:47:36,311 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9] - 0.85
+2023-06-30 11:47:36,803 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.925, 0, 0.875, 0.9, 0.925, 0.85, 0.825, 0, 0.95, 0, 0.975, 0.975, 0.925, 0, 0, 0.875, 0.85, 0.975, 0, 0, 0.95, 0, 0, 0.925] - 0.57
+2023-06-30 11:47:37,410 - MAIN - INFO: iteration 861, total steps 440832, mean/max/min reward 0.309948/0.391667/0.193750
+2023-06-30 11:47:37,978 - MAIN - INFO: iteration 862, total steps 441344, mean/max/min reward 0.222396/0.412500/0.056250
+2023-06-30 11:47:38,499 - MAIN - INFO: iteration 863, total steps 441856, mean/max/min reward 0.285312/0.543750/0.160000
+2023-06-30 11:47:39,072 - MAIN - INFO: iteration 864, total steps 442368, mean/max/min reward 0.304375/0.433333/0.180000
+2023-06-30 11:47:39,717 - MAIN - INFO: iteration 865, total steps 442880, mean/max/min reward 0.330104/0.460000/0.137500
+2023-06-30 11:47:40,327 - MAIN - INFO: iteration 866, total steps 443392, mean/max/min reward 0.360069/0.597222/0.000000
+2023-06-30 11:47:40,965 - MAIN - INFO: iteration 867, total steps 443904, mean/max/min reward 0.370581/0.469444/0.141667
+2023-06-30 11:47:41,603 - MAIN - INFO: iteration 868, total steps 444416, mean/max/min reward 0.431960/0.588636/0.187500
+2023-06-30 11:47:42,232 - MAIN - INFO: iteration 869, total steps 444928, mean/max/min reward 0.409449/0.585714/0.291667
+2023-06-30 11:47:42,873 - MAIN - INFO: iteration 870, total steps 445440, mean/max/min reward 0.396944/0.528846/0.321429
+2023-06-30 11:47:43,438 - MAIN - INFO: iteration 871, total steps 445952, mean/max/min reward 0.434256/0.475000/0.367857
+2023-06-30 11:47:43,986 - MAIN - INFO: iteration 872, total steps 446464, mean/max/min reward 0.318289/0.380000/0.206250
+2023-06-30 11:47:44,509 - MAIN - INFO: iteration 873, total steps 446976, mean/max/min reward 0.522087/0.636364/0.466667
+2023-06-30 11:47:45,024 - MAIN - INFO: iteration 874, total steps 447488, mean/max/min reward 0.321540/0.446875/0.167857
+2023-06-30 11:47:45,548 - MAIN - INFO: iteration 875, total steps 448000, mean/max/min reward 0.479929/0.581818/0.369444
+2023-06-30 11:47:46,059 - MAIN - INFO: iteration 876, total steps 448512, mean/max/min reward 0.379673/0.520833/0.205000
+2023-06-30 11:47:46,573 - MAIN - INFO: iteration 877, total steps 449024, mean/max/min reward 0.464549/0.673077/0.312500
+2023-06-30 11:47:47,103 - MAIN - INFO: iteration 878, total steps 449536, mean/max/min reward 0.450223/0.543182/0.334375
+2023-06-30 11:47:47,655 - MAIN - INFO: iteration 879, total steps 450048, mean/max/min reward 0.418564/0.534375/0.279167
+2023-06-30 11:47:48,199 - MAIN - INFO: iteration 880, total steps 450560, mean/max/min reward 0.424028/0.577778/0.310000
+2023-06-30 11:47:48,199 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:47:48,460 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925] - 0.77
+2023-06-30 11:47:48,636 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9] - 0.85
+2023-06-30 11:47:49,030 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0.9, 0.925, 0.9, 0.825, 0.75, 0.95, 0.775, 0.975, 0.975, 0.925, 0, 0, 0.9, 0, 0.975, 0, 0, 0.95, 0.825, 0.9, 0.925, 0.925] - 0.64
+2023-06-30 11:47:49,570 - MAIN - INFO: iteration 881, total steps 451072, mean/max/min reward 0.299683/0.569444/0.040000
+2023-06-30 11:47:50,112 - MAIN - INFO: iteration 882, total steps 451584, mean/max/min reward 0.429792/0.516667/0.237500
+2023-06-30 11:47:50,648 - MAIN - INFO: iteration 883, total steps 452096, mean/max/min reward 0.266406/0.415625/0.185000
+2023-06-30 11:47:51,191 - MAIN - INFO: iteration 884, total steps 452608, mean/max/min reward 0.368906/0.657500/0.090000
+2023-06-30 11:47:51,719 - MAIN - INFO: iteration 885, total steps 453120, mean/max/min reward 0.281562/0.600000/0.156250
+2023-06-30 11:47:52,251 - MAIN - INFO: iteration 886, total steps 453632, mean/max/min reward 0.269643/0.503571/0.170000
+2023-06-30 11:47:52,804 - MAIN - INFO: iteration 887, total steps 454144, mean/max/min reward 0.349464/0.467857/0.295000
+2023-06-30 11:47:53,361 - MAIN - INFO: iteration 888, total steps 454656, mean/max/min reward 0.159687/0.260000/0.045000
+2023-06-30 11:47:53,913 - MAIN - INFO: iteration 889, total steps 455168, mean/max/min reward 0.359375/0.533333/0.154167
+2023-06-30 11:47:54,436 - MAIN - INFO: iteration 890, total steps 455680, mean/max/min reward 0.289087/0.375000/0.221429
+2023-06-30 11:47:54,950 - MAIN - INFO: iteration 891, total steps 456192, mean/max/min reward 0.460955/0.661111/0.190000
+2023-06-30 11:47:55,473 - MAIN - INFO: iteration 892, total steps 456704, mean/max/min reward 0.440972/0.737500/0.190625
+2023-06-30 11:47:55,990 - MAIN - INFO: iteration 893, total steps 457216, mean/max/min reward 0.341696/0.464286/0.285000
+2023-06-30 11:47:56,521 - MAIN - INFO: iteration 894, total steps 457728, mean/max/min reward 0.342440/0.520833/0.246429
+2023-06-30 11:47:57,047 - MAIN - INFO: iteration 895, total steps 458240, mean/max/min reward 0.382031/0.615625/0.166667
+2023-06-30 11:47:57,567 - MAIN - INFO: iteration 896, total steps 458752, mean/max/min reward 0.444804/0.485714/0.403571
+2023-06-30 11:47:58,089 - MAIN - INFO: iteration 897, total steps 459264, mean/max/min reward 0.415476/0.566667/0.232143
+2023-06-30 11:47:58,613 - MAIN - INFO: iteration 898, total steps 459776, mean/max/min reward 0.365625/0.596875/0.208333
+2023-06-30 11:47:59,129 - MAIN - INFO: iteration 899, total steps 460288, mean/max/min reward 0.438237/0.627500/0.350000
+2023-06-30 11:47:59,643 - MAIN - INFO: iteration 900, total steps 460800, mean/max/min reward 0.429375/0.500000/0.305000
+2023-06-30 11:47:59,644 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:47:59,897 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8] - 0.77
+2023-06-30 11:48:00,070 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875] - 0.85
+2023-06-30 11:48:00,400 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.8, 0.9, 0.925, 0.9, 0.825, 0, 0.95, 0, 0.975, 0.975, 0.925, 0.9, 0, 0.775, 0, 0.975, 0.75, 0, 0.95, 0.725, 0.9, 0.825, 0.925, 0.7] - 0.69
+2023-06-30 11:48:00,912 - MAIN - INFO: iteration 901, total steps 461312, mean/max/min reward 0.357490/0.438889/0.300000
+2023-06-30 11:48:01,417 - MAIN - INFO: iteration 902, total steps 461824, mean/max/min reward 0.279762/0.485714/0.000000
+2023-06-30 11:48:01,917 - MAIN - INFO: iteration 903, total steps 462336, mean/max/min reward 0.330580/0.404167/0.243750
+2023-06-30 11:48:02,415 - MAIN - INFO: iteration 904, total steps 462848, mean/max/min reward 0.388455/0.509375/0.250000
+2023-06-30 11:48:02,926 - MAIN - INFO: iteration 905, total steps 463360, mean/max/min reward 0.409449/0.443750/0.370833
+2023-06-30 11:48:03,440 - MAIN - INFO: iteration 906, total steps 463872, mean/max/min reward 0.389464/0.628571/0.220000
+2023-06-30 11:48:03,962 - MAIN - INFO: iteration 907, total steps 464384, mean/max/min reward 0.379427/0.520833/0.270833
+2023-06-30 11:48:04,485 - MAIN - INFO: iteration 908, total steps 464896, mean/max/min reward 0.462946/0.562500/0.400000
+2023-06-30 11:48:04,992 - MAIN - INFO: iteration 909, total steps 465408, mean/max/min reward 0.387083/0.458333/0.325000
+2023-06-30 11:48:05,504 - MAIN - INFO: iteration 910, total steps 465920, mean/max/min reward 0.289583/0.406250/0.031250
+2023-06-30 11:48:06,016 - MAIN - INFO: iteration 911, total steps 466432, mean/max/min reward 0.366736/0.420833/0.291667
+2023-06-30 11:48:06,541 - MAIN - INFO: iteration 912, total steps 466944, mean/max/min reward 0.431771/0.508333/0.366667
+2023-06-30 11:48:07,056 - MAIN - INFO: iteration 913, total steps 467456, mean/max/min reward 0.457071/0.541667/0.236364
+2023-06-30 11:48:07,573 - MAIN - INFO: iteration 914, total steps 467968, mean/max/min reward 0.376138/0.528125/0.310000
+2023-06-30 11:48:08,085 - MAIN - INFO: iteration 915, total steps 468480, mean/max/min reward 0.511627/0.629545/0.410714
+2023-06-30 11:48:08,597 - MAIN - INFO: iteration 916, total steps 468992, mean/max/min reward 0.404665/0.484375/0.290000
+2023-06-30 11:48:09,093 - MAIN - INFO: iteration 917, total steps 469504, mean/max/min reward 0.387224/0.597727/0.045000
+2023-06-30 11:48:09,611 - MAIN - INFO: iteration 918, total steps 470016, mean/max/min reward 0.402232/0.475000/0.190625
+2023-06-30 11:48:10,140 - MAIN - INFO: iteration 919, total steps 470528, mean/max/min reward 0.443214/0.580000/0.242857
+2023-06-30 11:48:10,657 - MAIN - INFO: iteration 920, total steps 471040, mean/max/min reward 0.325379/0.607143/0.085000
+2023-06-30 11:48:10,657 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:48:10,914 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625] - 0.77
+2023-06-30 11:48:11,091 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825] - 0.85
+2023-06-30 11:48:11,463 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.9, 0.925, 0.9, 0.825, 0.7, 0.95, 0, 0.975, 0.975, 0.925, 0.75, 0.875, 0.775, 0, 0.975, 0, 0, 0.95, 0, 0.825, 0.825, 0.925, 0, 0.7] - 0.65
+2023-06-30 11:48:11,998 - MAIN - INFO: iteration 921, total steps 471552, mean/max/min reward 0.273906/0.415625/0.125000
+2023-06-30 11:48:12,508 - MAIN - INFO: iteration 922, total steps 472064, mean/max/min reward 0.359635/0.391667/0.303125
+2023-06-30 11:48:13,019 - MAIN - INFO: iteration 923, total steps 472576, mean/max/min reward 0.409635/0.626667/0.090000
+2023-06-30 11:48:13,542 - MAIN - INFO: iteration 924, total steps 473088, mean/max/min reward 0.425461/0.592500/0.175000
+2023-06-30 11:48:14,054 - MAIN - INFO: iteration 925, total steps 473600, mean/max/min reward 0.440191/0.597222/0.325000
+2023-06-30 11:48:14,577 - MAIN - INFO: iteration 926, total steps 474112, mean/max/min reward 0.414777/0.630000/0.281250
+2023-06-30 11:48:15,093 - MAIN - INFO: iteration 927, total steps 474624, mean/max/min reward 0.421146/0.577778/0.220000
+2023-06-30 11:48:15,625 - MAIN - INFO: iteration 928, total steps 475136, mean/max/min reward 0.408601/0.560000/0.233333
+2023-06-30 11:48:16,202 - MAIN - INFO: iteration 929, total steps 475648, mean/max/min reward 0.552460/0.615000/0.480556
+2023-06-30 11:48:16,715 - MAIN - INFO: iteration 930, total steps 476160, mean/max/min reward 0.560833/0.735000/0.458333
+2023-06-30 11:48:17,236 - MAIN - INFO: iteration 931, total steps 476672, mean/max/min reward 0.537667/0.652778/0.378571
+2023-06-30 11:48:17,758 - MAIN - INFO: iteration 932, total steps 477184, mean/max/min reward 0.479583/0.535000/0.440000
+2023-06-30 11:48:18,267 - MAIN - INFO: iteration 933, total steps 477696, mean/max/min reward 0.518371/0.715909/0.416667
+2023-06-30 11:48:18,800 - MAIN - INFO: iteration 934, total steps 478208, mean/max/min reward 0.544051/0.655769/0.404167
+2023-06-30 11:48:19,342 - MAIN - INFO: iteration 935, total steps 478720, mean/max/min reward 0.446577/0.596429/0.275000
+2023-06-30 11:48:19,873 - MAIN - INFO: iteration 936, total steps 479232, mean/max/min reward 0.608925/0.716667/0.550000
+2023-06-30 11:48:20,388 - MAIN - INFO: iteration 937, total steps 479744, mean/max/min reward 0.466280/0.532143/0.380000
+2023-06-30 11:48:20,907 - MAIN - INFO: iteration 938, total steps 480256, mean/max/min reward 0.367969/0.450000/0.214286
+2023-06-30 11:48:21,517 - MAIN - INFO: iteration 939, total steps 480768, mean/max/min reward 0.486563/0.628125/0.328125
+2023-06-30 11:48:22,038 - MAIN - INFO: iteration 940, total steps 481280, mean/max/min reward 0.483745/0.601923/0.415000
+2023-06-30 11:48:22,038 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:48:22,302 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9] - 0.77
+2023-06-30 11:48:22,479 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9] - 0.85
+2023-06-30 11:48:22,916 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.925, 0.9, 0, 0, 0.95, 0.75, 0.975, 0.975, 0.875, 0, 0.875, 0.9, 0.85, 0.975, 0.75, 0.725, 0.9, 0, 0.9, 0, 0.925, 0, 0, 0] - 0.59
+2023-06-30 11:48:23,436 - MAIN - INFO: iteration 941, total steps 481792, mean/max/min reward 0.515230/0.619444/0.393750
+2023-06-30 11:48:23,953 - MAIN - INFO: iteration 942, total steps 482304, mean/max/min reward 0.388678/0.464286/0.303125
+2023-06-30 11:48:24,482 - MAIN - INFO: iteration 943, total steps 482816, mean/max/min reward 0.557877/0.661667/0.489286
+2023-06-30 11:48:25,038 - MAIN - INFO: iteration 944, total steps 483328, mean/max/min reward 0.536367/0.626471/0.469444
+2023-06-30 11:48:25,553 - MAIN - INFO: iteration 945, total steps 483840, mean/max/min reward 0.428571/0.670833/0.150000
+2023-06-30 11:48:26,087 - MAIN - INFO: iteration 946, total steps 484352, mean/max/min reward 0.644053/0.679167/0.609091
+2023-06-30 11:48:26,645 - MAIN - INFO: iteration 947, total steps 484864, mean/max/min reward 0.671751/0.717308/0.633333
+2023-06-30 11:48:27,163 - MAIN - INFO: iteration 948, total steps 485376, mean/max/min reward 0.616667/0.663889/0.575000
+2023-06-30 11:48:27,686 - MAIN - INFO: iteration 949, total steps 485888, mean/max/min reward 0.565891/0.650000/0.442857
+2023-06-30 11:48:28,218 - MAIN - INFO: iteration 950, total steps 486400, mean/max/min reward 0.558817/0.643750/0.484375
+2023-06-30 11:48:28,739 - MAIN - INFO: iteration 951, total steps 486912, mean/max/min reward 0.569498/0.715909/0.435000
+2023-06-30 11:48:29,264 - MAIN - INFO: iteration 952, total steps 487424, mean/max/min reward 0.609097/0.695000/0.463889
+2023-06-30 11:48:29,776 - MAIN - INFO: iteration 953, total steps 487936, mean/max/min reward 0.544422/0.655357/0.355000
+2023-06-30 11:48:30,296 - MAIN - INFO: iteration 954, total steps 488448, mean/max/min reward 0.573433/0.715909/0.332143
+2023-06-30 11:48:30,809 - MAIN - INFO: iteration 955, total steps 488960, mean/max/min reward 0.530451/0.642308/0.397222
+2023-06-30 11:48:31,335 - MAIN - INFO: iteration 956, total steps 489472, mean/max/min reward 0.516927/0.641667/0.350000
+2023-06-30 11:48:31,866 - MAIN - INFO: iteration 957, total steps 489984, mean/max/min reward 0.467587/0.572222/0.345000
+2023-06-30 11:48:32,399 - MAIN - INFO: iteration 958, total steps 490496, mean/max/min reward 0.488336/0.656818/0.266667
+2023-06-30 11:48:32,920 - MAIN - INFO: iteration 959, total steps 491008, mean/max/min reward 0.543601/0.717857/0.425000
+2023-06-30 11:48:33,437 - MAIN - INFO: iteration 960, total steps 491520, mean/max/min reward 0.507708/0.570833/0.460000
+2023-06-30 11:48:33,437 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:48:33,689 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825] - 0.77
+2023-06-30 11:48:33,858 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925] - 0.85
+2023-06-30 11:48:34,313 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.9, 0, 0.8, 0.95, 0, 0.975, 0.95, 0.925, 0.9, 0.775, 0.775, 0, 0.975, 0, 0, 0, 0, 0.9, 0, 0.925, 0, 0.775, 0.9, 0.925] - 0.56
+2023-06-30 11:48:34,824 - MAIN - INFO: iteration 961, total steps 492032, mean/max/min reward 0.482299/0.672500/0.289286
+2023-06-30 11:48:35,355 - MAIN - INFO: iteration 962, total steps 492544, mean/max/min reward 0.528197/0.711538/0.356250
+2023-06-30 11:48:35,865 - MAIN - INFO: iteration 963, total steps 493056, mean/max/min reward 0.530139/0.597500/0.355000
+2023-06-30 11:48:36,387 - MAIN - INFO: iteration 964, total steps 493568, mean/max/min reward 0.518651/0.588889/0.458333
+2023-06-30 11:48:36,918 - MAIN - INFO: iteration 965, total steps 494080, mean/max/min reward 0.546892/0.625000/0.444444
+2023-06-30 11:48:37,434 - MAIN - INFO: iteration 966, total steps 494592, mean/max/min reward 0.581890/0.629545/0.532143
+2023-06-30 11:48:37,940 - MAIN - INFO: iteration 967, total steps 495104, mean/max/min reward 0.403214/0.485714/0.195000
+2023-06-30 11:48:38,457 - MAIN - INFO: iteration 968, total steps 495616, mean/max/min reward 0.534527/0.632692/0.420000
+2023-06-30 11:48:38,980 - MAIN - INFO: iteration 969, total steps 496128, mean/max/min reward 0.577861/0.685000/0.404167
+2023-06-30 11:48:39,506 - MAIN - INFO: iteration 970, total steps 496640, mean/max/min reward 0.564740/0.739583/0.410000
+2023-06-30 11:48:40,013 - MAIN - INFO: iteration 971, total steps 497152, mean/max/min reward 0.461049/0.640625/0.375000
+2023-06-30 11:48:40,543 - MAIN - INFO: iteration 972, total steps 497664, mean/max/min reward 0.522743/0.550000/0.450000
+2023-06-30 11:48:41,059 - MAIN - INFO: iteration 973, total steps 498176, mean/max/min reward 0.577872/0.713636/0.237500
+2023-06-30 11:48:41,590 - MAIN - INFO: iteration 974, total steps 498688, mean/max/min reward 0.572523/0.748077/0.431250
+2023-06-30 11:48:42,112 - MAIN - INFO: iteration 975, total steps 499200, mean/max/min reward 0.584943/0.655000/0.427273
+2023-06-30 11:48:42,642 - MAIN - INFO: iteration 976, total steps 499712, mean/max/min reward 0.717454/0.780769/0.670000
+2023-06-30 11:48:43,158 - MAIN - INFO: iteration 977, total steps 500224, mean/max/min reward 0.583047/0.679167/0.375000
+2023-06-30 11:48:43,682 - MAIN - INFO: iteration 978, total steps 500736, mean/max/min reward 0.625909/0.690000/0.513889
+2023-06-30 11:48:44,192 - MAIN - INFO: iteration 979, total steps 501248, mean/max/min reward 0.560224/0.744231/0.429167
+2023-06-30 11:48:44,713 - MAIN - INFO: iteration 980, total steps 501760, mean/max/min reward 0.465368/0.641667/0.150000
+2023-06-30 11:48:44,713 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:48:44,972 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95] - 0.77
+2023-06-30 11:48:45,148 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95] - 0.85
+2023-06-30 11:48:45,640 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0, 0, 0, 0.975, 0.975, 0.925, 0, 0.825, 0.875, 0.9, 0.975, 0.8, 0.9, 0, 0, 0, 0.925, 0.925, 0, 0.9, 0, 0.925, 0.85] - 0.53
+2023-06-30 11:48:46,210 - MAIN - INFO: iteration 981, total steps 502272, mean/max/min reward 0.636124/0.681250/0.564286
+2023-06-30 11:48:46,731 - MAIN - INFO: iteration 982, total steps 502784, mean/max/min reward 0.431514/0.684091/0.206250
+2023-06-30 11:48:47,235 - MAIN - INFO: iteration 983, total steps 503296, mean/max/min reward 0.533661/0.627500/0.471429
+2023-06-30 11:48:47,745 - MAIN - INFO: iteration 984, total steps 503808, mean/max/min reward 0.315625/0.442857/0.193750
+2023-06-30 11:48:48,271 - MAIN - INFO: iteration 985, total steps 504320, mean/max/min reward 0.469058/0.519444/0.403571
+2023-06-30 11:48:48,800 - MAIN - INFO: iteration 986, total steps 504832, mean/max/min reward 0.661632/0.827778/0.375000
+2023-06-30 11:48:49,316 - MAIN - INFO: iteration 987, total steps 505344, mean/max/min reward 0.508270/0.582353/0.430556
+2023-06-30 11:48:49,835 - MAIN - INFO: iteration 988, total steps 505856, mean/max/min reward 0.573653/0.716071/0.402500
+2023-06-30 11:48:50,355 - MAIN - INFO: iteration 989, total steps 506368, mean/max/min reward 0.440990/0.491667/0.340000
+2023-06-30 11:48:50,871 - MAIN - INFO: iteration 990, total steps 506880, mean/max/min reward 0.404063/0.596875/0.262500
+2023-06-30 11:48:51,398 - MAIN - INFO: iteration 991, total steps 507392, mean/max/min reward 0.666357/0.823611/0.525000
+2023-06-30 11:48:51,919 - MAIN - INFO: iteration 992, total steps 507904, mean/max/min reward 0.463312/0.731818/0.225000
+2023-06-30 11:48:52,432 - MAIN - INFO: iteration 993, total steps 508416, mean/max/min reward 0.560011/0.779687/0.362500
+2023-06-30 11:48:52,963 - MAIN - INFO: iteration 994, total steps 508928, mean/max/min reward 0.577131/0.652273/0.487500
+2023-06-30 11:48:53,499 - MAIN - INFO: iteration 995, total steps 509440, mean/max/min reward 0.538629/0.661111/0.410714
+2023-06-30 11:48:54,157 - MAIN - INFO: iteration 996, total steps 509952, mean/max/min reward 0.607564/0.739286/0.406250
+2023-06-30 11:48:54,732 - MAIN - INFO: iteration 997, total steps 510464, mean/max/min reward 0.500208/0.683333/0.170000
+2023-06-30 11:48:55,338 - MAIN - INFO: iteration 998, total steps 510976, mean/max/min reward 0.422743/0.668750/0.191667
+2023-06-30 11:48:55,851 - MAIN - INFO: iteration 999, total steps 511488, mean/max/min reward 0.527083/0.654167/0.425000
+2023-06-30 11:48:56,382 - MAIN - INFO: iteration 1000, total steps 512000, mean/max/min reward 0.469957/0.634375/0.225000
+2023-06-30 11:48:56,383 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:48:56,636 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0] - 0.77
+2023-06-30 11:48:56,810 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875] - 0.85
+2023-06-30 11:48:57,057 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0.95, 0.75, 0.975, 0.975, 0.925, 0.9, 0.775, 0.875, 0.9, 0.975, 0, 0.85, 0.95, 0, 0.9, 0.925, 0.925, 0.7, 0.8, 0.875, 0.925, 0.9, 0.825] - 0.77
+2023-06-30 11:48:57,587 - MAIN - INFO: iteration 1001, total steps 512512, mean/max/min reward 0.530580/0.662500/0.403571
+2023-06-30 11:48:58,104 - MAIN - INFO: iteration 1002, total steps 513024, mean/max/min reward 0.475208/0.650000/0.345833
+2023-06-30 11:48:58,612 - MAIN - INFO: iteration 1003, total steps 513536, mean/max/min reward 0.505530/0.670455/0.395000
+2023-06-30 11:48:59,134 - MAIN - INFO: iteration 1004, total steps 514048, mean/max/min reward 0.366092/0.654545/0.093750
+2023-06-30 11:48:59,642 - MAIN - INFO: iteration 1005, total steps 514560, mean/max/min reward 0.500521/0.543750/0.441667
+2023-06-30 11:49:00,166 - MAIN - INFO: iteration 1006, total steps 515072, mean/max/min reward 0.575072/0.813235/0.396429
+2023-06-30 11:49:00,675 - MAIN - INFO: iteration 1007, total steps 515584, mean/max/min reward 0.504167/0.816667/0.225000
+2023-06-30 11:49:01,189 - MAIN - INFO: iteration 1008, total steps 516096, mean/max/min reward 0.412165/0.534375/0.150000
+2023-06-30 11:49:01,701 - MAIN - INFO: iteration 1009, total steps 516608, mean/max/min reward 0.455729/0.535417/0.304167
+2023-06-30 11:49:02,221 - MAIN - INFO: iteration 1010, total steps 517120, mean/max/min reward 0.448661/0.470833/0.432143
+2023-06-30 11:49:02,741 - MAIN - INFO: iteration 1011, total steps 517632, mean/max/min reward 0.518485/0.577778/0.471875
+2023-06-30 11:49:03,254 - MAIN - INFO: iteration 1012, total steps 518144, mean/max/min reward 0.459673/0.525000/0.370833
+2023-06-30 11:49:03,763 - MAIN - INFO: iteration 1013, total steps 518656, mean/max/min reward 0.568030/0.670455/0.441667
+2023-06-30 11:49:04,286 - MAIN - INFO: iteration 1014, total steps 519168, mean/max/min reward 0.570970/0.642500/0.446429
+2023-06-30 11:49:04,812 - MAIN - INFO: iteration 1015, total steps 519680, mean/max/min reward 0.506964/0.585000/0.421429
+2023-06-30 11:49:05,326 - MAIN - INFO: iteration 1016, total steps 520192, mean/max/min reward 0.498438/0.584375/0.321875
+2023-06-30 11:49:05,851 - MAIN - INFO: iteration 1017, total steps 520704, mean/max/min reward 0.501875/0.565000/0.450000
+2023-06-30 11:49:06,365 - MAIN - INFO: iteration 1018, total steps 521216, mean/max/min reward 0.577880/0.663235/0.510417
+2023-06-30 11:49:06,886 - MAIN - INFO: iteration 1019, total steps 521728, mean/max/min reward 0.502986/0.590000/0.337500
+2023-06-30 11:49:07,400 - MAIN - INFO: iteration 1020, total steps 522240, mean/max/min reward 0.478795/0.708333/0.329167
+2023-06-30 11:49:07,400 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:49:07,650 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825] - 0.77
+2023-06-30 11:49:07,820 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775] - 0.85
+2023-06-30 11:49:08,092 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.95, 0, 0.975, 0.975, 0.925, 0.9, 0.775, 0.875, 0.875, 0.975, 0.8, 0.85, 0.95, 0, 0.9, 0.925, 0.925, 0, 0.8, 0.9, 0.925, 0.7, 0.5, 0.6499999999999999] - 0.75
+2023-06-30 11:49:08,659 - MAIN - INFO: iteration 1021, total steps 522752, mean/max/min reward 0.500268/0.542857/0.380000
+2023-06-30 11:49:09,193 - MAIN - INFO: iteration 1022, total steps 523264, mean/max/min reward 0.555580/0.706250/0.278571
+2023-06-30 11:49:09,687 - MAIN - INFO: iteration 1023, total steps 523776, mean/max/min reward 0.550213/0.672727/0.412500
+2023-06-30 11:49:10,202 - MAIN - INFO: iteration 1024, total steps 524288, mean/max/min reward 0.509653/0.685000/0.275000
+2023-06-30 11:49:10,715 - MAIN - INFO: iteration 1025, total steps 524800, mean/max/min reward 0.552679/0.637500/0.437500
+2023-06-30 11:49:11,228 - MAIN - INFO: iteration 1026, total steps 525312, mean/max/min reward 0.450298/0.500000/0.375000
+2023-06-30 11:49:11,749 - MAIN - INFO: iteration 1027, total steps 525824, mean/max/min reward 0.353802/0.558333/0.190000
+2023-06-30 11:49:12,266 - MAIN - INFO: iteration 1028, total steps 526336, mean/max/min reward 0.619444/0.725000/0.555556
+2023-06-30 11:49:12,797 - MAIN - INFO: iteration 1029, total steps 526848, mean/max/min reward 0.728883/0.791667/0.687500
+2023-06-30 11:49:13,313 - MAIN - INFO: iteration 1030, total steps 527360, mean/max/min reward 0.452083/0.658333/0.000000
+2023-06-30 11:49:13,835 - MAIN - INFO: iteration 1031, total steps 527872, mean/max/min reward 0.505568/0.587500/0.389286
+2023-06-30 11:49:14,353 - MAIN - INFO: iteration 1032, total steps 528384, mean/max/min reward 0.461496/0.590625/0.362500
+2023-06-30 11:49:14,876 - MAIN - INFO: iteration 1033, total steps 528896, mean/max/min reward 0.441667/0.650000/0.058333
+2023-06-30 11:49:15,408 - MAIN - INFO: iteration 1034, total steps 529408, mean/max/min reward 0.422396/0.689583/0.143750
+2023-06-30 11:49:15,948 - MAIN - INFO: iteration 1035, total steps 529920, mean/max/min reward 0.463194/0.652778/0.183333
+2023-06-30 11:49:16,472 - MAIN - INFO: iteration 1036, total steps 530432, mean/max/min reward 0.439333/0.593750/0.254167
+2023-06-30 11:49:17,102 - MAIN - INFO: iteration 1037, total steps 530944, mean/max/min reward 0.593484/0.753846/0.512500
+2023-06-30 11:49:17,622 - MAIN - INFO: iteration 1038, total steps 531456, mean/max/min reward 0.593043/0.751786/0.380000
+2023-06-30 11:49:18,140 - MAIN - INFO: iteration 1039, total steps 531968, mean/max/min reward 0.545655/0.660000/0.389286
+2023-06-30 11:49:18,664 - MAIN - INFO: iteration 1040, total steps 532480, mean/max/min reward 0.648102/0.790000/0.507143
+2023-06-30 11:49:18,664 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:49:18,929 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85] - 0.77
+2023-06-30 11:49:19,106 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0, 0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775] - 0.85
+2023-06-30 11:49:19,533 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0, 0.975, 0.975, 0.925, 0, 0, 0.825, 0.9, 0.975, 0, 0.85, 0.95, 0, 0.875, 0.925, 0.85, 0, 0.85, 0, 0.85, 0.9, 0.825, 0, 0.95] - 0.60
+2023-06-30 11:49:20,056 - MAIN - INFO: iteration 1041, total steps 532992, mean/max/min reward 0.430469/0.671875/0.335000
+2023-06-30 11:49:20,585 - MAIN - INFO: iteration 1042, total steps 533504, mean/max/min reward 0.487292/0.670000/0.129167
+2023-06-30 11:49:21,114 - MAIN - INFO: iteration 1043, total steps 534016, mean/max/min reward 0.562308/0.694231/0.355000
+2023-06-30 11:49:21,642 - MAIN - INFO: iteration 1044, total steps 534528, mean/max/min reward 0.641149/0.773077/0.287500
+2023-06-30 11:49:22,163 - MAIN - INFO: iteration 1045, total steps 535040, mean/max/min reward 0.506074/0.702273/0.317857
+2023-06-30 11:49:22,680 - MAIN - INFO: iteration 1046, total steps 535552, mean/max/min reward 0.600427/0.680556/0.485714
+2023-06-30 11:49:23,198 - MAIN - INFO: iteration 1047, total steps 536064, mean/max/min reward 0.721934/0.792647/0.621875
+2023-06-30 11:49:23,727 - MAIN - INFO: iteration 1048, total steps 536576, mean/max/min reward 0.569223/0.767308/0.443750
+2023-06-30 11:49:24,249 - MAIN - INFO: iteration 1049, total steps 537088, mean/max/min reward 0.593088/0.769643/0.445833
+2023-06-30 11:49:24,807 - MAIN - INFO: iteration 1050, total steps 537600, mean/max/min reward 0.665341/0.725000/0.602273
+2023-06-30 11:49:25,322 - MAIN - INFO: iteration 1051, total steps 538112, mean/max/min reward 0.573090/0.661111/0.425000
+2023-06-30 11:49:25,839 - MAIN - INFO: iteration 1052, total steps 538624, mean/max/min reward 0.545268/0.577500/0.503571
+2023-06-30 11:49:26,346 - MAIN - INFO: iteration 1053, total steps 539136, mean/max/min reward 0.652437/0.705769/0.531250
+2023-06-30 11:49:26,859 - MAIN - INFO: iteration 1054, total steps 539648, mean/max/min reward 0.595625/0.717500/0.525000
+2023-06-30 11:49:27,374 - MAIN - INFO: iteration 1055, total steps 540160, mean/max/min reward 0.504687/0.646875/0.415625
+2023-06-30 11:49:27,897 - MAIN - INFO: iteration 1056, total steps 540672, mean/max/min reward 0.645730/0.733929/0.565909
+2023-06-30 11:49:28,418 - MAIN - INFO: iteration 1057, total steps 541184, mean/max/min reward 0.572476/0.757500/0.385000
+2023-06-30 11:49:28,925 - MAIN - INFO: iteration 1058, total steps 541696, mean/max/min reward 0.586905/0.663889/0.407143
+2023-06-30 11:49:29,440 - MAIN - INFO: iteration 1059, total steps 542208, mean/max/min reward 0.492167/0.670455/0.400000
+2023-06-30 11:49:29,961 - MAIN - INFO: iteration 1060, total steps 542720, mean/max/min reward 0.562599/0.700000/0.414286
+2023-06-30 11:49:29,961 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:49:30,222 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0] - 0.77
+2023-06-30 11:49:30,397 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.975, 0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0] - 0.85
+2023-06-30 11:49:30,681 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.975, 0.975, 0.925, 0.9, 0.875, 0.775, 0, 0.975, 0.75, 0.8, 0.95, 0, 0.9, 0.925, 0.925, 0, 0.85, 0.9, 0.925, 0.9, 0.825, 0, 0.95, 0.75] - 0.74
+2023-06-30 11:49:31,201 - MAIN - INFO: iteration 1061, total steps 543232, mean/max/min reward 0.646477/0.745000/0.533333
+2023-06-30 11:49:31,738 - MAIN - INFO: iteration 1062, total steps 543744, mean/max/min reward 0.527545/0.667500/0.306250
+2023-06-30 11:49:32,264 - MAIN - INFO: iteration 1063, total steps 544256, mean/max/min reward 0.564323/0.685417/0.379167
+2023-06-30 11:49:32,783 - MAIN - INFO: iteration 1064, total steps 544768, mean/max/min reward 0.521771/0.643750/0.305000
+2023-06-30 11:49:33,289 - MAIN - INFO: iteration 1065, total steps 545280, mean/max/min reward 0.533229/0.635000/0.416667
+2023-06-30 11:49:33,807 - MAIN - INFO: iteration 1066, total steps 545792, mean/max/min reward 0.404792/0.575000/0.240000
+2023-06-30 11:49:34,342 - MAIN - INFO: iteration 1067, total steps 546304, mean/max/min reward 0.484965/0.527778/0.445833
+2023-06-30 11:49:34,877 - MAIN - INFO: iteration 1068, total steps 546816, mean/max/min reward 0.549948/0.692500/0.445833
+2023-06-30 11:49:35,387 - MAIN - INFO: iteration 1069, total steps 547328, mean/max/min reward 0.568060/0.645455/0.481250
+2023-06-30 11:49:35,908 - MAIN - INFO: iteration 1070, total steps 547840, mean/max/min reward 0.527639/0.638889/0.420000
+2023-06-30 11:49:36,433 - MAIN - INFO: iteration 1071, total steps 548352, mean/max/min reward 0.577551/0.642308/0.515625
+2023-06-30 11:49:36,936 - MAIN - INFO: iteration 1072, total steps 548864, mean/max/min reward 0.470796/0.571875/0.375000
+2023-06-30 11:49:37,445 - MAIN - INFO: iteration 1073, total steps 549376, mean/max/min reward 0.541172/0.723437/0.285000
+2023-06-30 11:49:37,969 - MAIN - INFO: iteration 1074, total steps 549888, mean/max/min reward 0.401513/0.536111/0.217857
+2023-06-30 11:49:38,488 - MAIN - INFO: iteration 1075, total steps 550400, mean/max/min reward 0.596690/0.661364/0.477778
+2023-06-30 11:49:39,010 - MAIN - INFO: iteration 1076, total steps 550912, mean/max/min reward 0.449897/0.540909/0.312500
+2023-06-30 11:49:39,546 - MAIN - INFO: iteration 1077, total steps 551424, mean/max/min reward 0.496890/0.620000/0.357143
+2023-06-30 11:49:40,074 - MAIN - INFO: iteration 1078, total steps 551936, mean/max/min reward 0.486768/0.605556/0.384375
+2023-06-30 11:49:40,601 - MAIN - INFO: iteration 1079, total steps 552448, mean/max/min reward 0.542113/0.751786/0.375000
+2023-06-30 11:49:41,101 - MAIN - INFO: iteration 1080, total steps 552960, mean/max/min reward 0.630529/0.734615/0.562500
+2023-06-30 11:49:41,101 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:49:41,356 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.95, 0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975] - 0.77
+2023-06-30 11:49:41,528 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.95, 0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975] - 0.85
+2023-06-30 11:49:41,841 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.975, 0.925, 0.9, 0.875, 0.875, 0.9, 0.975, 0.8, 0, 0.95, 0, 0.9, 0.825, 0.925, 0, 0.85, 0.9, 0.925, 0, 0, 0.75, 0.95, 0.75, 0.975] - 0.71
+2023-06-30 11:49:42,354 - MAIN - INFO: iteration 1081, total steps 553472, mean/max/min reward 0.601736/0.781944/0.416667
+2023-06-30 11:49:42,877 - MAIN - INFO: iteration 1082, total steps 553984, mean/max/min reward 0.548561/0.742308/0.257143
+2023-06-30 11:49:43,389 - MAIN - INFO: iteration 1083, total steps 554496, mean/max/min reward 0.645903/0.765000/0.563889
+2023-06-30 11:49:43,915 - MAIN - INFO: iteration 1084, total steps 555008, mean/max/min reward 0.514827/0.666667/0.316667
+2023-06-30 11:49:44,442 - MAIN - INFO: iteration 1085, total steps 555520, mean/max/min reward 0.613910/0.767308/0.508333
+2023-06-30 11:49:44,964 - MAIN - INFO: iteration 1086, total steps 556032, mean/max/min reward 0.554362/0.715385/0.289286
+2023-06-30 11:49:45,479 - MAIN - INFO: iteration 1087, total steps 556544, mean/max/min reward 0.608160/0.668750/0.550000
+2023-06-30 11:49:45,994 - MAIN - INFO: iteration 1088, total steps 557056, mean/max/min reward 0.481369/0.613889/0.310000
+2023-06-30 11:49:46,518 - MAIN - INFO: iteration 1089, total steps 557568, mean/max/min reward 0.552536/0.655769/0.487500
+2023-06-30 11:49:47,042 - MAIN - INFO: iteration 1090, total steps 558080, mean/max/min reward 0.691622/0.754545/0.652778
+2023-06-30 11:49:47,563 - MAIN - INFO: iteration 1091, total steps 558592, mean/max/min reward 0.652632/0.723333/0.577778
+2023-06-30 11:49:48,084 - MAIN - INFO: iteration 1092, total steps 559104, mean/max/min reward 0.683600/0.776786/0.468750
+2023-06-30 11:49:48,695 - MAIN - INFO: iteration 1093, total steps 559616, mean/max/min reward 0.656293/0.735000/0.559615
+2023-06-30 11:49:49,210 - MAIN - INFO: iteration 1094, total steps 560128, mean/max/min reward 0.613125/0.762500/0.364286
+2023-06-30 11:49:49,742 - MAIN - INFO: iteration 1095, total steps 560640, mean/max/min reward 0.700752/0.738235/0.652273
+2023-06-30 11:49:50,273 - MAIN - INFO: iteration 1096, total steps 561152, mean/max/min reward 0.639732/0.809375/0.371429
+2023-06-30 11:49:50,788 - MAIN - INFO: iteration 1097, total steps 561664, mean/max/min reward 0.632131/0.710714/0.578125
+2023-06-30 11:49:51,304 - MAIN - INFO: iteration 1098, total steps 562176, mean/max/min reward 0.570052/0.675000/0.462500
+2023-06-30 11:49:51,827 - MAIN - INFO: iteration 1099, total steps 562688, mean/max/min reward 0.634867/0.717500/0.493750
+2023-06-30 11:49:52,357 - MAIN - INFO: iteration 1100, total steps 563200, mean/max/min reward 0.655080/0.687500/0.621154
+2023-06-30 11:49:52,357 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:49:52,616 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.95, 0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95] - 0.77
+2023-06-30 11:49:52,791 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.95, 0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95] - 0.85
+2023-06-30 11:49:53,037 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.925, 0.9, 0.825, 0, 0.9, 0.975, 0.8, 0.8, 0.95, 0, 0.9, 0.925, 0.925, 0.8, 0.9, 0.9, 0.925, 0.85, 0.775, 0, 0.95, 0.8, 0.975, 0.975] - 0.78
+2023-06-30 11:49:53,582 - MAIN - INFO: iteration 1101, total steps 563712, mean/max/min reward 0.674870/0.751471/0.562500
+2023-06-30 11:49:54,105 - MAIN - INFO: iteration 1102, total steps 564224, mean/max/min reward 0.626811/0.692500/0.525000
+2023-06-30 11:49:54,622 - MAIN - INFO: iteration 1103, total steps 564736, mean/max/min reward 0.529740/0.756818/0.255000
+2023-06-30 11:49:55,147 - MAIN - INFO: iteration 1104, total steps 565248, mean/max/min reward 0.517143/0.715000/0.353571
+2023-06-30 11:49:55,672 - MAIN - INFO: iteration 1105, total steps 565760, mean/max/min reward 0.578196/0.784375/0.337500
+2023-06-30 11:49:56,179 - MAIN - INFO: iteration 1106, total steps 566272, mean/max/min reward 0.566587/0.753846/0.358333
+2023-06-30 11:49:56,686 - MAIN - INFO: iteration 1107, total steps 566784, mean/max/min reward 0.443385/0.587500/0.250000
+2023-06-30 11:49:57,200 - MAIN - INFO: iteration 1108, total steps 567296, mean/max/min reward 0.545680/0.732143/0.377500
+2023-06-30 11:49:57,723 - MAIN - INFO: iteration 1109, total steps 567808, mean/max/min reward 0.652171/0.723077/0.550000
+2023-06-30 11:49:58,243 - MAIN - INFO: iteration 1110, total steps 568320, mean/max/min reward 0.588364/0.688636/0.443750
+2023-06-30 11:49:58,735 - MAIN - INFO: iteration 1111, total steps 568832, mean/max/min reward 0.499067/0.715909/0.325000
+2023-06-30 11:49:59,245 - MAIN - INFO: iteration 1112, total steps 569344, mean/max/min reward 0.570312/0.625000/0.500000
+2023-06-30 11:49:59,769 - MAIN - INFO: iteration 1113, total steps 569856, mean/max/min reward 0.454752/0.577500/0.180000
+2023-06-30 11:50:00,268 - MAIN - INFO: iteration 1114, total steps 570368, mean/max/min reward 0.570923/0.606818/0.505000
+2023-06-30 11:50:00,785 - MAIN - INFO: iteration 1115, total steps 570880, mean/max/min reward 0.613740/0.691071/0.527778
+2023-06-30 11:50:01,302 - MAIN - INFO: iteration 1116, total steps 571392, mean/max/min reward 0.506094/0.562500/0.371875
+2023-06-30 11:50:01,820 - MAIN - INFO: iteration 1117, total steps 571904, mean/max/min reward 0.656096/0.721429/0.600000
+2023-06-30 11:50:02,337 - MAIN - INFO: iteration 1118, total steps 572416, mean/max/min reward 0.593253/0.667500/0.509375
+2023-06-30 11:50:02,835 - MAIN - INFO: iteration 1119, total steps 572928, mean/max/min reward 0.314583/0.441667/0.175000
+2023-06-30 11:50:03,356 - MAIN - INFO: iteration 1120, total steps 573440, mean/max/min reward 0.461458/0.558333/0.337500
+2023-06-30 11:50:03,356 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:50:03,624 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95] - 0.77
+2023-06-30 11:50:03,860 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.975, 0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95] - 0.85
+2023-06-30 11:50:04,119 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.9, 0.725, 0.875, 0.9, 0.975, 0.75, 0.85, 0.95, 0, 0.9, 0.925, 0.925, 0, 0.8, 0.9, 0.925, 0.9, 0.775, 0.75, 0.95, 0, 0.975, 0.975, 0.925] - 0.77
+2023-06-30 11:50:04,649 - MAIN - INFO: iteration 1121, total steps 573952, mean/max/min reward 0.521009/0.695833/0.157143
+2023-06-30 11:50:05,183 - MAIN - INFO: iteration 1122, total steps 574464, mean/max/min reward 0.634180/0.705357/0.550000
+2023-06-30 11:50:05,705 - MAIN - INFO: iteration 1123, total steps 574976, mean/max/min reward 0.566406/0.679167/0.445833
+2023-06-30 11:50:06,223 - MAIN - INFO: iteration 1124, total steps 575488, mean/max/min reward 0.589038/0.691667/0.472222
+2023-06-30 11:50:06,746 - MAIN - INFO: iteration 1125, total steps 576000, mean/max/min reward 0.597284/0.758929/0.379167
+2023-06-30 11:50:07,256 - MAIN - INFO: iteration 1126, total steps 576512, mean/max/min reward 0.421094/0.659375/0.200000
+2023-06-30 11:50:07,771 - MAIN - INFO: iteration 1127, total steps 577024, mean/max/min reward 0.632246/0.735938/0.442857
+2023-06-30 11:50:08,298 - MAIN - INFO: iteration 1128, total steps 577536, mean/max/min reward 0.703496/0.773438/0.550000
+2023-06-30 11:50:08,817 - MAIN - INFO: iteration 1129, total steps 578048, mean/max/min reward 0.512240/0.581250/0.445833
+2023-06-30 11:50:09,335 - MAIN - INFO: iteration 1130, total steps 578560, mean/max/min reward 0.599423/0.767308/0.250000
+2023-06-30 11:50:09,851 - MAIN - INFO: iteration 1131, total steps 579072, mean/max/min reward 0.472664/0.631818/0.270000
+2023-06-30 11:50:10,368 - MAIN - INFO: iteration 1132, total steps 579584, mean/max/min reward 0.572292/0.647500/0.458333
+2023-06-30 11:50:10,891 - MAIN - INFO: iteration 1133, total steps 580096, mean/max/min reward 0.617727/0.684091/0.475000
+2023-06-30 11:50:11,420 - MAIN - INFO: iteration 1134, total steps 580608, mean/max/min reward 0.689075/0.717308/0.645000
+2023-06-30 11:50:11,943 - MAIN - INFO: iteration 1135, total steps 581120, mean/max/min reward 0.712292/0.786667/0.637500
+2023-06-30 11:50:12,457 - MAIN - INFO: iteration 1136, total steps 581632, mean/max/min reward 0.470774/0.515625/0.365000
+2023-06-30 11:50:12,969 - MAIN - INFO: iteration 1137, total steps 582144, mean/max/min reward 0.550558/0.618750/0.417857
+2023-06-30 11:50:13,482 - MAIN - INFO: iteration 1138, total steps 582656, mean/max/min reward 0.516622/0.584091/0.352500
+2023-06-30 11:50:13,986 - MAIN - INFO: iteration 1139, total steps 583168, mean/max/min reward 0.679219/0.725000/0.642500
+2023-06-30 11:50:14,492 - MAIN - INFO: iteration 1140, total steps 583680, mean/max/min reward 0.632688/0.744643/0.527778
+2023-06-30 11:50:14,492 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:50:14,745 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.975, 0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975] - 0.77
+2023-06-30 11:50:14,914 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.975, 0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975] - 0.85
+2023-06-30 11:50:15,130 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.775, 0.875, 0.85, 0.975, 0, 0.85, 0.95, 0, 0.875, 0.925, 0.925, 0.75, 0.85, 0.9, 0.925, 0.9, 0.825, 0.75, 0.95, 0.75, 0.975, 0.975, 0.925, 0.9] - 0.81
+2023-06-30 11:50:15,643 - MAIN - INFO: iteration 1141, total steps 584192, mean/max/min reward 0.383182/0.747727/0.230000
+2023-06-30 11:50:16,160 - MAIN - INFO: iteration 1142, total steps 584704, mean/max/min reward 0.459963/0.546875/0.390000
+2023-06-30 11:50:16,675 - MAIN - INFO: iteration 1143, total steps 585216, mean/max/min reward 0.517560/0.716071/0.000000
+2023-06-30 11:50:17,197 - MAIN - INFO: iteration 1144, total steps 585728, mean/max/min reward 0.468353/0.605556/0.370833
+2023-06-30 11:50:17,698 - MAIN - INFO: iteration 1145, total steps 586240, mean/max/min reward 0.650781/0.741667/0.556250
+2023-06-30 11:50:18,222 - MAIN - INFO: iteration 1146, total steps 586752, mean/max/min reward 0.605066/0.743182/0.445833
+2023-06-30 11:50:18,745 - MAIN - INFO: iteration 1147, total steps 587264, mean/max/min reward 0.581776/0.677500/0.442857
+2023-06-30 11:50:19,285 - MAIN - INFO: iteration 1148, total steps 587776, mean/max/min reward 0.620868/0.667500/0.597222
+2023-06-30 11:50:19,795 - MAIN - INFO: iteration 1149, total steps 588288, mean/max/min reward 0.515014/0.693182/0.290000
+2023-06-30 11:50:20,313 - MAIN - INFO: iteration 1150, total steps 588800, mean/max/min reward 0.592632/0.636111/0.550000
+2023-06-30 11:50:20,837 - MAIN - INFO: iteration 1151, total steps 589312, mean/max/min reward 0.517312/0.600000/0.417857
+2023-06-30 11:50:21,364 - MAIN - INFO: iteration 1152, total steps 589824, mean/max/min reward 0.403916/0.533333/0.190000
+2023-06-30 11:50:21,893 - MAIN - INFO: iteration 1153, total steps 590336, mean/max/min reward 0.509675/0.596875/0.325000
+2023-06-30 11:50:22,424 - MAIN - INFO: iteration 1154, total steps 590848, mean/max/min reward 0.638098/0.702273/0.598214
+2023-06-30 11:50:22,950 - MAIN - INFO: iteration 1155, total steps 591360, mean/max/min reward 0.590265/0.613333/0.565909
+2023-06-30 11:50:23,483 - MAIN - INFO: iteration 1156, total steps 591872, mean/max/min reward 0.682052/0.738889/0.611667
+2023-06-30 11:50:24,005 - MAIN - INFO: iteration 1157, total steps 592384, mean/max/min reward 0.615553/0.848750/0.393750
+2023-06-30 11:50:24,531 - MAIN - INFO: iteration 1158, total steps 592896, mean/max/min reward 0.627530/0.670833/0.593750
+2023-06-30 11:50:25,063 - MAIN - INFO: iteration 1159, total steps 593408, mean/max/min reward 0.622660/0.711364/0.510714
+2023-06-30 11:50:25,585 - MAIN - INFO: iteration 1160, total steps 593920, mean/max/min reward 0.500522/0.744231/0.337500
+2023-06-30 11:50:25,585 - MAIN - INFO: *****agent / evaluation block
+2023-06-30 11:50:25,844 - MAIN - INFO: task: 0_MyMiniGrid-LearnRed-v1 - [0.9, 0.875, 0.825, 0.875, 0.925, 0.725, 0, 0.875, 0.9, 0.925, 0.8, 0.625, 0.9, 0.825, 0.95, 0, 0.825, 0.85, 0, 0.975, 0.95, 0.95, 0.975, 0.975] - 0.77
+2023-06-30 11:50:26,018 - MAIN - INFO: task: 1_MyMiniGrid-LearnBall-v1 - [0.875, 0.875, 0.825, 0.875, 0.925, 0.825, 0.875, 0.85, 0.9, 0.9, 0.875, 0.825, 0.9, 0.925, 0.95, 0.875, 0.775, 0.775, 0, 0.975, 0.95, 0.95, 0.975, 0.975] - 0.85
+2023-06-30 11:50:26,229 - MAIN - INFO: task: 2_MyMiniGrid-FindRedBall-v1 - [0.875, 0.9, 0.975, 0.8, 0.9, 0.95, 0, 0.9, 0.925, 0.925, 0.8, 0.9, 0.9, 0.925, 0.8, 0.775, 0, 0.95, 0.8, 0.975, 0.975, 0.925, 0.9, 0.825] - 0.82
+2023-06-30 11:50:26,742 - MAIN - INFO: iteration 1161, total steps 594432, mean/max/min reward 0.513170/0.675000/0.346429
+2023-06-30 11:50:27,259 - MAIN - INFO: iteration 1162, total steps 594944, mean/max/min reward 0.683514/0.728846/0.603125
+2023-06-30 11:50:27,771 - MAIN - INFO: iteration 1163, total steps 595456, mean/max/min reward 0.660104/0.725000/0.595000
+2023-06-30 11:50:28,304 - MAIN - INFO: iteration 1164, total steps 595968, mean/max/min reward 0.692173/0.755357/0.580000
+2023-06-30 11:50:28,820 - MAIN - INFO: iteration 1165, total steps 596480, mean/max/min reward 0.686071/0.768750/0.629167
+2023-06-30 11:50:29,329 - MAIN - INFO: iteration 1166, total steps 596992, mean/max/min reward 0.591875/0.725000/0.379167
+2023-06-30 11:50:29,838 - MAIN - INFO: iteration 1167, total steps 597504, mean/max/min reward 0.552636/0.693182/0.387500
+2023-06-30 11:50:30,348 - MAIN - INFO: iteration 1168, total steps 598016, mean/max/min reward 0.611261/0.653125/0.586364
+2023-06-30 11:50:30,900 - MAIN - INFO: iteration 1169, total steps 598528, mean/max/min reward 0.614901/0.773077/0.486111
+2023-06-30 11:50:31,428 - MAIN - INFO: iteration 1170, total steps 599040, mean/max/min reward 0.696253/0.768333/0.571875
+2023-06-30 11:50:31,948 - MAIN - INFO: iteration 1171, total steps 599552, mean/max/min reward 0.726138/0.765385/0.650000
+2023-06-30 11:50:32,475 - MAIN - INFO: iteration 1172, total steps 600064, mean/max/min reward 0.628546/0.718750/0.453125

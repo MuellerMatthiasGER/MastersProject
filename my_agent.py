@@ -7,14 +7,19 @@ class MyLLAgent(LLAgent):
     def __init__(self, config):
         super().__init__(config)
 
+        self.new_mask_type = config.new_task_mask
+
     def task_eval_start(self, task_label):
         self.network.eval()
         task_idx = self._label_to_idx(task_label)
         if task_idx is None:
-            # agent has not been trained on current task
-            # being evaluated. Therefore a linear combination 
-            # of all previous masks is used
-            task_idx = self._set_betas_for_unseen_eval_task()
+            if self.new_mask_type == NEW_MASK_LINEAR_COMB:
+                # agent has not been trained on current task
+                # being evaluated. Therefore a linear combination 
+                # of all previous masks is used
+                task_idx = self._set_betas_for_unseen_eval_task()
+            else:
+                task_idx = len(self.seen_tasks)
         set_model_task(self.network, task_idx)
         self.curr_eval_task_label = task_label
 
