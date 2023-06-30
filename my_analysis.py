@@ -51,7 +51,7 @@ def _analyse_linear_coefficients(agent):
             _plot_hm_betas(_data, k, '{0}/betas_{1}.pdf'.format(lc_save_path, k))
 
 
-def _plot_train_performance(agent):
+def _plot_eval_performance(agent, comparison_log_dir=None):
     config = agent.config
 
     tasks = [task_info['task'] for task_info in config.cl_tasks_info]
@@ -61,6 +61,29 @@ def _plot_train_performance(agent):
     num_rows = data.shape[0]
     steps = np.arange(num_rows) * steps_between_evals
 
+    # comparison plot
+    if comparison_log_dir:
+        comp_env_config_path = f"{comparison_log_dir}/env_config.json"
+        with open(comp_env_config_path, 'r') as f:
+            comp_env_config = json.load(f)
+
+        comp_tasks = comp_env_config['tasks']
+        comp_data = np.loadtxt(f"{comparison_log_dir}/eval_data.csv", delimiter=',')
+
+        num_rows = comp_data.shape[0]
+        steps = np.arange(num_rows) * steps_between_evals
+
+        gray_values = np.linspace(0.5, 0.7, len(comp_tasks))
+
+        for task_idx, task_name in enumerate(comp_tasks):
+            if len(data.shape) > 1:
+                eval_data = comp_data[:, task_idx]
+            else:
+                # one dim data, i.e. only one task
+                eval_data = comp_data
+            plt.plot(steps, eval_data, label=task_name, color=plt.cm.gray(gray_values[task_idx]))
+
+    # main plot
     for task_idx, task_name in enumerate(tasks):
         if len(data.shape) > 1:
             eval_data = data[:, task_idx]
@@ -68,6 +91,7 @@ def _plot_train_performance(agent):
             # one dim data, i.e. only one task
             eval_data = data
         plt.plot(steps, eval_data, label=task_name)
+
         # draw vertical lines when new task is trained
         vertical_x = config.max_steps * task_idx
         plt.axvline(vertical_x, c='black')
@@ -78,11 +102,11 @@ def _plot_train_performance(agent):
     plt.ylim(top=1)
     plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
     plt.legend()
-    plt.savefig(f"{config.log_dir}/task_stats/plot.png")
+    plt.savefig(f"{config.log_dir}/task_stats/plot{'_comp' if comparison_log_dir else ''}.png")
 
 
 def analyse_agent(agent):
-    _plot_train_performance(agent)
+    _plot_eval_performance(agent)
     _analyse_linear_coefficients(agent)
 
 if __name__ == '__main__':
@@ -90,17 +114,19 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "./log_safe/minigrid_color_shape-42-mask-linear_comb/230629-124443"
+    path = "./log_safe/minigrid_color_shape-42-mask-linear_comb/230629-121329"
     config = build_minigrid_config(None, log_dir=path)
 
     # load agent
     agent = MyLLAgent(config)
     config.agent_name = agent.__class__.__name__
-    model_path = '{0}/{1}-{2}-model-{3}.bin'.format(path, config.agent_name, config.tag, config.env_name)
-    agent.load(model_path)
+    # model_path = '{0}/{1}-{2}-model-{3}.bin'.format(path, config.agent_name, config.tag, config.env_name)
+    # agent.load(model_path)
 
     # analyse_agent(agent)
-    analyse_agent(agent)
+
+    comp_log_dir = "./log_safe/minigrid_color_shape-42-mask-random/230630-113851"
+    _plot_eval_performance(agent, comparison_log_dir=comp_log_dir)
 
     agent.close()
     
