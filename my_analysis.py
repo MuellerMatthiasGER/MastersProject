@@ -1,4 +1,5 @@
 from deep_rl import *
+from my_agent import MyLLAgent
 
 from my_logger import *
 from my_config import *
@@ -45,7 +46,7 @@ def _analyse_linear_coefficients(agent):
             _plot_hm_betas(_data.numpy(), k, '{0}/betas_before_softmax_{1}.pdf'.format(lc_save_path, k))
             # apply softmax to get probabilities of co-efficient parameters
             for _idx in range(_data.shape[0]):
-                _data[_idx, 0:_idx+1] = torch.softmax(_data[_idx, 0:_idx+1] * 5, dim=0) # MYEDIT *5 is new
+                _data[_idx, 0:_idx+1] = torch.softmax(_data[_idx, 0:_idx+1], dim=0)
             _data = _data.numpy()
             _plot_hm_betas(_data, k, '{0}/betas_{1}.pdf'.format(lc_save_path, k))
 
@@ -89,17 +90,17 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "./log/minigrid_color_shape-42-mask-linear_comb/230628-160404"
+    path = "./log_safe/minigrid_color_shape-42-mask-linear_comb/230629-124443"
     config = build_minigrid_config(None, log_dir=path)
 
     # load agent
-    agent = LLAgent(config)
+    agent = MyLLAgent(config)
     config.agent_name = agent.__class__.__name__
-    # model_path = '{0}/{1}-{2}-model-{3}.bin'.format(path, config.agent_name, config.tag, config.env_name)
-    # agent.load(model_path)
+    model_path = '{0}/{1}-{2}-model-{3}.bin'.format(path, config.agent_name, config.tag, config.env_name)
+    agent.load(model_path)
 
     # analyse_agent(agent)
-    _plot_train_performance(agent)
+    analyse_agent(agent)
 
     agent.close()
     
