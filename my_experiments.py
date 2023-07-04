@@ -270,6 +270,49 @@ def learn_color_shape(env_config_path):
     agent.close()
 
 
+def learn_green_blue(env_config_path):
+    config = build_minigrid_config(env_config_path)
+
+    agent = MyLLAgent(config)
+    config.agent_name = agent.__class__.__name__
+    tasks_info = agent.config.cl_tasks_info
+
+    create_log_structure(config)
+
+    iteration = 0
+
+    # evaluate agent before training for baseline of random init
+    eval_agent(agent, tasks_info, iteration)
+
+    for task_idx, task_info in enumerate(tasks_info):
+        log_new_task_starts(config, task_idx, task_info)
+
+        prepare_agent_for_task(agent, task_info)
+
+        while True:
+            # train step
+            dict_logs = agent.iteration()
+            iteration += 1
+
+            # logging
+            log_iteration(agent, iteration)
+
+            # evaluate agent
+            eval_agent(agent, tasks_info, iteration)
+
+            # check whether task training has been completed
+            if is_task_training_complete(agent, task_idx):
+                break
+
+    #     end of while True / current task training
+    # end for each task
+
+    # Analysis
+    analyse_agent(agent)
+
+    agent.close()
+
+
 if __name__ == '__main__':
     mkdir('log')
     set_one_thread()
@@ -278,5 +321,5 @@ if __name__ == '__main__':
     # env_config_path = "./env_configs/minigrid_color_shape.json"
     # learn_color_shape(env_config_path)
 
-    env_config_path = "./env_configs/minigrid_one_big_mask.json"
-    one_big_mask(env_config_path)
+    env_config_path = "./env_configs/minigrid_green_blue.json"
+    learn_green_blue(env_config_path)

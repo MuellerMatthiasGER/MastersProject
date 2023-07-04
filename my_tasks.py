@@ -16,6 +16,7 @@ class MyMiniGrid(BaseTask):
         # imports important for registration of environments, even if imports are not used here
         import my_minigrid
         import my_minigrid_new
+        import my_minigrid_green_blue
 
         self.name = config.env_name
         self.config = config
