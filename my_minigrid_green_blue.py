@@ -9,8 +9,13 @@ from gymnasium.envs.registration import register
 
 
 class Pickup(RoomGridLevel):
-    def __init__(self, target_idx=None, room_size=6, **kwargs):
-        super().__init__(num_rows=1, num_cols=1, room_size=room_size, max_steps=room_size**2, **kwargs)
+    def __init__(self, target_idx=None, room_size=6, agent_view_size=3, **kwargs):
+        super().__init__(
+            num_rows=1, num_cols=1, 
+            room_size=room_size, 
+            max_steps=room_size**2, 
+            agent_view_size=agent_view_size, 
+            **kwargs)
         self.objs = [Ball('green'), Ball('blue'), Box('green'), Box('blue')]
         self.target_idx = target_idx
 
@@ -20,7 +25,7 @@ class Pickup(RoomGridLevel):
 
         num_objs = len(self.objs)
 
-        if self.target_idx:
+        if self.target_idx is not None:
             target_idx = self.target_idx
         else:
             target_idx = self._rand_int(0, num_objs)
