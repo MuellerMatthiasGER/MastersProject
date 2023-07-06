@@ -4,8 +4,9 @@
 "one_hot": true,
 "label_dim": 4,
 "action_dim": 4,
-"max_steps": 200000,
+"max_steps": 300000,
 "config_seed": 42,
 "seeds": ["-", "-", "-", "-"],
-"new_task_mask": "linear_comb"
+"new_task_mask": "linear_comb",
+"mask_type": "threshold_mask"
 }

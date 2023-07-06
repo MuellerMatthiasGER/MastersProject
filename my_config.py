@@ -7,6 +7,7 @@
 from deep_rl import *
 
 import json
+from my_masks import MyCategoricalActorCriticNet_SS
 
 from my_tasks import MyMiniGrid, MyMiniGridFlatObs
 
@@ -73,8 +74,9 @@ def build_minigrid_config(env_config_path, log_dir=None):
     with open(env_config_path, 'r') as f:
         env_config = json.load(f)
     num_tasks = len(env_config['tasks'])
+    config.mask_type = env_config.get('mask_type', 'threshold_mask')
     del env_config
-    
+
     config.task_ids = np.arange(num_tasks).tolist()
 
     task_fn = lambda log_dir: MyMiniGridFlatObs(config, env_config_path, eval_mode=False)
@@ -82,8 +84,8 @@ def build_minigrid_config(env_config_path, log_dir=None):
     eval_task_fn = lambda log_dir: MyMiniGridFlatObs(config, env_config_path, eval_mode=True)
     config.eval_task_fn = eval_task_fn
     config.optimizer_fn = lambda params, lr: torch.optim.RMSprop(params, lr=lr)
-    config.network_fn = lambda state_dim, action_dim, label_dim: CategoricalActorCriticNet_SS(
-        state_dim, action_dim, label_dim,
+    config.network_fn = lambda state_dim, action_dim, label_dim: MyCategoricalActorCriticNet_SS(
+        config, state_dim, action_dim, 
         phi_body=FCBody_SS(state_dim, task_label_dim=label_dim, hidden_units=(200, 200, 200), num_tasks=num_tasks, new_task_mask=config.new_task_mask),
         actor_body=DummyBody_CL(200),
         critic_body=DummyBody_CL(200),
