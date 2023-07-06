@@ -9,7 +9,7 @@ from gymnasium.envs.registration import register
 
 
 class Pickup(RoomGridLevel):
-    def __init__(self, target_color=None, target_type=None, room_size=6, agent_view_size=3, **kwargs):
+    def __init__(self, target_color=None, target_type=None, room_size=7, agent_view_size=5, **kwargs):
         super().__init__(
             num_rows=1, num_cols=1, 
             room_size=room_size, 
