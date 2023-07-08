@@ -7,63 +7,16 @@
 from deep_rl.mask_modules.mmn.mask_nets import GetSubnetContinuous, GetSubnetDiscrete, MultitaskMaskLinearSparse, mask_init, signed_constant
 from deep_rl.network.network_heads import *
 
-class MyMultitaskMaskLinear(nn.Linear):
+class MyMultitaskMaskLinear(MultitaskMaskLinear):
     def __init__(self, *args, discrete=True, num_tasks=1, new_mask_type=NEW_MASK_RANDOM, \
         bias=False, **kwargs):
-        super().__init__(*args, bias=False, **kwargs)
-        self.num_tasks = num_tasks
+        super().__init__(*args, discrete=discrete, num_tasks=num_tasks, new_mask_type=new_mask_type, **kwargs)
         self.scores = nn.ParameterList(
             [
                 nn.Parameter(mask_init(self))
                 for _ in range(num_tasks)
             ]
         )
-        
-        # Keep weights untrained
-        self.weight.requires_grad = False
-        signed_constant(self)
-
-        self.task = -1
-        self.num_tasks_learned = 0
-        self.new_mask_type = new_mask_type
-        if self.new_mask_type == NEW_MASK_LINEAR_COMB:
-            self.betas = nn.Parameter(torch.zeros(num_tasks, num_tasks).type(torch.float32))
-            self._forward_mask = self._forward_mask_linear_comb
-        else:
-            self.betas = None
-            self._forward_mask = self._forward_mask_normal
-
-        # subnet class
-        self._subnet_class = GetSubnetDiscrete if discrete else GetSubnetContinuous
-
-        # to initialize/register the stacked module buffer.
-        self.cache_masks()
-    
-    @torch.no_grad()
-    def cache_masks(self):
-        self.register_buffer(
-            "stacked",
-            torch.stack(
-                [
-                    self._subnet_class.apply(self.scores[j])
-                    for j in range(self.num_tasks)
-                ]
-            ),
-        )
-
-    def forward(self, x):
-        if self.task < 0:
-            raise ValueError('`self.task` should be set to >= 0')
-        else:
-            # Subnet forward pass (given task info in self.task)
-            #subnet = self._subnet_class.apply(self.scores[self.task])
-            subnet = self._forward_mask()
-        w = self.weight * subnet
-        x = F.linear(x, w, self.bias)
-        return x
-
-    def _forward_mask_normal(self):
-        return self._subnet_class.apply(self.scores[self.task])
 
     def _forward_mask_linear_comb(self):
         _subnet = self.scores[self.task]
@@ -124,24 +77,6 @@ class MyMultitaskMaskLinear(nn.Linear):
         
     def __repr__(self):
         return f"MyMultitaskMaskLinear({self.in_dims}, {self.out_dims})"
-
-    @torch.no_grad()
-    def get_mask(self, task, raw_score=True):
-        # return raw scores and not the processed mask, since the
-        # scores are the parameters that will be trained in other
-        # agents. the binary masks would not be trained but rather
-        # generated from raw scores in other agents
-        if raw_score:
-            return self.scores[task]
-        else:
-            return self._subnet_class.apply(self.scores[task])
-
-    @torch.no_grad()
-    def set_mask(self, mask, task):
-        self.scores[task].data = mask
-        # NOTE, this operation might not be required and could be remove to save compute time
-        self.cache_masks() 
-        return
 
     @torch.no_grad()
     def set_task(self, task, new_task=False):
