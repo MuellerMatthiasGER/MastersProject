@@ -7,7 +7,7 @@
 from deep_rl import *
 
 import json
-from my_masks import MyCategoricalActorCriticNet_SS
+from my_masks import MyCategoricalActorCriticNet_SS, MyFCBody_SS
 
 from my_tasks import MyMiniGrid, MyMiniGridFlatObs
 
@@ -86,7 +86,7 @@ def build_minigrid_config(env_config_path, log_dir=None):
     config.optimizer_fn = lambda params, lr: torch.optim.RMSprop(params, lr=lr)
     config.network_fn = lambda state_dim, action_dim, label_dim: MyCategoricalActorCriticNet_SS(
         config, state_dim, action_dim, 
-        phi_body=FCBody_SS(state_dim, task_label_dim=label_dim, hidden_units=(200, 200, 200), num_tasks=num_tasks, new_task_mask=config.new_task_mask),
+        phi_body=MyFCBody_SS(state_dim, task_label_dim=label_dim, hidden_units=(200, 200, 200), num_tasks=num_tasks, new_task_mask=config.new_task_mask),
         actor_body=DummyBody_CL(200),
         critic_body=DummyBody_CL(200),
         num_tasks=num_tasks,

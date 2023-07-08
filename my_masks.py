@@ -4,8 +4,154 @@
 # declaration at the top                                              #
 #######################################################################
 
-from deep_rl.mask_modules.mmn.mask_nets import MultitaskMaskLinearSparse
+from deep_rl.mask_modules.mmn.mask_nets import GetSubnetContinuous, GetSubnetDiscrete, MultitaskMaskLinearSparse, mask_init, signed_constant
 from deep_rl.network.network_heads import *
+
+class MyMultitaskMaskLinear(nn.Linear):
+    def __init__(self, *args, discrete=True, num_tasks=1, new_mask_type=NEW_MASK_RANDOM, \
+        bias=False, **kwargs):
+        super().__init__(*args, bias=False, **kwargs)
+        self.num_tasks = num_tasks
+        self.scores = nn.ParameterList(
+            [
+                nn.Parameter(mask_init(self))
+                for _ in range(num_tasks)
+            ]
+        )
+        
+        # Keep weights untrained
+        self.weight.requires_grad = False
+        signed_constant(self)
+
+        self.task = -1
+        self.num_tasks_learned = 0
+        self.new_mask_type = new_mask_type
+        if self.new_mask_type == NEW_MASK_LINEAR_COMB:
+            self.betas = nn.Parameter(torch.zeros(num_tasks, num_tasks).type(torch.float32))
+            self._forward_mask = self._forward_mask_linear_comb
+        else:
+            self.betas = None
+            self._forward_mask = self._forward_mask_normal
+
+        # subnet class
+        self._subnet_class = GetSubnetDiscrete if discrete else GetSubnetContinuous
+
+        # to initialize/register the stacked module buffer.
+        self.cache_masks()
+    
+    @torch.no_grad()
+    def cache_masks(self):
+        self.register_buffer(
+            "stacked",
+            torch.stack(
+                [
+                    self._subnet_class.apply(self.scores[j])
+                    for j in range(self.num_tasks)
+                ]
+            ),
+        )
+
+    def forward(self, x):
+        if self.task < 0:
+            raise ValueError('`self.task` should be set to >= 0')
+        else:
+            # Subnet forward pass (given task info in self.task)
+            #subnet = self._subnet_class.apply(self.scores[self.task])
+            subnet = self._forward_mask()
+        w = self.weight * subnet
+        x = F.linear(x, w, self.bias)
+        return x
+
+    def _forward_mask_normal(self):
+        return self._subnet_class.apply(self.scores[self.task])
+
+    def _forward_mask_linear_comb(self):
+        _subnet = self.scores[self.task]
+        if self.task < self.num_tasks_learned:
+            # this is a task that has been seen before (with established/trained mask).
+            # fetch mask and use (either for eval or to continue training).
+            # --> MYEDIT: this is probably not true anymore
+            return self._subnet_class.apply(_subnet)
+
+        # otherwise, this is a new task. check if the first task
+        if self.task == 0:
+            # this is the first task to train. no previous task mask to linearly combine.
+            # --> MYEDIT: this should still hold
+            return self._subnet_class.apply(_subnet)
+
+        # otherwise, a new task and it is not the first task. combine task mask with
+        # masks from previous tasks.
+        # note: should not update scores/masks from previous tasks. only update their coeffs/betas
+        _subnets = [self.scores[idx].detach() for idx in range(self.task)]
+        # --> MYEDIT: apply masking function to previous masks
+        _subnets.append(_subnet)
+        _subnets = [self._subnet_class.apply(_subnet) for _subnet in _subnets]
+        assert len(_subnets) > 0, 'an error occured'
+        _betas = self.betas[self.task, 0:self.task+1]
+        # --> MYEDIT: no softmax for beta values anymore, instead apply masking function
+        # _betas = torch.softmax(_betas, dim=-1)
+        _betas = self._subnet_class.apply(_betas)
+        assert len(_betas) == len(_subnets), 'an error ocurred'
+        _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
+        # element wise sum of various masks (weighted sum)
+        _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
+        return self._subnet_class.apply(_subnet_linear_comb)
+
+    @torch.no_grad()
+    def consolidate_mask(self):
+        if self.new_mask_type == NEW_MASK_RANDOM:
+            return
+        if self.task <= 0:
+            return
+        if self.task < self.num_tasks_learned:
+            # re-visiting a task that has been previously learnt
+            # (no need to consolidate)
+            return
+        
+        # --> MYEDIT: No consolidating anymore
+        # _subnet = self.scores[self.task]
+        # _subnets = [self.scores[idx].detach() for idx in range(self.task)]
+        # assert len(_subnets) > 0, 'an error occured'
+        # _betas = self.betas[self.task, 0:self.task+1]
+        # _betas = torch.softmax(_betas, dim=-1)
+        # _subnets.append(_subnet)
+        # assert len(_betas) == len(_subnets), 'an error ocurred'
+        # _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
+        # # element wise sum of various masks (weighted sum)
+        # _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
+        # self.scores[self.task].data = _subnet_linear_comb.data
+        return
+        
+    def __repr__(self):
+        return f"MyMultitaskMaskLinear({self.in_dims}, {self.out_dims})"
+
+    @torch.no_grad()
+    def get_mask(self, task, raw_score=True):
+        # return raw scores and not the processed mask, since the
+        # scores are the parameters that will be trained in other
+        # agents. the binary masks would not be trained but rather
+        # generated from raw scores in other agents
+        if raw_score:
+            return self.scores[task]
+        else:
+            return self._subnet_class.apply(self.scores[task])
+
+    @torch.no_grad()
+    def set_mask(self, mask, task):
+        self.scores[task].data = mask
+        # NOTE, this operation might not be required and could be remove to save compute time
+        self.cache_masks() 
+        return
+
+    @torch.no_grad()
+    def set_task(self, task, new_task=False):
+        self.task = task
+        if self.new_mask_type == NEW_MASK_LINEAR_COMB and new_task:
+            if task > 0:
+                # --> MYEDIT: By default, all betas are initialized with a small value above the threshold. The value depends on how often a mask has been used in the past
+                k = task + 1
+                # self.betas.data[task, 0:k] = 1. / k
+                self.betas.data[task, 0:k] = 0.1
 
 # actor-critic net for continual learning where tasks are labelled using
 # supermask superposition algorithm
@@ -58,9 +204,9 @@ class MyActorCriticNetSS(nn.Module):
         self.actor_body = actor_body
         self.critic_body = critic_body
         if config.mask_type == 'threshold_mask':
-            self.fc_action = MultitaskMaskLinear(actor_body.feature_dim, action_dim, \
+            self.fc_action = MyMultitaskMaskLinear(actor_body.feature_dim, action_dim, \
                 discrete=discrete_mask, num_tasks=num_tasks, new_mask_type=new_task_mask)
-            self.fc_critic = MultitaskMaskLinear(critic_body.feature_dim, 1, \
+            self.fc_critic = MyMultitaskMaskLinear(critic_body.feature_dim, 1, \
                 discrete=discrete_mask, num_tasks=num_tasks, new_mask_type=new_task_mask)
         elif config.mask_type == 'sparse_mask':
             self.fc_action = MultitaskMaskLinearSparse(actor_body.feature_dim, action_dim, \
@@ -78,3 +224,34 @@ class MyActorCriticNetSS(nn.Module):
         self.critic_params = cp
 
         self.phi_params = [p for p in self.phi_body.parameters() if p.requires_grad is True]
+
+class MyFCBody_SS(nn.Module): # fcbody for supermask superposition continual learning algorithm
+    def __init__(self, state_dim, task_label_dim=None, hidden_units=(64, 64), gate=F.relu, discrete_mask=True, num_tasks=3, new_task_mask=NEW_MASK_RANDOM):
+        super(MyFCBody_SS, self).__init__()
+        if task_label_dim is None:
+            dims = (state_dim, ) + hidden_units
+        else:
+            dims = (state_dim + task_label_dim, ) + hidden_units
+        self.layers = nn.ModuleList([MyMultitaskMaskLinear(dim_in, dim_out, discrete=discrete_mask, \
+            num_tasks=num_tasks, new_mask_type=new_task_mask) \
+            for dim_in, dim_out in zip(dims[:-1], dims[1:])
+        ])
+        self.gate = gate
+        self.feature_dim = dims[-1]
+        self.task_label_dim = task_label_dim
+
+    def forward(self, x, task_label=None, return_layer_output=False, prefix=''):
+        if self.task_label_dim is not None:
+            assert task_label is not None, '`task_label` should be set'
+            x = torch.cat([x, task_label], dim=1)
+        #if task_label is not None: x = torch.cat([x, task_label], dim=1)
+       
+        ret_act = []
+        if return_layer_output:
+            for i, layer in enumerate(self.layers):
+                x = self.gate(layer(x))
+                ret_act.append(('{0}.layers.{1}'.format(prefix, i), x))
+        else:
+            for layer in self.layers:
+                x = self.gate(layer(x))
+        return x, ret_act
