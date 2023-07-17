@@ -12,43 +12,104 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
                  new_mask_type=NEW_MASK_RANDOM, bias=False, **kwargs):
         super().__init__(*args, discrete=discrete, num_tasks=num_tasks, 
                          new_mask_type=new_mask_type, **kwargs)
+        
+        self.num_masks = 16
+        self.num_masks_init = 0
 
-    # def _forward_mask_linear_comb(self):
-    #     _subnet = self.scores[self.task]
-    #     if self.task < self.num_tasks_learned:
-    #         # this is a task that has been seen before (with established/trained mask).
-    #         # fetch mask and use (either for eval or to continue training).
-    #         # --> MYEDIT: this is probably not true anymore
-    #         return self._subnet_class.apply(_subnet)
+        self.scores = nn.ParameterList(
+            [
+                nn.Parameter(mask_init(self))
+                for _ in range(self.num_masks)
+            ]
+        )
+        self.betas = nn.Parameter(torch.zeros(num_tasks, self.num_masks).type(torch.float32))
 
-    #     # otherwise, this is a new task. check if the first task
-    #     if self.task == 0:
-    #         # this is the first task to train. no previous task mask to linearly combine.
-    #         # --> MYEDIT: this should still hold
-    #         return self._subnet_class.apply(_subnet)
+    def _forward_mask_linear_comb(self):
+        _subnet = self.scores[self.num_masks_init - 1]
+        
+        # TODO: What if task is already known
 
-    #     # otherwise, a new task and it is not the first task. combine task mask with
-    #     # masks from previous tasks.
-    #     # note: should not update scores/masks from previous tasks. only update their coeffs/betas
-    #     _subnets = [self.scores[idx].detach() for idx in range(self.task)]
-    #     # --> MYEDIT: apply masking function to previous masks
-    #     _subnets.append(_subnet)
-    #     _subnets = [self._subnet_class.apply(_subnet) for _subnet in _subnets]
-    #     assert len(_subnets) > 0, 'an error occured'
-    #     _betas = self.betas[self.task, 0:self.task+1]
-    #     # --> MYEDIT: no softmax for beta values anymore, instead apply masking function
-    #     # _betas = torch.softmax(_betas, dim=-1)
-    #     _betas = self._subnet_class.apply(_betas)
-    #     assert len(_betas) == len(_subnets), 'an error ocurred'
-    #     _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
-    #     # element wise sum of various masks (weighted sum)
-    #     _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
-    #     return self._subnet_class.apply(_subnet_linear_comb)
+        # otherwise, this is a new task. check if the first task
+        if self.task == 0:
+            # this is the first task to train. no previous task mask to linearly combine.
+            return self._subnet_class.apply(_subnet)
+
+        # otherwise, a new task and it is not the first task. combine task mask with
+        # masks from previous tasks.
+        _subnets = [self.scores[idx] for idx in range(self.num_masks_init - 1)]
+        
+        # scores of other masks can be modified but not change their sign, i.e. if a value is >= 0
+        clamped_subnets = []
+        for net in _subnets:
+            min = torch.where(net >= 0, torch.tensor(0.1), torch.tensor(-6))
+            max = torch.where(net < 0, torch.tensor(-0.1), torch.tensor(6))
+            clamped_subnets.append(net.clamp(min=min, max=max))
+        _subnets = clamped_subnets
+        _subnets.append(_subnet)
+
+        _betas = self.betas[self.task, 0:self.num_masks_init]
+        _betas = self._subnet_class.apply(_betas)
+        assert len(_betas) == len(_subnets), 'an error ocurred'
+        _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
+
+        # element wise sum of various masks
+        _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
+        return self._subnet_class.apply(_subnet_linear_comb)
 
     @torch.no_grad()
     def consolidate_mask(self):
-        # --> MYEDIT: No consolidating anymore
-        return
+        # TODO: What if task is already known
+
+        if self.task == 0:
+            mask = self._subnet_class.apply(self.scores[0]).type(torch.bool)
+            self.scores[0].data[~mask] = -0.1
+            return
+
+        _subnets = [self.scores[idx] for idx in range(self.num_masks_init - 1)]
+        existing_subnet_masks = [self._subnet_class.apply(net).type(torch.bool) for net in _subnets]
+
+        _subnet = self.scores[self.num_masks_init - 1]
+        _subnets.append(_subnet)
+
+        _betas = self.betas[self.task, 0:self.num_masks_init]
+        _betas = self._subnet_class.apply(_betas)
+        assert len(_betas) == len(_subnets), 'an error ocurred'
+        _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
+
+        # element wise sum of various masks
+        _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
+        final_mask = self._subnet_class.apply(_subnet_linear_comb).type(torch.bool)
+
+        self.scores[self.num_masks_init - 1].data = _subnet_linear_comb.data
+        self.scores[self.num_masks_init - 1].data[~final_mask] = -0.1
+
+        # make new mask disjunct to existing masks
+        for idx, mask in enumerate(existing_subnet_masks):
+            # check if masks are already disjunct
+            if not (mask & final_mask).any():
+                continue
+
+            # check if the new one is a subset of the old one
+            if not (final_mask & ~mask).any():
+                # then remove new mask from old mask
+                self.scores[idx].data[final_mask] = -0.1
+                # TODO: add new betas
+            
+            # check if the old one is a subset of the new one
+            elif not (mask & ~final_mask).any():
+                # then remove old mask from new one
+                self.scores[self.num_masks_init - 1].data[mask] = -0.1
+
+            else:
+                # remove both masks from each other and the intersection is the new one
+                self.scores[self.num_masks_init].data = _subnet_linear_comb
+                self.scores[self.num_masks_init].data[~final_mask | ~mask] = -0.1
+
+                self.scores[idx].data[final_mask] = -0.1
+                self.scores[self.num_masks_init - 1].data[mask] = -0.1
+
+                self.num_masks_init += 1
+
         
     def __repr__(self):
         return f"MyMultitaskMaskLinear({self.in_dims}, {self.out_dims})"
@@ -57,6 +118,7 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
     def set_task(self, task, new_task=False):
         self.task = task
         if self.new_mask_type == NEW_MASK_LINEAR_COMB and new_task:
+            self.num_masks_init += 1
             if task > 0:
                 k = task + 1
                 self.betas.data[task, 0:k] = 1. / k
