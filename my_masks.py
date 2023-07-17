@@ -68,8 +68,6 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
 
     @torch.no_grad()
     def consolidate_mask(self):
-        # TODO: What if task is already known
-
         # no task learned so far
         if self.task == 0:
             self.scores[0].data = self._subnet_class.apply(self.scores[0])
@@ -143,9 +141,8 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
         self.task = task
         if self.new_mask_type == NEW_MASK_LINEAR_COMB and new_task:
             self.num_masks_init += 1
-            if task > 0:
-                k = task + 1
-                self.betas.data[task, 0:k] = 1. / k
+            k = task + 1
+            self.betas.data[task, 0:k] = 1. / k
 
 # actor-critic net for continual learning where tasks are labelled using
 # supermask superposition algorithm
