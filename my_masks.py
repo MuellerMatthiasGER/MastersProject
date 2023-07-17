@@ -55,7 +55,7 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
         
         _subnet = self.scores[self.num_masks_init - 1]
         _subnets.append(_subnet)
-        
+
         _betas = self.betas[self.task, 0:self.num_masks_init]
         _betas = self._subnet_class.apply(_betas)
         assert len(_betas) == len(_subnets), 'an error ocurred'
@@ -69,7 +69,8 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
     def consolidate_mask(self):
         # TODO: What if task is already known
 
-        if self.task == 0:
+        # no task learned so far
+        if self.num_tasks_learned == 0:
             self.scores[0].data = self._subnet_class.apply(self.scores[0])
             return
 
