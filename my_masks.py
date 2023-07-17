@@ -41,16 +41,13 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
 
     def _forward_mask_linear_comb(self):
         _subnet = self.scores[self.num_masks_init - 1]
-        
-        # TODO: What if task is already known
 
-        # otherwise, this is a new task. check if the first task
-        if self.task == 0:
+        # check if this is the first task
+        if self.num_tasks_learned == 0:
             # this is the first task to train. no previous task mask to linearly combine.
             return self._subnet_class.apply(_subnet)
 
-        # otherwise, a new task and it is not the first task. combine task mask with
-        # masks from previous tasks.
+        # combine task mask with masks from other tasks.
         _subnets = [self.scores[idx].detach() for idx in range(self.num_masks_init - 1)]
         
         _subnet = self.scores[self.num_masks_init - 1]
@@ -61,6 +58,10 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
         assert len(_betas) == len(_subnets), 'an error ocurred'
         _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
 
+        # if the task is an old one, don't consider the new current mask
+        if self.task < self.num_tasks_learned:
+            _subnets = _subnets[:-1]
+
         # element wise sum of various masks
         _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
         return self._subnet_class.apply(_subnet_linear_comb)
@@ -70,7 +71,7 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
         # TODO: What if task is already known
 
         # no task learned so far
-        if self.num_tasks_learned == 0:
+        if self.task == 0:
             self.scores[0].data = self._subnet_class.apply(self.scores[0])
             return
 
