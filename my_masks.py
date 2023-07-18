@@ -100,7 +100,7 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
         # element wise sum of various masks
         _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
         _subnet_linear_comb[_subnet_linear_comb < 0] = 0
-        self.scores[self.num_masks_init - 1].data = _subnet_linear_comb.data
+        self.scores[self.num_masks_init - 1].data = _subnet_linear_comb.data.clone()
         final_mask = _subnet_linear_comb.type(torch.bool)
 
         # check if new mask is used at all
@@ -132,7 +132,7 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
 
             else:
                 # remove both masks from each other and the intersection is the new one
-                self.scores[self.num_masks_init].data = _subnet_linear_comb
+                self.scores[self.num_masks_init].data = _subnet_linear_comb.data.clone()
                 self.scores[self.num_masks_init].data[~final_mask | ~mask] = 0
 
                 self.scores[idx].data[final_mask] = 0
