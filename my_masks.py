@@ -18,6 +18,17 @@ class MyGetSubnetDiscrete(autograd.Function):
     def backward(ctx, g):
         # send the gradient g straight-through on the backward pass.
         return g
+    
+class MyGetSubnetContinuous(autograd.Function):
+    # only > instead of >=
+    @staticmethod
+    def forward(ctx, scores, a=0):
+        return (scores > a).float() * scores
+
+    @staticmethod
+    def backward(ctx, g):
+        # send the gradient g straight-through on the backward pass.
+        return g
 
 class MyMultitaskMaskLinear(MultitaskMaskLinear):
     def __init__(self, *args, discrete=True, num_tasks=1, 
@@ -49,12 +60,14 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
 
         # combine task mask with masks from other tasks.
         _subnets = [self.scores[idx].detach() for idx in range(self.num_masks_init - 1)]
+        for net in _subnets:
+            net[net < 0] = 0
         
         _subnet = self.scores[self.num_masks_init - 1]
         _subnets.append(_subnet)
 
         _betas = self.betas[self.task, 0:self.num_masks_init]
-        _betas = self._subnet_class.apply(_betas)
+        _betas = MyGetSubnetContinuous.apply(_betas)
         assert len(_betas) == len(_subnets), 'an error ocurred'
         _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
 
@@ -70,7 +83,7 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
     def consolidate_mask(self):
         # no task learned so far
         if self.task == 0:
-            self.scores[0].data = self._subnet_class.apply(self.scores[0])
+            self.scores[0].data[self.scores[0] < 0] = 0
             return
 
         _subnets = [self.scores[idx] for idx in range(self.num_masks_init - 1)]
@@ -80,18 +93,19 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
         _subnets.append(_subnet)
 
         _betas = self.betas[self.task, 0:self.num_masks_init]
-        _betas = self._subnet_class.apply(_betas)
+        _betas = MyGetSubnetContinuous.apply(_betas)
         assert len(_betas) == len(_subnets), 'an error ocurred'
         _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
 
         # element wise sum of various masks
         _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
-        new_scores = self._subnet_class.apply(_subnet_linear_comb)
-        self.scores[self.num_masks_init - 1].data = new_scores
-        final_mask = new_scores.type(torch.bool)
+        _subnet_linear_comb[_subnet_linear_comb < 0] = 0
+        self.scores[self.num_masks_init - 1].data = _subnet_linear_comb.data
+        final_mask = _subnet_linear_comb.type(torch.bool)
 
-        # TODO: instead of setting new scores to 0 and 1, maybe use kaiming constant, 
-        # also do this at the top for task==0 
+        # check if new mask is used at all
+        if self.betas[self.task, self.num_masks_init - 1] <= 0:
+            return
 
         # make new mask disjunct to existing masks
         for idx, mask in enumerate(existing_subnet_masks):
@@ -105,7 +119,7 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
                 self.scores[idx].data[final_mask] = 0
 
                 # all older masks that use this mask must also use the new one to be complete
-                self.betas[self.betas[:, idx] > 0, self.num_masks_init - 1] = 0.5
+                self.betas[self.betas[:, idx] > 0, self.num_masks_init - 1] = self.betas[self.betas[:, idx] > 0, idx]
             
             # check if the old one is a subset of the new one
             elif not (mask & ~final_mask).any():
@@ -113,11 +127,12 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
                 self.scores[self.num_masks_init - 1].data[mask] = 0
 
                 # ensure that old mask is used for this task
-                self.betas[self.task, idx] = 0.5
+                if self.betas[self.task, idx] <= 0:
+                   self.betas[self.task, idx] = self.betas[self.task, self.num_masks_init - 1]
 
             else:
                 # remove both masks from each other and the intersection is the new one
-                self.scores[self.num_masks_init].data = new_scores
+                self.scores[self.num_masks_init].data = _subnet_linear_comb
                 self.scores[self.num_masks_init].data[~final_mask | ~mask] = 0
 
                 self.scores[idx].data[final_mask] = 0
@@ -125,9 +140,12 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
 
                 # ensure right beta values
                 # all masks that use the old mask must use the intersection
-                self.betas[self.betas[:, idx] > 0, self.num_masks_init] = 0.5
-                # current task must use the old mask and the intersection
-                self.betas[self.task, [idx, self.num_masks_init]] = 0.5
+                self.betas[self.betas[:, idx] > 0, self.num_masks_init] = self.betas[self.betas[:, idx] > 0, idx]
+                # current task must use the intersection
+                self.betas[self.task, self.num_masks_init] = self.betas[self.task, self.num_masks_init - 1]
+                # current task must use the old mask
+                if self.betas[self.task, idx] <= 0:
+                   self.betas[self.task, idx] = self.betas[self.task, self.num_masks_init - 1]
                 
                 self.num_masks_init += 1
 
@@ -142,7 +160,7 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
         if self.new_mask_type == NEW_MASK_LINEAR_COMB and new_task:
             self.num_masks_init += 1
             k = task + 1
-            self.betas.data[task, 0:k] = 1. / k
+            self.betas.data[task, 0:self.num_masks_init] = 1. / k
 
 # actor-critic net for continual learning where tasks are labelled using
 # supermask superposition algorithm

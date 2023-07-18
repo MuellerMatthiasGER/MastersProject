@@ -10,11 +10,12 @@ import matplotlib.pyplot as plt
 
 def _plot_hm_betas(data, title, fname):
     n_tasks = data.shape[0]
+    n_masks = data.shape[1]
 
     fig = plt.figure(figsize=(9, 9))
     ax = fig.subplots()
     im = ax.imshow(data, cmap='YlGn', vmin=0.0, vmax=0.5)
-    ax.set_xticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
+    ax.set_xticks(np.arange(n_masks), labels=['M{0}'.format(idx) for idx in range(n_masks)], \
         fontsize=16)
     ax.set_yticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
         fontsize=16)
@@ -22,7 +23,7 @@ def _plot_hm_betas(data, title, fname):
     plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor')
 
     for i in range(n_tasks):
-        for j in range(n_tasks):
+        for j in range(n_masks):
          text = ax.text(j, i, '{0:.2f}'.format(data[i, j]), ha='center', \
             va='center', fontsize=16)
     ax.set_title(title, fontsize=20)
@@ -52,11 +53,12 @@ def _analyse_linear_coefficients(agent):
 
 def _plot_hm_layer_mask_diff(data, title, fname):
     n_tasks = data.shape[0]
+    n_masks = data.shape[1]
 
     fig = plt.figure(figsize=(9, 9))
     ax = fig.subplots()
     im = ax.imshow(data, cmap='YlGn')
-    ax.set_xticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
+    ax.set_xticks(np.arange(n_masks), labels=['M{0}'.format(idx) for idx in range(n_masks)], \
         fontsize=16)
     ax.set_yticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
         fontsize=16)
@@ -64,7 +66,7 @@ def _plot_hm_layer_mask_diff(data, title, fname):
     plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor')
 
     for i in range(n_tasks):
-        for j in range(n_tasks):
+        for j in range(n_masks):
          text = ax.text(j, i, '{0:.2f}'.format(data[i, j]), ha='center', \
             va='center', fontsize=16)
     ax.set_title(title, fontsize=20)
@@ -160,8 +162,8 @@ def _plot_eval_performance(agent, comparison_log_dir=None):
 
 
 def analyse_agent(agent):
-    _plot_eval_performance(agent)
     _analyse_linear_coefficients(agent)
+    _plot_eval_performance(agent)
 
 if __name__ == '__main__':
     mkdir('log')
