@@ -4,7 +4,7 @@
 "one_hot": true,
 "label_dim": 4,
 "action_dim": 4,
-"max_steps": 50000,
+"max_steps": 2000,
 "config_seed": 42,
 "__seeds": ["-", "-", "-", "-", "-", "-", "-", "-", "-"],
 "seeds": ["-", "-", "-", "-"],

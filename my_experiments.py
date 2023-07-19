@@ -282,7 +282,7 @@ def learn_green_blue(env_config_path):
     iteration = 0
 
     # evaluate agent before training for baseline of random init
-    eval_agent(agent, tasks_info, iteration)
+    # eval_agent(agent, tasks_info, iteration)
 
     for task_idx, task_info in enumerate(tasks_info):
         log_new_task_starts(config, task_idx, task_info)

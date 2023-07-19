@@ -83,7 +83,13 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
     def consolidate_mask(self):
         # no task learned so far
         if self.task == 0:
+            # for verifying
+            prior_final_subnet = self._subnet_class.apply(self.scores[0])
+
             self.scores[0].data[self.scores[0] < 0] = 0
+
+            # Verify
+            self.verify_consolidation_process(prior_final_subnet)
             return
 
         _subnets = [self.scores[idx] for idx in range(self.num_masks_init - 1)]
@@ -105,6 +111,9 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
 
         # check if new mask is used at all
         if self.betas[self.task, self.num_masks_init - 1] <= 0:
+            # Verify
+            prior_final_subnet = self._subnet_class.apply(_subnet_linear_comb)
+            self.verify_consolidation_process(prior_final_subnet)
             return
 
         # make new mask disjunct to existing masks
@@ -149,6 +158,13 @@ class MyMultitaskMaskLinear(MultitaskMaskLinear):
                 
                 self.num_masks_init += 1
 
+        # Verify
+        prior_final_subnet = self._subnet_class.apply(_subnet_linear_comb)
+        self.verify_consolidation_process(prior_final_subnet)
+
+    def verify_consolidation_process(self, prior_final_subnet):
+        result = self._forward_mask_linear_comb()
+        assert (result == prior_final_subnet).all(), "consolidate mask does not result in same mask"
 
         
     def __repr__(self):
