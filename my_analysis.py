@@ -50,12 +50,12 @@ def _analyse_linear_coefficients(agent):
             _data = _data.numpy()
             _plot_hm_betas(_data, k, '{0}/betas_{1}.pdf'.format(lc_save_path, k))
 
-def _plot_hm_layer_mask_diff(data, title, fname):
+def _plot_hm_layer_mask_diff(data, title, fname, vmin=None):
     n_tasks = data.shape[0]
 
     fig = plt.figure(figsize=(9, 9))
     ax = fig.subplots()
-    im = ax.imshow(data, cmap='YlGn')
+    im = ax.imshow(data, cmap='YlGn', vmin=vmin)
     ax.set_xticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
         fontsize=16)
     ax.set_yticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
@@ -77,6 +77,7 @@ def _analyse_mask_diff(agent):
     num_tasks = len(config.task_ids)
 
     d = {}
+    b = {}
     for k, v in agent.network.named_parameters():
         k_split = k.split('.')
 
@@ -88,22 +89,37 @@ def _analyse_mask_diff(agent):
         elif k_split[1] == 'fc_action': new_k = k_split[1]
         elif k_split[1] == 'fc_critic': new_k = k_split[1]
 
-        if new_k not in d.keys(): d[new_k] = {}
+        if new_k not in d.keys(): 
+            d[new_k] = {}
+            b[new_k] = {}
         d[new_k][k_split[-1]] = copy.deepcopy(v.detach().cpu().numpy())
+        # binary of layers (apply >= 0)
+        # CAUTION: MUST BE CHANGED IF MASKING ALGORITHM CHANGES
+        b[new_k][k_split[-1]] = d[new_k][k_split[-1]] >= 0
 
     for k, v in d.items():
         diff_norm_data = np.zeros((num_tasks, num_tasks))
         diff_mean_data = np.zeros((num_tasks, num_tasks))
+
+        same_score_sign = np.zeros((num_tasks, num_tasks))
+        num_weights = np.float32(b[k][0].shape[0] * b[k][0].shape[1])
+
         for i in range(num_tasks):
             for j in range(num_tasks):
                 diff_norm_data[i, j] = np.linalg.norm(d[k][i] - d[k][j])
                 diff_mean_data[i, j] = np.mean(np.abs(d[k][i] - d[k][j]))
-        _plot_hm_layer_mask_diff(diff_norm_data, \
-            'Mask correlation for across tasks for {0}'.format(k), \
-            '{0}/layer_{1}_mask_diff_norm.pdf'.format(diff_save_path, k))
-        _plot_hm_layer_mask_diff(diff_mean_data, \
-            'Mask correlation for across tasks for {0}'.format(k), \
-            '{0}/layer_{1}_mask_diff_mean.pdf'.format(diff_save_path, k))
+                
+                same_score_sign[i, j] = (b[k][i] == b[k][j]).sum() / num_weights
+
+        _plot_hm_layer_mask_diff(same_score_sign, \
+            'Same score sign in percent for {0}'.format(k), \
+            '{0}/layer_{1}_same_score_sign.pdf'.format(diff_save_path, k), vmin=0.5)
+        # _plot_hm_layer_mask_diff(diff_norm_data, \
+        #     'Mask correlation for across tasks for {0}'.format(k), \
+        #     '{0}/layer_{1}_mask_diff_norm.pdf'.format(diff_save_path, k))
+        # _plot_hm_layer_mask_diff(diff_mean_data, \
+        #     'Mask correlation for across tasks for {0}'.format(k), \
+        #     '{0}/layer_{1}_mask_diff_mean.pdf'.format(diff_save_path, k))
 
 def _plot_eval_performance(agent, comparison_log_dir=None):
     config = agent.config
@@ -168,14 +184,14 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "./log/minigrid_one_big_mask-42-mask-linear_comb/230630-170359"
+    path = "./log_safe/minigrid_green_blue-42-mask-linear_comb/230706-153712"
     config = build_minigrid_config(None, log_dir=path)
 
     # load agent
     agent = MyLLAgent(config)
     config.agent_name = agent.__class__.__name__
-    # model_path = '{0}/{1}-{2}-model-{3}.bin'.format(path, config.agent_name, config.tag, config.env_name)
-    # agent.load(model_path)
+    model_path = '{0}/{1}-{2}-model-{3}.bin'.format(path, config.agent_name, config.tag, config.env_name)
+    agent.load(model_path)
 
     # analyse_agent(agent)
 
