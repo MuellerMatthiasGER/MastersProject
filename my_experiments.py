@@ -321,5 +321,5 @@ if __name__ == '__main__':
     # env_config_path = "./env_configs/minigrid_color_shape.json"
     # learn_color_shape(env_config_path)
 
-    env_config_path = "./env_configs/minigrid_one_big_mask.json"
-    one_big_mask(env_config_path)
+    env_config_path = "./env_configs/minigrid_green_blue.json"
+    learn_green_blue(env_config_path)
