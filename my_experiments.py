@@ -7,19 +7,27 @@ from my_utils import *
 from my_logger import *
 from my_eval import *
 
-def independent_masks(env_config_path, seed, max_steps, n_independent):
-    new_task_mask = 'linear_comb'
-    config = build_minigrid_config(env_config_path, seed, new_task_mask, max_steps)
-    pickle_run_parameters(config, env_config_path=env_config_path, seed=seed, new_task_mask=new_task_mask, max_steps=max_steps, n_independent=n_independent)
+def independent_masks(env_config_path):
+    config = build_minigrid_config(env_config_path)
 
-    agent = LLAgent(config)
+    agent = MyLLAgent(config)
     config.agent_name = agent.__class__.__name__
     tasks_info = agent.config.cl_tasks_info
-    num_tasks = len(tasks_info)
+
+    with open(env_config_path, 'r') as f:
+        env_config = json.load(f)
+    try:
+        num_tasks = len(env_config['tasks'])
+        n_independent = env_config['n_independent']
+    except KeyError as error:
+        print("Missing Key in Config", error)
 
     create_log_structure(config)
 
     iteration = 0
+
+    # evaluate agent before training for baseline of random init
+    eval_agent(agent, tasks_info, iteration)
 
     for task_idx, task_info in enumerate(tasks_info):
         log_new_task_starts(config, task_idx, task_info)
@@ -45,7 +53,6 @@ def independent_masks(env_config_path, seed, max_steps, n_independent):
 
             # logging
             log_iteration(agent, iteration)
-            print_betas(agent)
 
             # evaluate agent
             eval_agent(agent, tasks_info, iteration)
@@ -321,5 +328,5 @@ if __name__ == '__main__':
     # env_config_path = "./env_configs/minigrid_color_shape.json"
     # learn_color_shape(env_config_path)
 
-    env_config_path = "./env_configs/minigrid_green_blue.json"
-    learn_green_blue(env_config_path)
+    env_config_path = "./env_configs/minigrid_green_blue_independent.json"
+    independent_masks(env_config_path)
