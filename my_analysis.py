@@ -114,6 +114,7 @@ def _analyse_mask_diff(agent):
         _plot_hm_layer_mask_diff(same_score_sign, \
             'Same score sign in percent for {0}'.format(k), \
             '{0}/layer_{1}_same_score_sign.pdf'.format(diff_save_path, k), vmin=0.5)
+        print(k)
         # _plot_hm_layer_mask_diff(diff_norm_data, \
         #     'Mask correlation for across tasks for {0}'.format(k), \
         #     '{0}/layer_{1}_mask_diff_norm.pdf'.format(diff_save_path, k))
@@ -178,13 +179,14 @@ def _plot_eval_performance(agent, comparison_log_dir=None):
 def analyse_agent(agent):
     _plot_eval_performance(agent)
     _analyse_linear_coefficients(agent)
+    _analyse_mask_diff(agent)
 
 if __name__ == '__main__':
     mkdir('log')
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "./log_safe/minigrid_green_blue-42-mask-linear_comb/230706-153712"
+    path = "./log_safe/minigrid_green_blue_independent-42-mask-linear_comb/230722-101822"
     config = build_minigrid_config(None, log_dir=path)
 
     # load agent
