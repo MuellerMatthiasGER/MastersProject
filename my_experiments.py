@@ -167,7 +167,6 @@ def overshoot_betas(env_config_path):
                     for n, m in agent._get_all_mask_layers():
                         new_betas = m.betas.data[task_idx, :task_idx+1] * 3
                         new_betas -= new_betas.min()
-                        print(new_betas)
                         m.betas.data[task_idx, :task_idx+1] = new_betas
 
                         # m.betas.data[task_idx] = cur_betas + (cur_betas - old_betas[n]) * 10
