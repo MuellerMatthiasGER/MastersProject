@@ -148,11 +148,12 @@ def overshoot_betas(env_config_path):
         prepare_agent_for_task(agent, task_info)
 
         # experiment specific part
-        if task_idx > 0:
-            iteration_per_task = 0
-            old_betas = {}
-            for n, m in agent._get_all_mask_layers():
-                old_betas[n] = m.betas.data[task_idx].clone()
+        # if task_idx > 0:
+        #     iteration_per_task = 0
+        #     old_betas = {}
+        #     for n, m in agent._get_all_mask_layers():
+        #         old_betas[n] = m.betas.data[task_idx].clone()
+        iteration_per_task = 0
 
         while True:
             # train step
@@ -160,12 +161,17 @@ def overshoot_betas(env_config_path):
             iteration += 1
             
             # experiment specific part
-            if task_idx > 0 and iteration_per_task < 50:
-                iteration_per_task += 1
-                for n, m in agent._get_all_mask_layers():
-                    cur_betas = m.betas.data[task_idx]
-                    m.betas.data[task_idx] = cur_betas + (cur_betas - old_betas[n]) * 10
-                    old_betas[n] = m.betas.data[task_idx].clone()
+            if task_idx > 0 and iteration_per_task < 100:
+                with torch.no_grad():
+                    iteration_per_task += 1
+                    for n, m in agent._get_all_mask_layers():
+                        new_betas = m.betas.data[task_idx, :task_idx+1] * 3
+                        new_betas -= new_betas.min()
+                        print(new_betas)
+                        m.betas.data[task_idx, :task_idx+1] = new_betas
+
+                        # m.betas.data[task_idx] = cur_betas + (cur_betas - old_betas[n]) * 10
+                        # old_betas[n] = m.betas.data[task_idx].clone()
 
             # logging
             log_iteration(agent, iteration)
@@ -328,5 +334,5 @@ if __name__ == '__main__':
     # env_config_path = "./env_configs/minigrid_color_shape.json"
     # learn_color_shape(env_config_path)
 
-    env_config_path = "./env_configs/minigrid_green_blue_other_combs.json"
-    learn_green_blue(env_config_path)
+    env_config_path = "./env_configs/minigrid_overshoot_betas.json"
+    overshoot_betas(env_config_path)
