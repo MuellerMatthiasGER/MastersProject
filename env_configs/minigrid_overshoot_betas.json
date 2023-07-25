@@ -1,6 +1,6 @@
 {
-"__tasks": ["MyMiniGrid-PickupGreenBall-v0", "MyMiniGrid-PickupBlueBall-v0", "MyMiniGrid-PickupGreenBox-v0", "MyMiniGrid-PickupBlueBox-v0", "MyMiniGrid-PickupGreen-v0", "MyMiniGrid-PickupBlue-v0", "MyMiniGrid-PickupBall-v0", "MyMiniGrid-PickupBox-v0", "MyMiniGrid-Pickup-v0"],
-"tasks": ["MyMiniGrid-PickupGreenBall-v0", "MyMiniGrid-PickupGreen-v0", "MyMiniGrid-PickupBall-v0", "MyMiniGrid-Pickup-v0"],
+"__tasks": ["MyMiniGrid-Pickup-v0", "MyMiniGrid-PickupGreen-v0", "MyMiniGrid-PickupBlue-v0", "MyMiniGrid-PickupBall-v0", "MyMiniGrid-PickupBox-v0",  "MyMiniGrid-PickupGreenBall-v0", "MyMiniGrid-PickupBlueBall-v0", "MyMiniGrid-PickupGreenBox-v0", "MyMiniGrid-PickupBlueBox-v0"],
+"tasks": ["MyMiniGrid-Pickup-v0", "MyMiniGrid-PickupGreen-v0", "MyMiniGrid-PickupBall-v0", "MyMiniGrid-PickupGreenBall-v0"],
 "one_hot": true,
 "label_dim": 4,
 "action_dim": 4,
