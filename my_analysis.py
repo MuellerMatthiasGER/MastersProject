@@ -177,9 +177,12 @@ def _plot_eval_performance(agent, comparison_log_dir=None):
 
 
 def analyse_agent(agent):
+    config = agent.config
+
     _plot_eval_performance(agent)
-    _analyse_linear_coefficients(agent)
-    _analyse_mask_diff(agent)
+    if config.cl_preservation == 'supermask':
+        _analyse_linear_coefficients(agent)
+        _analyse_mask_diff(agent)
 
 if __name__ == '__main__':
     mkdir('log')

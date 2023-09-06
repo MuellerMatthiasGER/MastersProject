@@ -1,5 +1,4 @@
 from deep_rl import *
-from my_agent import MyLLAgent
 
 from my_config import build_minigrid_config
 from my_analysis import analyse_agent
@@ -8,11 +7,8 @@ from my_logger import *
 from my_eval import *
 
 def independent_masks(env_config_path):
-    config = build_minigrid_config(env_config_path)
-
-    agent = MyLLAgent(config)
-    config.agent_name = agent.__class__.__name__
-    tasks_info = agent.config.cl_tasks_info
+    config, agent = build_minigrid_config(env_config_path)
+    tasks_info = config.cl_tasks_info
 
     with open(env_config_path, 'r') as f:
         env_config = json.load(f)
@@ -75,9 +71,7 @@ def hyperparameter_search(env_config_path):
     ratio_clips = [0.1, 0.25, 0.5]
     gradient_clips = [0.5, 1, 2]
 
-    def run(config):
-        agent = MyLLAgent(config)
-        config.agent_name = agent.__class__.__name__
+    def run(config, agent):
         tasks_info = agent.config.cl_tasks_info
 
         create_log_structure(config)
@@ -121,19 +115,16 @@ def hyperparameter_search(env_config_path):
                 print("----------------------")
                 run_idx += 1
 
-                config = build_minigrid_config(env_config_path)
+                config, agent = build_minigrid_config(env_config_path)
                 config.entropy_weight = entropy_weight
                 config.ppo_ratio_clip = ratio_clip
                 config.gradient_clip = gradient_clip
-                run(config)
+                run(config, agent)
 
 
 def overshoot_betas(env_config_path):
-    config = build_minigrid_config(env_config_path)
-
-    agent = MyLLAgent(config)
-    config.agent_name = agent.__class__.__name__
-    tasks_info = agent.config.cl_tasks_info
+    config, agent = build_minigrid_config(env_config_path)
+    tasks_info = config.cl_tasks_info
 
     create_log_structure(config)
 
@@ -192,11 +183,8 @@ def overshoot_betas(env_config_path):
 
 
 def one_big_mask(env_config_path):
-    config = build_minigrid_config(env_config_path)
-
-    agent = MyLLAgent(config)
-    config.agent_name = agent.__class__.__name__
-    tasks_info = agent.config.cl_tasks_info
+    config, agent = build_minigrid_config(env_config_path)
+    tasks_info = config.cl_tasks_info
 
     # experiment specific part
     # rewrite the agents _label_to_idx function such that
@@ -240,11 +228,8 @@ def one_big_mask(env_config_path):
 
 
 def learn_color_shape(env_config_path):
-    config = build_minigrid_config(env_config_path)
-
-    agent = MyLLAgent(config)
-    config.agent_name = agent.__class__.__name__
-    tasks_info = agent.config.cl_tasks_info
+    config, agent = build_minigrid_config(env_config_path)
+    tasks_info = config.cl_tasks_info
 
     create_log_structure(config)
 
@@ -283,11 +268,8 @@ def learn_color_shape(env_config_path):
 
 
 def learn_green_blue(env_config_path):
-    config = build_minigrid_config(env_config_path)
-
-    agent = MyLLAgent(config)
-    config.agent_name = agent.__class__.__name__
-    tasks_info = agent.config.cl_tasks_info
+    config, agent = build_minigrid_config(env_config_path)
+    tasks_info = config.cl_tasks_info
 
     create_log_structure(config)
 
@@ -333,5 +315,5 @@ if __name__ == '__main__':
     # env_config_path = "./env_configs/minigrid_color_shape.json"
     # learn_color_shape(env_config_path)
 
-    env_config_path = "./env_configs/minigrid_overshoot_betas.json"
-    overshoot_betas(env_config_path)
+    env_config_path = "./env_configs/minigrid_green_blue.json"
+    learn_green_blue(env_config_path)
