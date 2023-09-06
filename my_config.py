@@ -84,6 +84,11 @@ def _build_minigrid_config_base(env_config_path, log_dir=None):
 def build_minigrid_config(env_config_path, log_dir=None):
     config, env_config_path = _build_minigrid_config_base(env_config_path, log_dir=log_dir)
 
+    with open(env_config_path, 'r') as f:
+        env_config = json.load(f)
+    num_tasks = len(env_config['tasks'])
+    config.task_ids = np.arange(num_tasks).tolist()
+
     if config.new_task_mask == 'ewc_multi_head':
         # use ewc multi head agent
         config.cl_preservation = 'ewc'
@@ -104,11 +109,6 @@ def build_minigrid_config(env_config_path, log_dir=None):
         # use supermask agent
         config.cl_preservation = 'supermask'
 
-        with open(env_config_path, 'r') as f:
-            env_config = json.load(f)
-        num_tasks = len(env_config['tasks'])
-
-        config.task_ids = np.arange(num_tasks).tolist()
         config.mask_type = env_config.get('mask_type', 'threshold_mask')
 
         config.network_fn = lambda state_dim, action_dim, label_dim: MyCategoricalActorCriticNet_SS(
