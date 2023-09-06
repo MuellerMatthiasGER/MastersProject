@@ -527,6 +527,9 @@ class LLAgentEWC(PPOContinualLearnerAgent):
 
                 # Update the temporary precision matrix
                 for n, p in self.params.items():
+                    if p.grad is None:
+                        continue
+
                     precision_matrices[n].data += p.grad.data ** 2 / float(len(sampled_states))
                     #precision_matrices[n].data += p.grad.data ** 2
 
