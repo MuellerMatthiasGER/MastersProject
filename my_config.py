@@ -107,7 +107,6 @@ def build_minigrid_config(env_config_path, log_dir=None):
         with open(env_config_path, 'r') as f:
             env_config = json.load(f)
         num_tasks = len(env_config['tasks'])
-        del env_config
 
         config.task_ids = np.arange(num_tasks).tolist()
         config.mask_type = env_config.get('mask_type', 'threshold_mask')
@@ -123,3 +122,5 @@ def build_minigrid_config(env_config_path, log_dir=None):
         agent = MyLLAgent(config)
 
     config.agent_name = agent.__class__.__name__
+
+    return config, agent
