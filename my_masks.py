@@ -78,3 +78,44 @@ class MyActorCriticNetSS(nn.Module):
         self.critic_params = cp
 
         self.phi_params = [p for p in self.phi_body.parameters() if p.requires_grad is True]
+
+class MyFCBody_SS(nn.Module): # fcbody for supermask superposition continual learning algorithm
+    def __init__(self, config, state_dim, task_label_dim=None, hidden_units=(64, 64), gate=F.relu, discrete_mask=True, num_tasks=3, new_task_mask=NEW_MASK_RANDOM):
+        super(MyFCBody_SS, self).__init__()
+        if task_label_dim is None:
+            dims = (state_dim, ) + hidden_units
+        else:
+            dims = (state_dim + task_label_dim, ) + hidden_units
+
+        if config.mask_type == 'threshold_mask':
+            self.layers = nn.ModuleList([MultitaskMaskLinear(dim_in, \
+                dim_out, discrete=discrete_mask, \
+                num_tasks=num_tasks, new_mask_type=new_task_mask) \
+                for dim_in, dim_out in zip(dims[:-1], dims[1:])
+            ])
+        elif config.mask_type == 'sparse_mask':
+            self.layers = nn.ModuleList([MultitaskMaskLinearSparse(dim_in, \
+                dim_out, discrete=discrete_mask, \
+                num_tasks=num_tasks, new_mask_type=new_task_mask) \
+                for dim_in, dim_out in zip(dims[:-1], dims[1:])
+            ])
+
+        self.gate = gate
+        self.feature_dim = dims[-1]
+        self.task_label_dim = task_label_dim
+
+    def forward(self, x, task_label=None, return_layer_output=False, prefix=''):
+        if self.task_label_dim is not None:
+            assert task_label is not None, '`task_label` should be set'
+            x = torch.cat([x, task_label], dim=1)
+        #if task_label is not None: x = torch.cat([x, task_label], dim=1)
+       
+        ret_act = []
+        if return_layer_output:
+            for i, layer in enumerate(self.layers):
+                x = self.gate(layer(x))
+                ret_act.append(('{0}.layers.{1}'.format(prefix, i), x))
+        else:
+            for layer in self.layers:
+                x = self.gate(layer(x))
+        return x, ret_act
