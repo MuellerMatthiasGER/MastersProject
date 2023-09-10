@@ -14,18 +14,18 @@ def _plot_hm_betas(data, title, fname):
     fig = plt.figure(figsize=(9, 9))
     ax = fig.subplots()
     im = ax.imshow(data, cmap='YlGn', vmin=0.0, vmax=0.5)
-    ax.set_xticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
-        fontsize=16)
-    ax.set_yticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
-        fontsize=16)
+    ax.set_xticks(np.arange(n_tasks), labels=['T{0}'.format(idx + 1) for idx in range(n_tasks)], \
+        fontsize=20)
+    ax.set_yticks(np.arange(n_tasks), labels=['T{0}'.format(idx + 1) for idx in range(n_tasks)], \
+        fontsize=20)
 
     plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor')
 
     for i in range(n_tasks):
         for j in range(n_tasks):
          text = ax.text(j, i, '{0:.2f}'.format(data[i, j]), ha='center', \
-            va='center', fontsize=16)
-    ax.set_title(title, fontsize=20)
+            va='center', fontsize=20)
+    ax.set_title(title, fontsize=24)
     fig.savefig(fname)
     plt.close(fig)
 
@@ -55,19 +55,19 @@ def _plot_hm_layer_mask_diff(data, title, fname, vmin=None):
 
     fig = plt.figure(figsize=(9, 9))
     ax = fig.subplots()
-    im = ax.imshow(data, cmap='YlGn', vmin=vmin)
-    ax.set_xticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
-        fontsize=16)
-    ax.set_yticks(np.arange(n_tasks), labels=['T{0}'.format(idx) for idx in range(n_tasks)], \
-        fontsize=16)
+    im = ax.imshow(data, cmap='BuPu', vmin=vmin)
+    ax.set_xticks(np.arange(n_tasks), labels=['T{0}'.format(idx + 1) for idx in range(n_tasks)], \
+        fontsize=20)
+    ax.set_yticks(np.arange(n_tasks), labels=['T{0}'.format(idx + 1) for idx in range(n_tasks)], \
+        fontsize=20)
 
     plt.setp(ax.get_xticklabels(), rotation=45, ha='right', rotation_mode='anchor')
 
     for i in range(n_tasks):
         for j in range(n_tasks):
          text = ax.text(j, i, '{0:.2f}'.format(data[i, j]), ha='center', \
-            va='center', fontsize=16)
-    ax.set_title(title, fontsize=20)
+            va='center', fontsize=20)
+    ax.set_title(title, fontsize=24)
     fig.savefig(fname)
     plt.close(fig)
 
@@ -122,7 +122,7 @@ def _analyse_mask_diff(agent):
         #     'Mask correlation for across tasks for {0}'.format(k), \
         #     '{0}/layer_{1}_mask_diff_mean.pdf'.format(diff_save_path, k))
 
-def _plot_eval_performance(agent, comparison_log_dir=None):
+def _plot_eval_performance(agent, comparison_log_dir=None, legend_loc='best'):
     config = agent.config
 
     tasks = [task_info['task'] for task_info in config.cl_tasks_info]
@@ -152,7 +152,8 @@ def _plot_eval_performance(agent, comparison_log_dir=None):
             else:
                 # one dim data, i.e. only one task
                 eval_data = comp_data
-            plt.plot(steps, eval_data, label=task_name, color=plt.cm.gray(gray_values[task_idx]))
+
+            plt.plot(steps, eval_data, color=plt.cm.gray(gray_values[task_idx]))
 
     # main plot
     for task_idx, task_name in enumerate(tasks):
@@ -161,18 +162,22 @@ def _plot_eval_performance(agent, comparison_log_dir=None):
         else:
             # one dim data, i.e. only one task
             eval_data = data
+
+        # extract task description
+        task_name = task_name.split('-')[1]
+
         plt.plot(steps, eval_data, label=task_name)
 
         # draw vertical lines when new task is trained
         vertical_x = config.max_steps * task_idx
         plt.axvline(vertical_x, c='black')
-        plt.text(vertical_x + (config.max_steps * 0.05), 0.1, f"Train Task {task_idx}", rotation=90)
+        plt.text(vertical_x + (config.max_steps * 0.05), 0.1, f"Train Task {task_idx + 1}", rotation=90)
 
     plt.xlabel("Steps")
     plt.ylabel("Avg. Reward")
     plt.ylim(top=1)
     plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
-    plt.legend()
+    plt.legend(loc=legend_loc) # (loc='left', bbox_to_anchor=(0.5, 1.05), fancybox=True)
     plt.savefig(f"{config.log_dir}/task_stats/plot{'_comp' if comparison_log_dir else ''}.png")
 
 
@@ -184,27 +189,23 @@ def analyse_agent(agent):
         _analyse_linear_coefficients(agent)
         _analyse_mask_diff(agent)
 
+
 if __name__ == '__main__':
     mkdir('log')
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "./log_safe/minigrid_green_blue-42-mask-linear_comb/230706-121833"
-    config = build_minigrid_config(None, log_dir=path)
+    path = "log_safe/minigrid_green_blue_other_combs-42-mask-linear_comb/230724-112207"
+    config, agent = build_minigrid_config(None, log_dir=path)
 
     # load agent
-    agent = MyLLAgent(config)
-    config.agent_name = agent.__class__.__name__
     model_path = '{0}/{1}-{2}-model-{3}.bin'.format(path, config.agent_name, config.tag, config.env_name)
     agent.load(model_path)
 
-    # analyse_agent(agent)
+    analyse_agent(agent)
 
-    comp_log_dir = "./log_safe/minigrid_green_blue-42-mask-random/230706-151708"
-    _plot_eval_performance(agent, comparison_log_dir=comp_log_dir)
-
-
-    # _analyse_mask_diff(agent)
+    # comp_log_dir = None #"log_safe/minigrid_green_blue-42-mask-random/230706-151708"
+    # _plot_eval_performance(agent, comparison_log_dir=comp_log_dir, legend_loc='lower left')
 
 
     agent.close()

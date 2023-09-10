@@ -9,5 +9,5 @@
 "__seeds": ["-", "-", "-", "-", "-", "-", "-", "-", "-"],
 "seeds": ["-", "-", "-", "-"],
 "new_task_mask": "linear_comb",
-"mask_type": "threshold_mask"
+"mask_type": "sparse_mask"
 }
