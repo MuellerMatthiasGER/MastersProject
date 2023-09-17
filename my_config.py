@@ -63,8 +63,6 @@ def _build_config_base(env_name, env_config_path, log_dir=None):
 
     return config, env_config_path
 
-# `log_dir` can be set if an existing log dir shall be used.
-# The value of `env_config_path` is ignored in that case.
 def _build_minigrid_config_base(env_config_path, log_dir=None):
     env_name = Config.ENV_MINIGRID
     config, env_config_path = _build_config_base(env_name, env_config_path, log_dir=log_dir)
@@ -81,6 +79,8 @@ def _build_minigrid_config_base(env_config_path, log_dir=None):
 
     return config, env_config_path
 
+# `log_dir` can be set if an existing log dir shall be used.
+# The value of `env_config_path` is ignored in that case.
 def build_minigrid_config(env_config_path, log_dir=None):
     config, env_config_path = _build_minigrid_config_base(env_config_path, log_dir=log_dir)
 

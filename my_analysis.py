@@ -127,6 +127,7 @@ def _plot_eval_performance(agent, comparison_log_dir=None, legend_loc='best'):
 
     tasks = [task_info['task'] for task_info in config.cl_tasks_info]
     data = np.loadtxt(f"{config.log_dir}/eval_data.csv", delimiter=',')
+    data_conf = np.loadtxt(f"{config.log_dir}/conf_data.csv", delimiter=',')
 
     steps_between_evals = config.rollout_length * config.num_workers * config.eval_interval
     num_rows = data.shape[0]
@@ -159,14 +160,17 @@ def _plot_eval_performance(agent, comparison_log_dir=None, legend_loc='best'):
     for task_idx, task_name in enumerate(tasks):
         if len(data.shape) > 1:
             eval_data = data[:, task_idx]
+            conf = data_conf[:, task_idx]
         else:
             # one dim data, i.e. only one task
             eval_data = data
+            conf = data_conf
 
         # extract task description
         task_name = task_name.split('-')[1]
 
         plt.plot(steps, eval_data, label=task_name)
+        plt.fill_between(steps, (eval_data-conf), (eval_data+conf), alpha=.1)
 
         # draw vertical lines when new task is trained
         vertical_x = config.max_steps * task_idx
@@ -175,10 +179,11 @@ def _plot_eval_performance(agent, comparison_log_dir=None, legend_loc='best'):
 
     plt.xlabel("Steps")
     plt.ylabel("Avg. Reward")
-    plt.ylim(top=1)
+    plt.ylim(bottom=0, top=1)
     plt.ticklabel_format(style='sci', axis='x', scilimits=(0,0))
-    plt.legend(loc=legend_loc) # (loc='left', bbox_to_anchor=(0.5, 1.05), fancybox=True)
-    plt.savefig(f"{config.log_dir}/task_stats/plot{'_comp' if comparison_log_dir else ''}.png")
+    legend = plt.legend(loc=legend_loc)
+    # legend = plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), fancybox=True)
+    plt.savefig(f"{config.log_dir}/task_stats/plot{'_comp' if comparison_log_dir else ''}.png", bbox_extra_artists=(legend,), bbox_inches='tight')
 
 
 def analyse_agent(agent):
@@ -195,17 +200,17 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(-1) # -1 is CPU, a positive integer is the index of GPU
 
-    path = "log_safe/minigrid_green_blue_other_combs-42-mask-linear_comb/230724-112207"
+    path = "log_safe/minigrid_green_blue-42-mask-linear_comb/230706-153712"
     config, agent = build_minigrid_config(None, log_dir=path)
 
     # load agent
     model_path = '{0}/{1}-{2}-model-{3}.bin'.format(path, config.agent_name, config.tag, config.env_name)
     agent.load(model_path)
 
-    analyse_agent(agent)
+    # analyse_agent(agent)
 
-    # comp_log_dir = None #"log_safe/minigrid_green_blue-42-mask-random/230706-151708"
-    # _plot_eval_performance(agent, comparison_log_dir=comp_log_dir, legend_loc='lower left')
+    comp_log_dir = None #"log_safe/minigrid_green_blue-42-mask-random/230706-151708"
+    _plot_eval_performance(agent, comparison_log_dir=comp_log_dir, legend_loc='best')
 
 
     agent.close()
