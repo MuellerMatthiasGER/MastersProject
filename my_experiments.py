@@ -272,8 +272,5 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(0) # -1 is CPU, a positive integer is the index of GPU
 
-    # env_config_path = "./env_configs/minigrid_color_shape.json"
-    # learn_color_shape(env_config_path)
-
     env_config_path = "env_configs/minigrid_green_blue.json"
     learn_green_blue(env_config_path)
