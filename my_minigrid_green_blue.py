@@ -25,11 +25,18 @@ class Pickup(RoomGridLevel):
                 self.start_idx = 1
             else:
                 self.start_idx = 0
-        else:
+        elif target_type == 'box':
             if target_color == 'blue':
                 self.start_idx = 3
             else:
                 self.start_idx = 2
+        else:
+            self.objs = [Ball('green'), Box('green'), Ball('blue'), Box('blue')]
+            if target_color == 'blue':
+                self.start_idx = 2
+            else:
+                self.start_idx = 0
+            
 
     def gen_mission(self):
         self.place_agent()
