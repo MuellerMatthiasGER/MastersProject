@@ -127,7 +127,7 @@ def _plot_eval_performance(agent, comparison_log_dir=None, legend_loc='best'):
 
     tasks = [task_info['task'] for task_info in config.cl_tasks_info]
     data = np.loadtxt(f"{config.log_dir}/eval_data.csv", delimiter=',')
-    data_conf = np.loadtxt(f"{config.log_dir}/conf_data.csv", delimiter=',')
+    # data_conf = np.loadtxt(f"{config.log_dir}/conf_data.csv", delimiter=',')
 
     steps_between_evals = config.rollout_length * config.num_workers * config.eval_interval
     num_rows = data.shape[0]
@@ -160,17 +160,17 @@ def _plot_eval_performance(agent, comparison_log_dir=None, legend_loc='best'):
     for task_idx, task_name in enumerate(tasks):
         if len(data.shape) > 1:
             eval_data = data[:, task_idx]
-            conf = data_conf[:, task_idx]
+            # conf = data_conf[:, task_idx]
         else:
             # one dim data, i.e. only one task
             eval_data = data
-            conf = data_conf
+            # conf = data_conf
 
         # extract task description
         task_name = task_name.split('-')[1]
 
         plt.plot(steps, eval_data, label=task_name)
-        plt.fill_between(steps, (eval_data-conf), (eval_data+conf), alpha=.1)
+        # plt.fill_between(steps, (eval_data-conf), (eval_data+conf), alpha=.1)
 
         # draw vertical lines when new task is trained
         vertical_x = config.max_steps * task_idx

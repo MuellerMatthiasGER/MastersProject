@@ -227,6 +227,63 @@ def one_big_mask(env_config_path):
     agent.close()
 
 
+def score_decay(env_config_path):
+    config, agent = build_minigrid_config(env_config_path)
+    tasks_info = config.cl_tasks_info
+
+    create_log_structure(config)
+
+    iteration = 0
+
+    # evaluate agent before training for baseline of random init
+    eval_agent(agent, tasks_info, iteration)
+
+    for task_idx, task_info in enumerate(tasks_info):
+        log_new_task_starts(config, task_idx, task_info)
+
+        prepare_agent_for_task(agent, task_info)
+
+        while True:
+            # train step
+            dict_logs = agent.iteration()
+            iteration += 1
+
+            # logging
+            log_iteration(agent, iteration)
+
+            # evaluate agent
+            eval_agent(agent, tasks_info, iteration)
+
+            # experiment specific part:
+            # reduce score values for positive scores
+            for k, v in agent.network.named_parameters():
+                # only score values
+                if 'scores' not in k:
+                    continue
+                # only the current index
+                if int(k.split('.')[-1]) != task_idx:
+                    continue
+
+                # v.data.sub_(0.00025)
+
+                with torch.no_grad():
+                    v.data -= 0.00025
+                    # Ensure the values stay within the specified limits
+                    v.data = torch.clamp(v.data, -0.03, 0.06)
+
+            # check whether task training has been completed
+            if is_task_training_complete(agent, task_idx):
+                break
+
+    #     end of while True / current task training
+    # end for each task
+
+    # Analysis
+    analyse_agent(agent)
+
+    agent.close()
+
+
 def learn_green_blue(env_config_path):
     config, agent = build_minigrid_config(env_config_path)
     tasks_info = config.cl_tasks_info
@@ -272,5 +329,5 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(0) # -1 is CPU, a positive integer is the index of GPU
 
-    env_config_path = "env_configs/minigrid_green_blue.json"
-    learn_green_blue(env_config_path)
+    env_config_path = "env_configs/minigrid_score_decay.json"
+    score_decay(env_config_path)
