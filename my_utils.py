@@ -25,19 +25,26 @@ def is_task_training_complete(agent, task_idx):
 # =========== Mask Parameters ===========
 # =======================================
 
-def set_betas(agent, task_idx, new_betas: torch.tensor):
+# list of layer names can be provided, in which the betas shall be set, default is all layers
+def set_betas(agent, task_idx, new_betas: torch.tensor, layer_names=['layers0', 'layers1', 'layers2', 'fc_action', 'fc_critic']):
     network = agent.network.network
-    network.fc_action.betas.data[task_idx] = new_betas
-    network.fc_critic.betas.data[task_idx] = new_betas
-    for layer in network.phi_body.layers._modules.values():
-        layer.betas.data[task_idx] = new_betas
+    if 'fc_action' in layer_names:
+        network.fc_action.betas.data[task_idx] = new_betas
+    if 'fc_critic' in layer_names:
+        network.fc_critic.betas.data[task_idx] = new_betas
+    for i, layer in enumerate(network.phi_body.layers._modules.values()):
+        if f'layers{i}' in layer_names:
+            layer.betas.data[task_idx] = new_betas
 
-def set_betas_trainable(agent, trainable):
+def set_betas_trainable(agent, trainable, layer_names=['layers0', 'layers1', 'layers2', 'fc_action', 'fc_critic']):
     network = agent.network.network
-    network.fc_action.betas.requires_grad = trainable
-    network.fc_critic.betas.requires_grad = trainable
-    for layer in network.phi_body.layers._modules.values():
-        layer.betas.requires_grad = trainable
+    if 'fc_action' in layer_names:
+        network.fc_action.betas.requires_grad = trainable
+    if 'fc_critic' in layer_names:
+        network.fc_critic.betas.requires_grad = trainable
+    for i, layer in enumerate(network.phi_body.layers._modules.values()):
+        if f'layers{i}' in layer_names:
+            layer.betas.requires_grad = trainable
 
 def print_betas(agent):
     network = agent.network.network

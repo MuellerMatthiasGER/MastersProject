@@ -66,6 +66,61 @@ def independent_masks(env_config_path):
     agent.close()
 
 
+def independent_partial_masks(env_config_path):
+    config, agent = build_minigrid_config(env_config_path)
+    tasks_info = config.cl_tasks_info
+
+    with open(env_config_path, 'r') as f:
+        env_config = json.load(f)
+    try:
+        num_tasks = len(env_config['tasks'])
+        independent_layers = env_config['independent_layers']
+    except KeyError as error:
+        print("Missing Key in Config", error)
+
+    create_log_structure(config)
+
+    iteration = 0
+
+    # evaluate agent before training for baseline of random init
+    eval_agent(agent, tasks_info, iteration)
+
+    for task_idx, task_info in enumerate(tasks_info):
+        log_new_task_starts(config, task_idx, task_info)
+
+        prepare_agent_for_task(agent, task_info)
+
+        # experiment specific part: set beta values depending on if the task shall be learned independently or not
+        # change betas from equal distribution to using exclusively the new random mask
+        new_betas = torch.zeros(num_tasks)
+        new_betas[task_idx] = 100
+        set_betas(agent, task_idx, new_betas, layer_names=independent_layers)
+        set_betas_trainable(agent, trainable=False, layer_names=independent_layers)
+
+        while True:
+            # train step
+            dict_logs = agent.iteration()
+            iteration += 1
+
+            # logging
+            log_iteration(agent, iteration)
+
+            # evaluate agent
+            eval_agent(agent, tasks_info, iteration)
+
+            # check whether task training has been completed
+            if is_task_training_complete(agent, task_idx):
+                break
+
+        # end of while True. current task training
+    # end for each task
+
+    # Analyse
+    analyse_agent(agent)
+
+    agent.close()
+
+
 def hyperparameter_search(env_config_path):
     entropy_weights = [0.01, 0.05, 0.1]
     ratio_clips = [0.1, 0.25, 0.5]
@@ -254,8 +309,8 @@ def score_decay(env_config_path):
             # evaluate agent
             eval_agent(agent, tasks_info, iteration)
 
-            # experiment specific part:
-            # reduce score values for positive scores
+            # # experiment specific part:
+            # # reduce score values for positive scores
             for k, v in agent.network.named_parameters():
                 # only score values
                 if 'scores' not in k:
@@ -264,12 +319,15 @@ def score_decay(env_config_path):
                 if int(k.split('.')[-1]) != task_idx:
                     continue
 
-                # v.data.sub_(0.00025)
+                if iteration % 20 == 0:
+                    np.save(f"{config.log_dir}/{k}-{iteration}", v.data.numpy())
 
-                with torch.no_grad():
-                    v.data -= 0.00025
-                    # Ensure the values stay within the specified limits
-                    v.data = torch.clamp(v.data, -0.03, 0.06)
+            #     # v.data.sub_(0.00025)
+
+            #     with torch.no_grad():
+            #         v.data -= 0.00025
+            #         # Ensure the values stay within the specified limits
+            #         v.data = torch.clamp(v.data, -0.03, 0.06)
 
             # check whether task training has been completed
             if is_task_training_complete(agent, task_idx):
@@ -329,5 +387,5 @@ if __name__ == '__main__':
     set_one_thread()
     select_device(0) # -1 is CPU, a positive integer is the index of GPU
 
-    env_config_path = "env_configs/minigrid_score_decay.json"
-    score_decay(env_config_path)
+    env_config_path = "env_configs/minigrid_partial_independent.json"
+    independent_partial_masks(env_config_path)
