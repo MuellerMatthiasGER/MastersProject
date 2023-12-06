@@ -186,7 +186,192 @@ class MultitaskMaskLinear(nn.Linear):
             if task > 0:
                 k = task + 1
                 self.betas.data[task, 0:k] = 1. / k
-                #print(self.betas)
+
+
+class GetSubnetDiscreteTernary(autograd.Function):
+    @staticmethod
+    def forward(ctx, scores, a=0.015, b=-0.015):
+        return (scores >= a).float() - (scores <= b).float()
+
+    @staticmethod
+    def backward(ctx, g):
+        # send the gradient g straight-through on the backward pass.
+        return g, None, None
+
+class MultitaskTernaryMaskLinear(nn.Linear):
+    def __init__(self, *args, discrete=True, num_tasks=1, new_mask_type=NEW_MASK_RANDOM, \
+        bias=False, **kwargs):
+        super().__init__(*args, bias=False, **kwargs)
+        self.num_tasks = num_tasks
+        self.scores = nn.ParameterList(
+            [
+                nn.Parameter(mask_init(self))
+                for _ in range(num_tasks)
+            ]
+        )
+        
+        # Keep weights untrained
+        self.weight.requires_grad = False
+        signed_constant(self)
+
+        self.task = -1
+        self.num_tasks_learned = 0
+        self.new_mask_type = new_mask_type
+        if self.new_mask_type == NEW_MASK_LINEAR_COMB:
+            self.betas = nn.Parameter(torch.zeros(num_tasks, num_tasks).type(torch.float32))
+            self._forward_mask = self._forward_mask_linear_comb
+        else:
+            self.betas = None
+            self._forward_mask = self._forward_mask_normal
+
+        # calc thresholds for pos and neg in ternary masks as the 25% quantile and 75% quantile
+        self.threshold_a = torch.quantile(self.scores[0], 0.75).detach()
+        self.threshold_b = torch.quantile(self.scores[0], 0.25).detach()
+        # subnet class
+        self._subnet_class = GetSubnetDiscreteTernary if discrete else GetSubnetContinuous
+
+        # rescale masks right out of the box (should be unnecessary)
+        # for i in range(num_tasks):
+        #     self.rescale_mask(i)
+
+        # to initialize/register the stacked module buffer.
+        self.cache_masks()
+    
+    @torch.no_grad()
+    def cache_masks(self):
+        self.register_buffer(
+            "stacked",
+            torch.stack(
+                [
+                    self._subnet_class.apply(self.scores[j], self.threshold_a, self.threshold_b)
+                    for j in range(self.num_tasks)
+                ]
+            ),
+        )
+
+    def forward(self, x):
+        if self.task < 0:
+            raise ValueError('`self.task` should be set to >= 0')
+        else:
+            # Subnet forward pass (given task info in self.task)
+            #subnet = self._subnet_class.apply(self.scores[self.task], self.threshold_a, self.threshold_b)
+            subnet = self._forward_mask()
+        w = self.weight * subnet
+        x = F.linear(x, w, self.bias)
+        return x
+
+    def _forward_mask_normal(self):
+        return self._subnet_class.apply(self.scores[self.task], self.threshold_a, self.threshold_b)
+
+    def _forward_mask_linear_comb(self):
+        _subnet = self.scores[self.task]
+        if self.task < self.num_tasks_learned:
+            # this is a task that has been seen before (with established/trained mask).
+            # fetch mask and use (either for eval or to continue training).
+            return self._subnet_class.apply(_subnet, self.threshold_a, self.threshold_b)
+
+        # otherwise, this is a new task. check if the first task
+        if self.task == 0:
+            # this is the first task to train. no previous task mask to linearly combine.
+            return self._subnet_class.apply(_subnet, self.threshold_a, self.threshold_b)
+
+        # otherwise, a new task and it is not the first task. combine task mask with
+        # masks from previous tasks.
+        # note: should not update scores/masks from previous tasks. only update their coeffs/betas
+        _subnets = [self.scores[idx].detach() for idx in range(self.task)]
+        assert len(_subnets) > 0, 'an error occured'
+        _betas = self.betas[self.task, 0:self.task+1]
+        _neg_betas = (_betas < 0).float() * (-1)
+        _betas = _betas * _neg_betas
+        _betas = torch.softmax(_betas, dim=-1)
+        _betas = _betas * _neg_betas
+        _subnets.append(_subnet)
+        assert len(_betas) == len(_subnets), 'an error ocurred'
+        _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
+        # element wise sum of various masks (weighted sum)
+        _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
+        return self._subnet_class.apply(_subnet_linear_comb, self.threshold_a, self.threshold_b)
+
+    @torch.no_grad()
+    def consolidate_mask(self):
+        if self.new_mask_type == NEW_MASK_RANDOM:
+            return
+        if self.task < self.num_tasks_learned:
+            # re-visiting a task that has been previously learnt
+            # (no need to consolidate)
+            return
+        if self.task <= 0:
+            self.rescale_mask(self.task)
+            return
+        _subnet = self.scores[self.task]
+        _subnets = [self.scores[idx].detach() for idx in range(self.task)]
+        assert len(_subnets) > 0, 'an error occured'
+        _betas = self.betas[self.task, 0:self.task+1]
+        _neg_betas = (_betas < 0).float() * (-1)
+        _betas = _betas * _neg_betas
+        _betas = torch.softmax(_betas, dim=-1)
+        _betas = _betas * _neg_betas
+        _subnets.append(_subnet)
+        assert len(_betas) == len(_subnets), 'an error ocurred'
+        _subnets = [_b * _s for _b, _s in  zip(_betas, _subnets)]
+        # element wise sum of various masks (weighted sum)
+        _subnet_linear_comb = torch.stack(_subnets, dim=0).sum(dim=0)
+        self.scores[self.task].data = _subnet_linear_comb.data
+
+        self.rescale_mask(self.task)
+        return
+    
+    @torch.no_grad()
+    def rescale_mask(self, task_id):
+        scores = self.scores[task_id].data
+
+        # rescale positive scores
+        is_pos = scores >= self.threshold_a
+        sorted_indices = torch.argsort(scores[is_pos], dim=-1)
+        equal_distances = torch.linspace(0, self.threshold_a, steps=is_pos.sum())
+        scores[is_pos] = self.threshold_a + equal_distances[sorted_indices]
+
+        # rescale neutral scores
+        is_neutral = (scores < self.threshold_a) & (scores > self.threshold_b)
+        sorted_indices = torch.argsort(scores[is_neutral], dim=-1)
+        equal_distances = torch.linspace(self.threshold_b, self.threshold_a, steps=is_neutral.sum())
+        scores[is_neutral] = equal_distances[sorted_indices]
+
+        # rescale negative scores
+        is_neg = scores <= self.threshold_b
+        sorted_indices = torch.argsort(scores[is_neg], dim=-1)
+        equal_distances = torch.linspace(self.threshold_b, 0, steps=is_neg.sum())
+        scores[is_neg] = self.threshold_b + equal_distances[sorted_indices]
+
+    def __repr__(self):
+        return f"MultitaskTernaryMaskLinear({self.in_dims}, {self.out_dims})"
+
+    @torch.no_grad()
+    def get_mask(self, task, raw_score=True):
+        # return raw scores and not the processed mask, since the
+        # scores are the parameters that will be trained in other
+        # agents. the binary masks would not be trained but rather
+        # generated from raw scores in other agents
+        if raw_score:
+            return self.scores[task]
+        else:
+            return self._subnet_class.apply(self.scores[task])
+
+    @torch.no_grad()
+    def set_mask(self, mask, task):
+        self.scores[task].data = mask
+        # NOTE, this operation might not be required and could be remove to save compute time
+        self.cache_masks() 
+        return
+
+    @torch.no_grad()
+    def set_task(self, task, new_task=False):
+        self.task = task
+        if self.new_mask_type == NEW_MASK_LINEAR_COMB and new_task:
+            if task > 0:
+                k = task + 1
+                self.betas.data[task, 0:k] = 1. / k
+
 
 # Subnetwork forward from hidden networks
 # Sparse mask (using edge-pop algorithm)
@@ -386,21 +571,21 @@ class MultitaskMaskLinearSparse(nn.Linear):
 # Utility functions
 def set_model_task(model, task, verbose=False, new_task=False):
     for n, m in model.named_modules():
-        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse):
+        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse) or isinstance(m, MultitaskTernaryMaskLinear):
             if verbose:
                 print(f"=> Set task of {n} to {task}")
             m.set_task(task, new_task)
 
 def cache_masks(model, verbose=False):
     for n, m in model.named_modules():
-        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse):
+        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse) or isinstance(m, MultitaskTernaryMaskLinear):
             if verbose:
                 print(f"=> Caching mask state for {n}")
             m.cache_masks()
 
 def set_num_tasks_learned(model, num_tasks_learned, verbose=True):
     for n, m in model.named_modules():
-        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse):
+        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse) or isinstance(m, MultitaskTernaryMaskLinear):
             if verbose:
                 print(f"=> Setting learned tasks of {n} to {num_tasks_learned}")
             m.num_tasks_learned = num_tasks_learned
@@ -408,18 +593,18 @@ def set_num_tasks_learned(model, num_tasks_learned, verbose=True):
 def get_mask(model, task, raw_score=True):
     mask = {}
     for n, m in model.named_modules():
-        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse):
+        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse) or isinstance(m, MultitaskTernaryMaskLinear):
             mask[n] = m.get_mask(task, raw_score)
     return mask 
 
 def set_mask(model, mask, task):
     for n, m in model.named_modules():
-        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse):
+        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse) or isinstance(m, MultitaskTernaryMaskLinear):
             m.set_mask(mask[n], task)
 
 def consolidate_mask(model):
     for n, m in model.named_modules():
-        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse):
+        if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse) or isinstance(m, MultitaskTernaryMaskLinear):
             m.consolidate_mask()
 
 # Multitask Model, a simple fully connected model in this case

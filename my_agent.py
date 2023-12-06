@@ -59,5 +59,5 @@ class MyLLAgent(LLAgent):
     
     def _get_all_mask_layers(self):
         for n, m in self.network.named_modules():
-            if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse):
+            if isinstance(m, MultitaskMaskLinear) or isinstance(m, MultitaskMaskLinearSparse) or isinstance(m, MultitaskTernaryMaskLinear):
                 yield n, m

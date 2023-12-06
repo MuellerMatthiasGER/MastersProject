@@ -4,7 +4,7 @@
 # declaration at the top                                              #
 #######################################################################
 
-from deep_rl.mask_modules.mmn.mask_nets import MultitaskMaskLinearSparse
+from deep_rl.mask_modules.mmn.mask_nets import MultitaskMaskLinearSparse, MultitaskTernaryMaskLinear
 from deep_rl.network.network_heads import *
 
 # actor-critic net for continual learning where tasks are labelled using
@@ -62,6 +62,11 @@ class MyActorCriticNetSS(nn.Module):
                 discrete=discrete_mask, num_tasks=num_tasks, new_mask_type=new_task_mask)
             self.fc_critic = MultitaskMaskLinear(critic_body.feature_dim, 1, \
                 discrete=discrete_mask, num_tasks=num_tasks, new_mask_type=new_task_mask)
+        elif config.mask_type == 'ternary_mask':
+            self.fc_action = MultitaskTernaryMaskLinear(actor_body.feature_dim, action_dim, \
+                discrete=discrete_mask, num_tasks=num_tasks, new_mask_type=new_task_mask)
+            self.fc_critic = MultitaskTernaryMaskLinear(critic_body.feature_dim, 1, \
+                discrete=discrete_mask, num_tasks=num_tasks, new_mask_type=new_task_mask)
         elif config.mask_type == 'sparse_mask':
             self.fc_action = MultitaskMaskLinearSparse(actor_body.feature_dim, action_dim, \
                 discrete=discrete_mask, num_tasks=num_tasks, new_mask_type=new_task_mask)
@@ -89,6 +94,12 @@ class MyFCBody_SS(nn.Module): # fcbody for supermask superposition continual lea
 
         if config.mask_type == 'threshold_mask':
             self.layers = nn.ModuleList([MultitaskMaskLinear(dim_in, \
+                dim_out, discrete=discrete_mask, \
+                num_tasks=num_tasks, new_mask_type=new_task_mask) \
+                for dim_in, dim_out in zip(dims[:-1], dims[1:])
+            ])
+        elif config.mask_type == 'ternary_mask':
+            self.layers = nn.ModuleList([MultitaskTernaryMaskLinear(dim_in, \
                 dim_out, discrete=discrete_mask, \
                 num_tasks=num_tasks, new_mask_type=new_task_mask) \
                 for dim_in, dim_out in zip(dims[:-1], dims[1:])
